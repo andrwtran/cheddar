@@ -31,18 +31,20 @@ const NavBar = () => {
   );
 
   if (sessionUser) {
+    console.log('!!!!!!!!!!!', sessionUser)
     sessionLinks = (
       <>
         <li>
-          <NavLink to='/home' exact={true} activeClassName='active'>
+          <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
         </li>
         <li>|</li>
         <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
+          {/* <NavLink to='/users' exact={true} activeClassName='active'>
             Users
-          </NavLink>
+          </NavLink> */}
+          {`Welcome, ${sessionUser.username}!`}
         </li>
         <li>|</li>
         <li>

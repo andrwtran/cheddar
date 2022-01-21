@@ -5,12 +5,10 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import UsersList from './components/User/UsersList';
+import User from './components/User/User';
 import Splash from './components/Splash/Splash';
 import { authenticate } from './store/session';
-import SidePanel from './components/SidePanel/SidePanel';
-import MainPanel from './components/MainPanel/MainPanel';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,12 +44,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/home' exact={true} >
-          <div className='HomeContainer'>
-            <SidePanel />
-            <MainPanel />
-          </div>
-        </ProtectedRoute>
+        {/* <ProtectedRoute path='/' exact={true} >
+          <h1>My Home Page</h1>
+        </ProtectedRoute> */}
       </Switch>
     </BrowserRouter>
   );
