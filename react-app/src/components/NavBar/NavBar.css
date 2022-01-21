@@ -1,0 +1,11 @@
+.NavBar {
+  background-color: rgba(244, 107, 23, 0.8);
+  border-radius: 1em;
+}
+
+.NavBar ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

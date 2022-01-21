@@ -1,0 +1,9 @@
+.Splash {
+  background-color: rgba(224, 241, 156, 0.50);
+  min-width: 500px;
+  min-height: 500px;
+  background-image: url('/src/images/cheddar-logo.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
