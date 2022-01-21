@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
 .SignUpForm, .LoginForm {
-  background-color: rgba(224, 241, 156, 0.50);
   min-width: 500px;
   min-height: 500px;
   font-family: "Montserrat", sans-serif;
