@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+.NavBar {
+  background-color: rgba(244, 107, 23, 0.8);
+  border-radius: 1em;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li, a, button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.NavBar ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10%
+}
