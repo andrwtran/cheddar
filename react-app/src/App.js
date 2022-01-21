@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import Splash from './components/Splash/Splash';
 import { authenticate } from './store/session';
+import SidePanel from './components/SidePanel/SidePanel';
+import MainPanel from './components/MainPanel/MainPanel';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,14 +31,14 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/' exact={true}>
-          <Splash />
-        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path='/' exact={true}>
+          <Splash />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
@@ -44,8 +46,11 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+        <ProtectedRoute path='/home' exact={true} >
+          <div className='HomeContainer'>
+            <SidePanel />
+            <MainPanel />
+          </div>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
