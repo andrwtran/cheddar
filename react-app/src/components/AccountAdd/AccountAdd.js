@@ -4,12 +4,13 @@ import { useDispatch } from 'react-redux';
 import { createAccount } from '../../store/account';
 import './AccountAdd.css';
 
-export default function AccountAdd() {
+export default function AccountAdd({ setIsAdd }) {
   const [name, setName] = useState('');
   const dispatch = useDispatch();
 
   const reset = () => {
     setName('');
+    setIsAdd(false);
   };
 
   const handleSubmit = (e) => {

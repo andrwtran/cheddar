@@ -12,10 +12,10 @@ def get_all_accounts():
 
 # fetch('/api/accounts/', {method: 'Get'}).then(res => res.json()).then(data => console.log(data));
 
-@account_routes.route('/', methods=["POST"])
+@account_routes.route('/', methods=['POST'])
 @login_required
 def add_account():
-  new_account = Account(account_name=request.json['account_name'],userId=current_user.get_id())
+  new_account = Account(account_name=request.json['account_name'], userId=current_user.get_id())
   db.session.add(new_account)
   db.session.commit()
 
@@ -25,6 +25,40 @@ def add_account():
 
 # fetch('/api/accounts/', {
 #   method: 'POST',
+#   headers: {
+#     'Content-Type': 'application/json',
+#   },
+#   body: JSON.stringify(data),
+# })
+# .then(response => response.json())
+# .then(data => {
+#   console.log('Success:', data);
+# })
+
+@account_routes.route('/<int:accountId>',methods=['DELETE'])
+@login_required
+def delete_account(accountId):
+  account = Account.query.get(accountId)
+  db.session.delete(account)
+  db.session.commit()
+
+  return account.to_dict()
+
+# fetch('/api/accounts/7', {method: 'Delete'}).then(res => res.json()).then(data => console.log(data));
+
+@account_routes.route('/<int:accountId>', methods=['PUT'])
+@login_required
+def edit_account(accountId):
+  account=Account.query.get(accountId)
+  account.account_name=request.json['account_name']
+  db.session.commit()
+
+  return account.to_dict()
+
+# const data = { account_name: 'New Account Name'}
+
+# fetch('/api/accounts/6', {
+#   method: 'PUT',
 #   headers: {
 #     'Content-Type': 'application/json',
 #   },
