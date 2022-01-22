@@ -11,19 +11,19 @@ const NavBar = () => {
   let sessionLinks = (
     <>
       <li>
-        <NavLink to='/' exact={true} activeClassName='active'>
+        <NavLink to='/'>
           Home
         </NavLink>
       </li>
       <li>|</li>
       <li>
-        <NavLink to='/login' exact={true} activeClassName='active'>
+        <NavLink to='/login'>
           Login
         </NavLink>
       </li>
       <li>|</li>
       <li>
-        <NavLink to='/sign-up' exact={true} activeClassName='active'>
+        <NavLink to='/sign-up'>
           Sign Up
         </NavLink>
       </li>
@@ -34,7 +34,7 @@ const NavBar = () => {
     sessionLinks = (
       <>
         <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
+          <NavLink to='/'>
             Home
           </NavLink>
         </li>

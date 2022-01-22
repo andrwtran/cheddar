@@ -1,0 +1,11 @@
+.TransactionList table {
+  border-collapse: collapse;
+  margin: 5px;
+  padding: 5px;
+}
+
+.TransactionList td, .TransactionList th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}

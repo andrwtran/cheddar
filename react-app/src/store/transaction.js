@@ -21,7 +21,7 @@ const transactionReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case LOAD_TRANSACTIONS: {
-      const newState = { byId: { ...state.byId }, all: [ ...state.all] };
+      const newState = { byId: { }, all: [ ] };
       for (let i = 0; i < action.transactions.length; i++) {
         let transaction = action.transactions[i];
         newState.byId[transaction.id] = transaction;
