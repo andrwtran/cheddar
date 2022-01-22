@@ -31,7 +31,6 @@ const NavBar = () => {
   );
 
   if (sessionUser) {
-    console.log('!!!!!!!!!!!', sessionUser)
     sessionLinks = (
       <>
         <li>
