@@ -6,7 +6,7 @@ class Transaction(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   trans_date = db.Column(db.Date, nullable=False)
   trans_payee = db.Column(db.String(40), nullable=False)
-  trans_amount = db.Column(db.Numeric(12,2), nullable=False)
+  trans_amount = db.Column(db.Float, nullable=False)
   categoryId = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
   accountId = db.Column(db.Integer, db.ForeignKey('accounts.id'), nullable=False)
 

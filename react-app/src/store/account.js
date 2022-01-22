@@ -4,23 +4,23 @@ const REMOVE_ACCOUNT = 'accounts/REMOVE_ACCOUNT';
 const UPDATE_ACCOUNT = 'accounts/UPDATE_ACCOUNT';
 
 const load = (accounts) => {
-  return { type: LOAD_ACCOUNTS, accounts }
+  return { type: LOAD_ACCOUNTS, accounts };
 };
 
 const add = (newAccount) => {
-  return { type: ADD_ACCOUNT, newAccount }
+  return { type: ADD_ACCOUNT, newAccount };
 };
 
 const remove = (oldAccount) => {
-  return { type: REMOVE_ACCOUNT, oldAccount}
+  return { type: REMOVE_ACCOUNT, oldAccount};
 };
 
 const update = (account) => {
-  return { type: UPDATE_ACCOUNT, account}
+  return { type: UPDATE_ACCOUNT, account};
 };
 
 export const getAccounts = () => async (dispatch) => {
-  const response = await fetch('/api/accounts/')
+  const response = await fetch('/api/accounts/');
 
   if (response.ok) {
     const accounts = await response.json();
