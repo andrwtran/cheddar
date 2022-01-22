@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { createAccount } from '../../store/account';
 import './AccountAdd.css';
 
-export default function AccountAdd({ setIsAdd }) {
+export default function AccountAdd({ setIsAdd, accounts }) {
   const [name, setName] = useState('');
   const dispatch = useDispatch();
 
@@ -16,7 +16,9 @@ export default function AccountAdd({ setIsAdd }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // TO-DO: Add error handling for no name and duplicate names
+    if (accounts.find((account) => account.account_name === name)) {
+      return alert("You cannot have two accounts with the same name.");
+    };
 
     const newAccount = {
       account_name: name
@@ -35,7 +37,8 @@ export default function AccountAdd({ setIsAdd }) {
           placeholder="New Account"
           name="name"
         />
-        <button className='submit-button' type="submit">Save</button>
+        {name && <button className='submit-button' type="submit">Save</button>}
+        {!name && <button className='submit-button' type="submit" disabled="disabled">Save</button>}
       </form>
     </div>
   );

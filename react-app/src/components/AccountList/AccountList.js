@@ -27,12 +27,18 @@ export default function AccountList() {
     <div className='AccountList'>
       <h3>Accounts</h3>
       <button onClick={toggleAdd}>Add</button>
-      {isAdd && <AccountAdd setIsAdd={setIsAdd} />}
+      {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
       <ul>
         {accounts.map((account) => (
           <li key={account.id}>
             {editId !== account.id && account.account_name}
-            <AccountEdit setEditId={setEditId} editId={editId} account={account} />
+            <AccountEdit
+            setEditId={setEditId}
+            editId={editId}
+            account={account}
+            accounts={accounts}
+            setIsAdd={setIsAdd}
+            />
             {editId !== account.id && <AccountDelete oldAccount={account} />}
           </li>
         )
