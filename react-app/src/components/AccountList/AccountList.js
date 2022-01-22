@@ -12,7 +12,7 @@ export default function AccountList() {
   const accounts = useSelector((state) => state.account.all);
 
   const [isAdd, setIsAdd] = useState(false);
-  const [isEdit, setIsEdit] = useState(false);
+  const [editId, setEditId] = useState();
 
   useEffect(() => {
     dispatch(getAccounts());
@@ -23,25 +23,23 @@ export default function AccountList() {
     setIsAdd(!isAdd);
   };
 
-  const toggleEdit = (e) => {
-    e.preventDefault();
-    setIsEdit(!isEdit);
-
-    // TO-DO: clean up edit feature
-  };
-
   return (
     <div className='AccountList'>
       <h3>Accounts</h3>
       <button onClick={toggleAdd}>Add</button>
-      {isAdd && <AccountAdd setIsAdd={setIsAdd} />}
+      {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
       <ul>
         {accounts.map((account) => (
           <li key={account.id}>
-            { account.account_name }
-            <button onClick={toggleEdit}>Edit</button>
-            {isEdit && <AccountEdit setIsEdit={setIsEdit} account={account} />}
-            <AccountDelete oldAccount={account} />
+            {editId !== account.id && account.account_name}
+            <AccountEdit
+            setEditId={setEditId}
+            editId={editId}
+            account={account}
+            accounts={accounts}
+            setIsAdd={setIsAdd}
+            />
+            {editId !== account.id && <AccountDelete oldAccount={account} />}
           </li>
         )
         )}
