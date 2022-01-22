@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: b226e5282939
+Revision ID: b991d046d30f
 Revises: ffdc0a98111c
-Create Date: 2022-01-21 12:25:31.440324
+Create Date: 2022-01-22 13:32:50.550596
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'b226e5282939'
+revision = 'b991d046d30f'
 down_revision = 'ffdc0a98111c'
 branch_labels = None
 depends_on = None
@@ -35,7 +35,7 @@ def upgrade():
     op.create_table('budgets',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('budget_name', sa.String(length=40), nullable=False),
-    sa.Column('budget_amount', sa.Numeric(precision=14, scale=2), nullable=False),
+    sa.Column('budget_amount', sa.Float(), nullable=False),
     sa.Column('categoryId', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['categoryId'], ['categories.id'], ),
@@ -47,7 +47,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('trans_date', sa.Date(), nullable=False),
     sa.Column('trans_payee', sa.String(length=40), nullable=False),
-    sa.Column('trans_amount', sa.Numeric(precision=12, scale=2), nullable=False),
+    sa.Column('trans_amount', sa.Float(), nullable=False),
     sa.Column('categoryId', sa.Integer(), nullable=False),
     sa.Column('accountId', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['accountId'], ['accounts.id'], ),

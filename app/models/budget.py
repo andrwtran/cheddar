@@ -6,7 +6,7 @@ class Budget(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   budget_name = db.Column(db.String(40), nullable=False, unique=True)
-  budget_amount = db.Column(db.Numeric(14,2), nullable=False)
+  budget_amount = db.Column(db.Float, nullable=False)
   categoryId = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
   userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
