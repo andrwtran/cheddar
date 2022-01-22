@@ -4,13 +4,13 @@ import { useDispatch } from 'react-redux';
 import { updateAccount } from '../../store/account';
 import './AccountEdit.css';
 
-export default function AccountEdit({ setIsEdit, account }) {
+export default function AccountEdit({ setEditId, editId, account }) {
   const [name, setName] = useState(account.account_name);
   const dispatch = useDispatch();
 
   const reset = () => {
-    setName('');
-    setIsEdit(false);
+    setName(account.account_name);
+    setEditId();
   };
 
   const handleSubmit = (e) => {
@@ -26,18 +26,28 @@ export default function AccountEdit({ setIsEdit, account }) {
     reset();
   };
 
+    const toggleEdit = (e) => {
+    e.preventDefault();
+      setEditId(account.id)
+  };
+
   return (
     <div className='AccountEdit'>
-    <form className='AccountEditForm' onSubmit={handleSubmit}>
-      <input
-        type="text"
-        onChange={(e) => setName(e.target.value)}
-        value={name}
-        placeholder={name}
-        name="name"
-      />
-      <button className='submit-button' type="submit">Save</button>
-    </form>
+      {editId !== account.id && <button onClick={toggleEdit}>Edit</button>}
+
+      {editId === account.id &&
+        <form className='AccountEditForm' onSubmit={handleSubmit}>
+          <input
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            placeholder={name}
+            name="name"
+          />
+          <button className='submit-button' type="submit">Save</button>
+          <button className='cancel-button' onClick={reset}>Cancel</button>
+        </form>
+      }
   </div>
   );
 }
