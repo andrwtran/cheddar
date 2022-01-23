@@ -104,13 +104,13 @@ const accountReducer = (state = initialState, action) => {
       const editAccount = action.account;
       newState.byId[editAccount.id] = editAccount;
       const updateIndex = newState.all.findIndex((account) => account.id === editAccount.id);
-      // newState.all.splice(updateIndex, 1, editAccount);
       newState.all[updateIndex] = editAccount;
       return newState;
     };
     default:
       return state;
   };
+  
 };
 
 export default accountReducer;

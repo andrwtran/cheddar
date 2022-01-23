@@ -18,4 +18,4 @@ export default function AccountDelete({ oldAccount }) {
       </button>
     </div>
   );
-}
+};

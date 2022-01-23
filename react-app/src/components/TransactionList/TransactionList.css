@@ -1,7 +1,10 @@
-.TransactionList table {
-  border-collapse: collapse;
+.TransactionList {
   margin: 5px;
   padding: 5px;
+}
+
+.TransactionList table {
+  border-collapse: collapse;
 }
 
 .TransactionList td, .TransactionList th {
