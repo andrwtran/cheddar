@@ -50,3 +50,31 @@ def delete_transaction(transactionId):
   return transaction.to_dict()
 
 # fetch('/api/transactions/17', {method: 'Delete'}).then(res => res.json()).then(data => console.log(data));
+
+@transaction_routes.route('/<int:transactionId>', methods=['PUT'])
+@login_required
+def edit_transaction(transactionId):
+  transaction=Transaction.query.get(transactionId)
+  transaction.trans_payee=request.json['trans_payee']
+  transaction.trans_date=request.json['trans_date']
+  transaction.trans_amount=request.json['trans_amount']
+  transaction.categoryId=request.json['categoryId']
+  transaction.accountId=request.json['accountId']
+
+  db.session.commit()
+
+  return transaction.to_dict()
+
+# const data = { trans_date: 'Wed Jul 28 2021', trans_payee: 'Test', trans_amount: 0.01, categoryId: 2, accountId: 2 }
+
+# fetch('/api/transactions/23', {
+#   method: 'PUT',
+#   headers: {
+#     'Content-Type': 'application/json',
+#   },
+#   body: JSON.stringify(data),
+# })
+# .then(response => response.json())
+# .then(data => {
+#   console.log('Success:', data);
+# })
