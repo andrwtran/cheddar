@@ -1,5 +1,6 @@
 const LOAD_TRANSACTIONS = 'transactions/LOAD_TRANSACTIONS';
 const ADD_TRANSACTION = 'transactions/ADD_TRANSACTION';
+const REMOVE_TRANSACTION = 'transactions/REMOVE_TRANSACTION';
 
 const load = (transactions) => {
   return { type: LOAD_TRANSACTIONS, transactions };
@@ -7,6 +8,10 @@ const load = (transactions) => {
 
 const add = (newTransaction) => {
   return { type: ADD_TRANSACTION, newTransaction };
+};
+
+const remove = (oldTransaction) => {
+  return { type: REMOVE_TRANSACTION, oldTransaction};
 };
 
 export const getTransactions = () => async (dispatch) => {
@@ -33,6 +38,17 @@ export const createTransaction = (newTransaction) => async (dispatch) => {
   };
 };
 
+export const deleteTransaction = (oldTransaction) => async (dispatch) => {
+  const response = await fetch(`/api/transactions/${oldTransaction.id}`, {
+    method: 'delete'
+  });
+
+  if (response.ok) {
+    const transaction = await response.json();
+    dispatch(remove(transaction));
+  };
+};
+
 const initialState = { byId: {}, all: [] };
 
 const transactionReducer = (state = initialState, action) => {
@@ -55,6 +71,13 @@ const transactionReducer = (state = initialState, action) => {
       newTransaction.trans_date = new Date(newTransaction.trans_date).toLocaleDateString()
       newState.byId[newTransaction.id] = newTransaction;
       newState.all.push(newTransaction);
+      return newState;
+    };
+    case REMOVE_TRANSACTION: {
+      const newState = { byId: { ...state.byId }, all: [ ...state.all] };
+      delete newState.byId[action.oldTransaction.id];
+      const removeIndex = newState.all.findIndex((transaction) => transaction.id === action.oldTransaction.id);
+      newState.all.splice(removeIndex, 1);
       return newState;
     };
     default:

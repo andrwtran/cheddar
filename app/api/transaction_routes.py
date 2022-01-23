@@ -39,3 +39,14 @@ def add_transaction():
 # .then(data => {
 #   console.log('Success:', data);
 # })
+
+@transaction_routes.route('/<int:transactionId>',methods=['DELETE'])
+@login_required
+def delete_transaction(transactionId):
+  transaction = Transaction.query.get(transactionId)
+  db.session.delete(transaction)
+  db.session.commit()
+
+  return transaction.to_dict()
+
+# fetch('/api/transactions/17', {method: 'Delete'}).then(res => res.json()).then(data => console.log(data));

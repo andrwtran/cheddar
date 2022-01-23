@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTransactions } from "../../store/transaction";
 import TransactionAdd from "../TransactionAdd/TransactionAdd";
+import TransactionDelete from "../TransactionDelete/TransactionDelete";
 import './TransactionList.css';
 
 const TransactionList = () => {
@@ -25,6 +26,7 @@ const TransactionList = () => {
             <th>Amount</th>
             <th>Category</th>
             <th>Account</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +37,7 @@ const TransactionList = () => {
               <td>${transaction.trans_amount}</td>
               <td>{transaction.categoryId}</td>
               <td>{transaction.accountId}</td>
+              <td><TransactionDelete oldTransaction={transaction} /></td>
             </tr>
             )
           )}
