@@ -1,7 +1,6 @@
 from flask import Blueprint, request
 from app.models import Transaction, Account, db
 from flask_login import current_user, login_required
-import json
 
 transaction_routes = Blueprint('transactions', __name__)
 
@@ -12,3 +11,31 @@ def get_all_transactions():
   return {'all_transactions': [transaction.to_dict() for transaction in transactions]}
 
 # fetch('/api/transactions/', {method: 'Get'}).then(res => res.json()).then(data => console.log(data));
+
+@transaction_routes.route('/', methods=['POST'])
+@login_required
+def add_transaction():
+  new_transaction = Transaction(trans_date=request.json['trans_date'],
+    trans_payee=request.json['trans_payee'],
+    trans_amount=request.json['trans_amount'],
+    categoryId=request.json['categoryId'],
+    accountId=request.json['accountId'])
+
+  db.session.add(new_transaction)
+  db.session.commit()
+
+  return new_transaction.to_dict()
+
+# const data = { trans_date: 'Wed Jul 28 2021', trans_payee: 'Test', trans_amount: 0.01, categoryId: 2, accountId: 2 }
+
+# fetch('/api/transactions/', {
+#   method: 'POST',
+#   headers: {
+#     'Content-Type': 'application/json',
+#   },
+#   body: JSON.stringify(data),
+# })
+# .then(response => response.json())
+# .then(data => {
+#   console.log('Success:', data);
+# })
