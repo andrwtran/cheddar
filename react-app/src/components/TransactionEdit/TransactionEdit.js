@@ -25,11 +25,14 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    console.log(transaction.trans_amount)
+    console.log(typeof(transaction.trans_amount))
+
     const editTransaction = {
       id: transaction.id,
-      trans_date: transaction.trans_date,
-      trans_payee: transaction.trans_payee,
-      trans_amount: transaction.trans_amount,
+      trans_date: date,
+      trans_payee: payee,
+      trans_amount: amount,
       categoryId,
       accountId
     };
@@ -44,7 +47,7 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
   };
 
   return (
-    <div className='TransactionEdit'>
+    <>
       {editId !== transaction.id &&
         <td>
           <button onClick={toggleEdit}>Edit</button>
@@ -52,17 +55,20 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
       }
 
       {editId === transaction.id &&
-        <form className='TransactionEditForm' onSubmit={handleSubmit}>
+        <>
+          <form id='Edit' type="hidden" className='TransactionEditForm' onSubmit={handleSubmit}></form>
           <td>
             <input
-                type="date"
-                onChange={(e) => setDate(e.target.value)}
-                value={date}
-                name="date"
+              form='Edit'
+              type="date"
+              onChange={(e) => setDate(e.target.value)}
+              value={date}
+              name="date"
               />
           </td>
           <td>
             <input
+              form='Edit'
               type="text"
               onChange={(e) => setPayee(e.target.value)}
               value={payee}
@@ -72,6 +78,7 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
           </td>
           <td>
             <input
+              form='Edit'
               type="number"
               onChange={(e) => setAmount(e.target.value)}
               value={amount}
@@ -80,6 +87,7 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
           </td>
           <td>
             <input
+              form='Edit'
               type="number"
               onChange={(e) => setCategoryId(e.target.value)}
               value={categoryId}
@@ -88,16 +96,17 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
           </td>
           <td>
             <input
+              form='Edit'
               type="number"
               onChange={(e) => setAccountId(e.target.value)}
               value={accountId}
               name="accountId"
             />
           </td>
-          <td><button className='submit-button' type="submit">Save</button></td>
+          <td><button className='submit-button' type="submit" form='Edit'>Save</button></td>
           <td><button className='cancel-button' onClick={reset}>Cancel</button></td>
-        </form>
+        </>
       }
-  </div>
+  </>
   );
 };

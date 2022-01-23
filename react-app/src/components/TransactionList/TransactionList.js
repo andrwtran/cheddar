@@ -39,13 +39,15 @@ const TransactionList = () => {
                 <>
                   <td>{transaction.trans_date}</td>
                   <td>{transaction.trans_payee}</td>
-                  <td>${transaction.trans_amount}</td>
+                  <td>${transaction.trans_amount.toFixed(2)}</td>
                   <td>{transaction.categoryId}</td>
                   <td>{transaction.accountId}</td>
                 </>
               }
               <TransactionEdit transaction={transaction} editId={editId} setEditId={setEditId} />
-              <td><TransactionDelete oldTransaction={transaction} /></td>
+              {editId !== transaction.id &&
+                <td><TransactionDelete oldTransaction={transaction} /></td>
+              }
             </tr>
             )
           )}

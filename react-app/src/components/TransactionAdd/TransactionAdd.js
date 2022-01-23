@@ -24,10 +24,6 @@ export default function AccountAdd() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (accounts.find((account) => account.account_name === name)) {
-    //   return alert("You cannot have two accounts with the same name.");
-    // };
-
     const newTransaction = {
       trans_date: date,
       trans_payee: payee,
