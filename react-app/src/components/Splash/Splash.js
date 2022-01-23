@@ -1,9 +1,8 @@
 import React from "react";
 import { useSelector } from 'react-redux';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import SidePanel from '../SidePanel/SidePanel';
 import MainPanel from '../MainPanel/MainPanel';
-import TransactionList from "../TransactionList/TransactionList";
+// import TransactionList from "../TransactionList/TransactionList";
 import './Splash.css'
 
 const Splash = () => {
@@ -13,8 +12,8 @@ const Splash = () => {
     return (
       <div className='HomeContainer'>
         <SidePanel />
-        {/* <MainPanel /> */}
-        <TransactionList />
+        <MainPanel />
+        {/* <TransactionList /> */}
       </div>
     );
   } else {
