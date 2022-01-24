@@ -3,7 +3,7 @@
   display: none;
 }
 
-td input {
+td input, td select {
   display: block;
   padding: 0;
   margin: 0;

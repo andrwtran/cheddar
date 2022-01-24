@@ -5,7 +5,7 @@ import { updateTransaction } from '../../store/transaction';
 import TransactionDelete from '../TransactionDelete/TransactionDelete';
 import './TransactionEdit.css';
 
-export default function TransactionEdit({ transaction, editId, setEditId }) {
+export default function TransactionEdit({ transaction, editId, setEditId, accounts, setIsAdd }) {
   const [date, setDate] = useState(transaction.trans_date);
   const [payee, setPayee] = useState(transaction.trans_payee);
   const [amount, setAmount] = useState(transaction.trans_amount);
@@ -26,8 +26,17 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(transaction.trans_amount)
-    console.log(typeof(transaction.trans_amount))
+    if (!date) {
+      return alert("You must enter a date for your transaction.")
+    };
+
+    if (!payee) {
+      return alert("You must enter a payee for your transaction.")
+    };
+
+    if (!amount) {
+      return alert("You must enter an amount for your transaction.")
+    }
 
     const editTransaction = {
       id: transaction.id,
@@ -44,14 +53,14 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
   const toggleEdit = (e) => {
     e.preventDefault();
       setEditId(transaction.id);
-      // setIsAdd(false);
+      setIsAdd(false);
   };
 
   return (
     <>
       {editId !== transaction.id &&
         <>
-          <td colSpan={1.5}>
+          <td>
             <div className='editButtons'>
               <button onClick={toggleEdit}>Edit</button>
               <TransactionDelete oldTransaction={transaction} />
@@ -102,15 +111,19 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
             />
           </td>
           <td>
-            <input
+            <select
               form='Edit'
-              type="number"
               onChange={(e) => setAccountId(e.target.value)}
               value={accountId}
               name="accountId"
-            />
+            >
+              {Object.values(accounts).map((account) => (
+                <option value={account.id}>{account.account_name}</option>
+                )
+              )}
+            </select>
           </td>
-          <td colSpan={1.5}>
+          <td>
             <div className='saveButtons'>
               <button className='submit-button' type="submit" form='Edit'>Save</button>
               <button className='cancel-button' onClick={reset}>Cancel</button>

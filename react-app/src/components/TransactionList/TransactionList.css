@@ -6,8 +6,8 @@
 .TransactionList table {
   border-collapse: collapse;
   table-layout: fixed;
-  width: 950px;
-  font-size: 18px;
+  width: 1250px;
+  font-size: 16px;
 }
 
 .TransactionList td, .TransactionList th {

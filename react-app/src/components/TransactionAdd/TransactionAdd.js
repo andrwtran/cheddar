@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { createTransaction } from '../../store/transaction';
 import './TransactionAdd.css';
 
-export default function AccountAdd() {
+export default function AccountAdd({ accounts, setIsAdd }) {
   const [date, setDate] = useState('');
   const [payee, setPayee] = useState('');
   const [amount, setAmount] = useState('');
@@ -19,10 +19,23 @@ export default function AccountAdd() {
     setAmount('');
     setCategoryId('');
     setAccountId('');
+    setIsAdd(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!date) {
+      return alert("You must enter a date for your transaction.")
+    };
+
+    if (!payee) {
+      return alert("You must enter a payee for your transaction.")
+    };
+
+    if (!amount) {
+      return alert("You must enter an amount for your transaction.")
+    }
 
     const newTransaction = {
       trans_date: date,
@@ -68,12 +81,16 @@ export default function AccountAdd() {
           name="categoryId"
         />
         <label htmlFor="accountId">Account</label>
-        <input
-          type="number"
+        <select
           onChange={(e) => setAccountId(e.target.value)}
           value={accountId}
           name="accountId"
-        />
+        >
+          {Object.values(accounts).map((account) => (
+            <option value={account.id}>{account.account_name}</option>
+            )
+          )}
+        </select>
         <button className='submit-button' type="submit">Save</button>
       </form>
     </div>
