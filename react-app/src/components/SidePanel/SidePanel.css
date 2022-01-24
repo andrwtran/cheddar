@@ -1,7 +1,9 @@
-.SidePanel {
-  background-color: burlywood;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+.SidePanel input {
+  font-family: "Montserrat", sans-serif;
 }
 
-.SidePanel div {
-  background-color: yellowgreen;
+.SidePanel {
+  background-color: rgba(250, 180, 10, 0.5);
 }

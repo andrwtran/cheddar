@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from 'react-redux';
 import SidePanel from '../SidePanel/SidePanel';
 import MainPanel from '../MainPanel/MainPanel';
-// import TransactionList from "../TransactionList/TransactionList";
 import './Splash.css'
 
 const Splash = () => {
@@ -13,7 +12,6 @@ const Splash = () => {
       <div className='HomeContainer'>
         <SidePanel />
         <MainPanel />
-        {/* <TransactionList /> */}
       </div>
     );
   } else {

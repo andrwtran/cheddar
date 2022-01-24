@@ -19,7 +19,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
     setAmount('');
     setCategoryId('');
     setAccountId('');
-    setIsAdd(false);
+    // setIsAdd(false);
   };
 
   const handleSubmit = (e) => {
@@ -80,7 +80,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
           value={categoryId}
           name="categoryId"
         >
-          {Object.values(categories).map((category) => (
+          {Object.values(categories).slice(1).map((category) => (
             <option value={category.id}>{category.category_name}</option>
             )
           )}
