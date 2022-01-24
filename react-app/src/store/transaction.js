@@ -81,7 +81,6 @@ const transactionReducer = (state = initialState, action) => {
       for (let i = 0; i < action.transactions.length; i++) {
         let transaction = action.transactions[i];
         newState.byId[transaction.id] = transaction;
-        transaction.trans_date = new Date(transaction.trans_date).toLocaleDateString()
         newState.all.push(transaction);
       }
       return newState;
@@ -89,7 +88,6 @@ const transactionReducer = (state = initialState, action) => {
     case ADD_TRANSACTION: {
       const newState = { byId: { ...state.byId }, all: [ ...state.all] };
       const newTransaction = action.newTransaction;
-      newTransaction.trans_date = new Date(newTransaction.trans_date).toLocaleDateString()
       newState.byId[newTransaction.id] = newTransaction;
       newState.all.push(newTransaction);
       return newState;
@@ -104,7 +102,6 @@ const transactionReducer = (state = initialState, action) => {
     case UPDATE_TRANSACTION: {
       const newState = { byId: { ...state.byId }, all: [ ...state.all] };
       const editTransaction = action.transaction;
-      editTransaction.trans_date = new Date(editTransaction.trans_date).toLocaleDateString()
       newState.byId[editTransaction.id] = editTransaction;
       const updateIndex = newState.all.findIndex((transaction) => transaction.id === editTransaction.id);
       newState.all[updateIndex] = editTransaction;

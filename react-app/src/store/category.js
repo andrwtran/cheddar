@@ -19,7 +19,7 @@ const initialState = [];
 const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_CATEGORIES: {
-      const newState = [ ...state ];
+      const newState = [ ];
       for (let i = 0; i < action.categories.length; i++) {
         let category = action.categories[i];
         newState.push(category);

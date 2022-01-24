@@ -9,3 +9,7 @@
   grid-template-areas:
     ". .";
 }
+
+body {
+  background-color: #E9F2A0;
+}
