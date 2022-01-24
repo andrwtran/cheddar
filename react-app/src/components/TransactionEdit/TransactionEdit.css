@@ -2,3 +2,16 @@
   background-color: transparent;
   display: none;
 }
+
+td input, td select {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 90%;
+}
+
+.editButtons, .saveButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
