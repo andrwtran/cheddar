@@ -29,7 +29,7 @@ const TransactionList = () => {
             <th>Amount</th>
             <th>Category</th>
             <th>Account</th>
-            <th></th>
+            <th colSpan={1.5}></th>
           </tr>
         </thead>
         <tbody>
@@ -45,9 +45,6 @@ const TransactionList = () => {
                 </>
               }
               <TransactionEdit transaction={transaction} editId={editId} setEditId={setEditId} />
-              {editId !== transaction.id &&
-                <td><TransactionDelete oldTransaction={transaction} /></td>
-              }
             </tr>
             )
           )}

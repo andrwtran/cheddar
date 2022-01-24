@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateTransaction } from '../../store/transaction';
+import TransactionDelete from '../TransactionDelete/TransactionDelete';
 import './TransactionEdit.css';
 
 export default function TransactionEdit({ transaction, editId, setEditId }) {
@@ -49,9 +50,15 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
   return (
     <>
       {editId !== transaction.id &&
-        <td>
-          <button onClick={toggleEdit}>Edit</button>
-        </td>
+        <>
+          <td colSpan={1.5}>
+            <div className='editButtons'>
+              <button onClick={toggleEdit}>Edit</button>
+              <TransactionDelete oldTransaction={transaction} />
+            </div>
+          </td>
+        </>
+
       }
 
       {editId === transaction.id &&
@@ -62,7 +69,7 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
               form='Edit'
               type="date"
               onChange={(e) => setDate(e.target.value)}
-              value={date}
+              value={new Date(date).toISOString().substring(0,10)}
               name="date"
               />
           </td>
@@ -103,8 +110,12 @@ export default function TransactionEdit({ transaction, editId, setEditId }) {
               name="accountId"
             />
           </td>
-          <td><button className='submit-button' type="submit" form='Edit'>Save</button></td>
-          <td><button className='cancel-button' onClick={reset}>Cancel</button></td>
+          <td colSpan={1.5}>
+            <div className='saveButtons'>
+              <button className='submit-button' type="submit" form='Edit'>Save</button>
+              <button className='cancel-button' onClick={reset}>Cancel</button>
+            </div>
+          </td>
         </>
       }
   </>
