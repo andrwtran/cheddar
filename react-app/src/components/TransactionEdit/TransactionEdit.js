@@ -5,7 +5,7 @@ import { updateTransaction } from '../../store/transaction';
 import TransactionDelete from '../TransactionDelete/TransactionDelete';
 import './TransactionEdit.css';
 
-export default function TransactionEdit({ transaction, editId, setEditId, accounts, setIsAdd }) {
+export default function TransactionEdit({ transaction, editId, setEditId, accounts, setIsAdd, categories }) {
   const [date, setDate] = useState(transaction.trans_date);
   const [payee, setPayee] = useState(transaction.trans_payee);
   const [amount, setAmount] = useState(transaction.trans_amount);
@@ -102,13 +102,17 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
             />
           </td>
           <td>
-            <input
+            <select
               form='Edit'
-              type="number"
               onChange={(e) => setCategoryId(e.target.value)}
               value={categoryId}
               name="categoryId"
-            />
+            >
+              {Object.values(categories).map((category) => (
+                <option value={category.id}>{category.category_name}</option>
+                )
+              )}
+            </select>
           </td>
           <td>
             <select

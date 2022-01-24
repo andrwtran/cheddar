@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { createTransaction } from '../../store/transaction';
 import './TransactionAdd.css';
 
-export default function AccountAdd({ accounts, setIsAdd }) {
+export default function AccountAdd({ accounts, setIsAdd, categories }) {
   const [date, setDate] = useState('');
   const [payee, setPayee] = useState('');
   const [amount, setAmount] = useState('');
@@ -74,12 +74,17 @@ export default function AccountAdd({ accounts, setIsAdd }) {
           name="amount"
         />
         <label htmlFor="categoryId">Category</label>
-        <input
-          type="number"
+
+        <select
           onChange={(e) => setCategoryId(e.target.value)}
           value={categoryId}
           name="categoryId"
-        />
+        >
+          {Object.values(categories).map((category) => (
+            <option value={category.id}>{category.category_name}</option>
+            )
+          )}
+        </select>
         <label htmlFor="accountId">Account</label>
         <select
           onChange={(e) => setAccountId(e.target.value)}
