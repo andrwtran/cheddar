@@ -29,6 +29,12 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
       return alert("You must enter a date for your transaction.")
     };
 
+    const today = new Date();
+
+    if (new Date(date) > today) {
+      return alert("You must enter a date in the past for your transaction.")
+    };
+
     if (!payee) {
       return alert("You must enter a payee for your transaction.")
     };

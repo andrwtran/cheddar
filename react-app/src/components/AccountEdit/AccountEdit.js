@@ -36,7 +36,7 @@ export default function AccountEdit({ setEditId, editId, account, accounts, setI
 
   return (
     <div className='AccountEdit'>
-      {editId !== account.id && <button onClick={toggleEdit}>Edit</button>}
+      {editId !== account.id && <button onClick={toggleEdit}><i className="fas fa-edit" /></button>}
 
       {editId === account.id &&
         <form className='AccountEditForm' onSubmit={handleSubmit}>
@@ -47,9 +47,9 @@ export default function AccountEdit({ setEditId, editId, account, accounts, setI
             placeholder={name}
             name="name"
           />
-          {name && <button className='submit-button' type="submit">Save</button>}
-          {!name && <button className='submit-button' type="submit" disabled="disabled">Save</button>}
-          <button className='cancel-button' onClick={reset}>Cancel</button>
+          {name && <button className='submit-button' type="submit"><i className="fas fa-save" /></button>}
+          {!name && <button className='submit-button' type="submit" disabled="disabled"><i className="fas fa-save" /></button>}
+          <button className='cancel-button' onClick={reset}><i className="far fa-window-close" /></button>
         </form>
       }
   </div>

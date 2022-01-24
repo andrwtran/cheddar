@@ -1,0 +1,14 @@
+.AccountAdd form {
+  display: flex;
+  background-color: transparent;
+  border-radius: 0px;
+  justify-content: center;
+}
+
+.AccountAdd button {
+  margin: 5px;
+}
+
+.AccountAdd input {
+  padding: 0px;
+}

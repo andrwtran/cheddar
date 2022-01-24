@@ -21,6 +21,7 @@ export default function AccountList() {
   const toggleAdd = (e) => {
     e.preventDefault();
     setIsAdd(!isAdd);
+    setEditId();
   };
 
   return (
@@ -31,6 +32,7 @@ export default function AccountList() {
       <ul>
         {accounts.map((account) => (
           <li key={account.id}>
+            {editId !== account.id && <i className="fas fa-cheese" />}
             {editId !== account.id && account.account_name}
             <AccountEdit
             setEditId={setEditId}
