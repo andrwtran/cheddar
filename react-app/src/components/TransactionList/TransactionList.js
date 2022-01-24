@@ -30,9 +30,11 @@ const TransactionList = () => {
 
   return (
     <div className="TransactionList">
-      <h3>All Transactions</h3>
-      <button onClick={toggleAdd}>Add</button>
-      {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
+      <h2>All Transactions</h2>
+      <div className="TransactionAdd">
+        <button onClick={toggleAdd}>Add a New Transaction</button>
+        {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
+      </div>
       <table>
         <thead>
           <tr>
@@ -52,8 +54,8 @@ const TransactionList = () => {
                   <td>{transaction.trans_date}</td>
                   <td>{transaction.trans_payee}</td>
                   <td>${transaction.trans_amount.toFixed(2)}</td>
-                  <td>{categories[transaction.categoryId - 1].category_name}</td>
-                  <td>{accounts[transaction.accountId].account_name}</td>
+                  <td>{categories[transaction.categoryId - 1]?.category_name}</td>
+                  <td>{accounts[transaction.accountId]?.account_name}</td>
                 </>
               }
               <TransactionEdit

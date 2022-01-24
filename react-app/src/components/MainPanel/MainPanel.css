@@ -1,7 +1,5 @@
-.MainPanel {
-  background-color: cadetblue;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
-.MainPanel div{
-  background-color: royalblue;
+.MainPanel input, .MainPanel option, .MainPanel select, .MainPanel form  {
+  font-family: "Montserrat", sans-serif;
 }

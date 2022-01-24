@@ -1,17 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
 .TransactionList {
   margin: 5px;
   padding: 5px;
 }
 
-.TransactionList table {
-  border-collapse: collapse;
-  table-layout: fixed;
-  width: 1250px;
-  font-size: 16px;
+.TransactionList h2 {
+  text-decoration: underline;
 }
 
-.TransactionList td, .TransactionList th {
-  border: 1px solid #999;
-  padding: 0.5rem;
+.TransactionList table {
+  table-layout: fixed;
+  width: 1500px;
+  background-color: rgba(244, 107, 23, 0.2);
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  border-collapse:collapse;
+}
+
+.TransactionList th {
   text-align: left;
+  font-weight: 600;
+  font-size: 20px;
+  background-color: rgba(244, 107, 23, 0.6);
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.TransactionList td {
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid black;
+}
+
+.TransactionList tbody tr:nth-of-type(even) {
+  background-color:  rgba(244, 107, 23, 0.3);
+}
+
+.TransactionAdd {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.TransactionAdd form {
+  background-color: transparent;
+}
+
+.TransactionAdd button {
+  margin: 5px;
+  padding: 5px;
 }

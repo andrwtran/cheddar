@@ -1,4 +1,13 @@
-.TransactionAdd label, .TransactionAdd input, .TransactionAdd form {
-  margin: 5px;
-  padding: 5px;
+.TransactionAdd label, .TransactionAdd input, .TransactionAdd select {
+  margin: 2px;
+  padding: 2px;
+}
+
+.TransactionAdd select {
+  height: 30px;
+}
+
+.TransactionAdd form {
+  margin: 0px;
+  padding: 0px;
 }

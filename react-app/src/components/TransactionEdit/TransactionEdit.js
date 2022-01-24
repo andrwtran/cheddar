@@ -108,7 +108,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               value={categoryId}
               name="categoryId"
             >
-              {Object.values(categories).map((category) => (
+              {Object.values(categories).slice(1).map((category) => (
                 <option value={category.id}>{category.category_name}</option>
                 )
               )}
