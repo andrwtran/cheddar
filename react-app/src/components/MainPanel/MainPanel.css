@@ -3,3 +3,8 @@
 .MainPanel input, .MainPanel option, .MainPanel select, .MainPanel form  {
   font-family: "Montserrat", sans-serif;
 }
+
+.MainPanel {
+  margin: 5px;
+  padding: 5px;
+}
