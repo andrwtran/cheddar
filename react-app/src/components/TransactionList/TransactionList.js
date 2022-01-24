@@ -42,7 +42,7 @@ const TransactionList = () => {
             <th>Payee</th>
             <th>Amount</th>
             <th>Category</th>
-            <th>Account</th>
+            <th colSpan={2}>Account</th>
             <th></th>
           </tr>
         </thead>
@@ -55,7 +55,7 @@ const TransactionList = () => {
                   <td>{transaction.trans_payee}</td>
                   <td>${transaction.trans_amount.toFixed(2)}</td>
                   <td>{categories[transaction.categoryId - 1]?.category_name}</td>
-                  <td>{accounts[transaction.accountId]?.account_name}</td>
+                  <td colSpan={2}>{accounts[transaction.accountId]?.account_name}</td>
                 </>
               }
               <TransactionEdit

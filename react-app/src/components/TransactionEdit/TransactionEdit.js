@@ -97,7 +97,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               form='Edit'
               type="number"
               onChange={(e) => setAmount(e.target.value)}
-              value={amount}
+              value={amount.toFixed(2)}
               name="amount"
             />
           </td>
@@ -114,7 +114,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               )}
             </select>
           </td>
-          <td>
+          <td colSpan={2}>
             <select
               form='Edit'
               onChange={(e) => setAccountId(e.target.value)}
@@ -127,7 +127,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               )}
             </select>
           </td>
-          <td>
+          <td colSpan={0.5}>
             <div className='saveButtons'>
               <button className='submit-button' type="submit" form='Edit'>Save</button>
               <button className='cancel-button' onClick={reset}>Cancel</button>

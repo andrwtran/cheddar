@@ -7,11 +7,12 @@
 
 .TransactionList h2 {
   text-decoration: underline;
+  font-family: "Montserrat", sans-serif;
 }
 
 .TransactionList table {
   table-layout: fixed;
-  width: 1500px;
+  width: 1400px;
   background-color: rgba(244, 107, 23, 0.2);
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
