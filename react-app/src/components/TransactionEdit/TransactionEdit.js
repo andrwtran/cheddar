@@ -30,6 +30,12 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
       return alert("You must enter a date for your transaction.")
     };
 
+    const today = new Date();
+
+    if (new Date(date) > today) {
+      return alert("You must enter a date in the past for your transaction.")
+    };
+
     if (!payee) {
       return alert("You must enter a payee for your transaction.")
     };
@@ -62,7 +68,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
         <>
           <td>
             <div className='editButtons'>
-              <button onClick={toggleEdit}>Edit</button>
+              <button onClick={toggleEdit}><i className="fas fa-edit" /></button>
               <TransactionDelete oldTransaction={transaction} />
             </div>
           </td>
@@ -97,7 +103,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               form='Edit'
               type="number"
               onChange={(e) => setAmount(e.target.value)}
-              value={amount.toFixed(2)}
+              value={amount}
               name="amount"
             />
           </td>
@@ -129,8 +135,8 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
           </td>
           <td colSpan={0.5}>
             <div className='saveButtons'>
-              <button className='submit-button' type="submit" form='Edit'>Save</button>
-              <button className='cancel-button' onClick={reset}>Cancel</button>
+              <button className='submit-button' type="submit" form='Edit'><i className="fas fa-save" /></button>
+              <button className='cancel-button' onClick={reset}><i className="far fa-window-close" /></button>
             </div>
           </td>
         </>

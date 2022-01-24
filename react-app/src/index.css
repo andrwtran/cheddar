@@ -1,9 +1,5 @@
 /* TODO Add site wide styles */
 
-body {
-  background-color: rgba(224, 241, 156, 0.50);
-}
-
 .HomeContainer {
   display: grid;
   grid-auto-columns: 1fr;
@@ -11,5 +7,5 @@ body {
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas:
-    ". ."; 
+    ". .";
 }

@@ -43,7 +43,7 @@ const TransactionList = () => {
             <th>Amount</th>
             <th>Category</th>
             <th colSpan={2}>Account</th>
-            <th></th>
+            <th className="TableButtons"></th>
           </tr>
         </thead>
         <tbody>

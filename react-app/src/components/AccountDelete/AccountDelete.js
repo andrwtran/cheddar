@@ -14,7 +14,7 @@ export default function AccountDelete({ oldAccount }) {
   return (
     <div className='AccountDelete'>
       <button className="AccountDeleteButton" onClick={handleSubmit}>
-        Delete
+        <i className="fas fa-trash" />
       </button>
     </div>
   );

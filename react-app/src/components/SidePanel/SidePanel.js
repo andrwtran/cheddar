@@ -9,9 +9,14 @@ const SidePanel = () => {
       <h2>Side Panel</h2>
       <AccountList />
       <div className='Transactions'>
-        <NavLink to="/transactions"><h3>Transactions</h3></NavLink>
+        <h3>Transactions</h3>
+        <ul>
+          <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
+          <li><i className="fas fa-money-bill-wave" /> Dining & Drinks</li>
+          <li><i className="fas fa-money-bill-wave" /> Groceries</li>
+          <li><i className="fas fa-money-bill-wave" /> Shopping</li>
+        </ul>
       </div>
-      <div className='Categories'><h3>Categories</h3></div>
     </div>
   );
 };

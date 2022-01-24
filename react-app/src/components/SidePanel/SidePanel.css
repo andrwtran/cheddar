@@ -1,9 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
-.SidePanel input {
+.SidePanel input, .SidePanel h3 {
   font-family: "Montserrat", sans-serif;
 }
 
+.SidePanel h3 {
+  font-weight: 600;
+  font-size: 20px;
+}
+
 .SidePanel {
-  background-color: rgba(250, 180, 10, 0.5);
+  background-color:  rgba(224, 241, 156, 0.50);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.Transactions ul {
+  list-style-type: none;
+  padding-inline-start: 20px;
+}
+
+.Transactions li {
+ font-size: 16px;
+ margin: 5px;
 }

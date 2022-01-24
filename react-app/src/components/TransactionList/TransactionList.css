@@ -52,3 +52,7 @@
 .TransactionAdd button {
   margin: 5px;
 }
+
+.TableButtons {
+  width: 10%;
+}

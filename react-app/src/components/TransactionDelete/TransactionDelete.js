@@ -14,7 +14,7 @@ export default function TransactionDelete({ oldTransaction }) {
   return (
     <div className='TransactionDelete'>
       <button className="TransactionDeleteButton" onClick={handleSubmit}>
-        Delete
+        <i className="fas fa-trash" />
       </button>
     </div>
   );
