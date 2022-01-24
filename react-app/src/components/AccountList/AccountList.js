@@ -26,7 +26,7 @@ export default function AccountList() {
   return (
     <div className='AccountList'>
       <h3>Accounts</h3>
-      <button onClick={toggleAdd}>Add a New Account</button>
+      <button onClick={toggleAdd}>New Account</button>
       {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
       <ul>
         {accounts.map((account) => (

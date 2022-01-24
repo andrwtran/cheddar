@@ -32,7 +32,7 @@ const TransactionList = () => {
     <div className="TransactionList">
       <h2>All Transactions</h2>
       <div className="TransactionAdd">
-        <button onClick={toggleAdd}>Add a New Transaction</button>
+        <button onClick={toggleAdd}>New Transaction</button>
         {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
       </div>
       <table>
