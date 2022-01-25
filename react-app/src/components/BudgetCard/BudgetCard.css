@@ -9,6 +9,14 @@
   margin: 10px;
   padding: 10px;
   box-shadow: 3px 3px #3F3F40;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 2.5fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "BudgetTotalChart BudgetBarChart"
+    "BudgetText BudgetBarChart";
 }
 
 .BudgetCard ul {
@@ -19,3 +27,12 @@
   margin: 5px;
   padding: 5px;
 }
+
+.BudgetBarChart {
+  max-height: 950px;
+  max-width: 950px;
+}
+
+.BudgetTotalChart { grid-area: BudgetTotalChart; }
+.BudgetText { grid-area: BudgetText; }
+.BudgetBarChart { grid-area: BudgetBarChart; }
