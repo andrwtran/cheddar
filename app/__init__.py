@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.account_routes import account_routes
 from .api.transaction_routes import transaction_routes
 from .api.category_routes import category_routes
+from .api.budget_routes import budget_routes
 
 from .seeds import seed_commands
 
@@ -37,6 +38,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(account_routes, url_prefix='/api/accounts')
 app.register_blueprint(transaction_routes, url_prefix='/api/transactions')
 app.register_blueprint(category_routes, url_prefix='/api/categories')
+app.register_blueprint(budget_routes, url_prefix='/api/budgets')
 
 db.init_app(app)
 Migrate(app, db)
