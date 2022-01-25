@@ -1,0 +1,21 @@
+.BudgetTotalChart {
+  max-height: 250px;
+  max-width: 250px;
+}
+
+.BudgetCard {
+  background-color: #F2F2F2;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 3px 3px #3F3F40;
+}
+
+.BudgetCard ul {
+  list-style-type: none;
+}
+
+.BudgetCard li {
+  margin: 5px;
+  padding: 5px;
+}

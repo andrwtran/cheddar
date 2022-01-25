@@ -4,9 +4,10 @@ import session from './session'
 import account from './account'
 import transaction from './transaction';
 import category from './category';
+import budget from './budget';
 
 const rootReducer = combineReducers({
-  session, account, transaction, category
+  session, account, transaction, category, budget
 });
 
 
