@@ -1,6 +1,6 @@
-.BudgetTotalChart {
-  max-height: 250px;
-  max-width: 250px;
+.BudgetPieChart {
+  max-height: 500px;
+  max-width: 500px;
 }
 
 .BudgetCard {
@@ -11,13 +11,17 @@
   box-shadow: 3px 3px #3F3F40;
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-columns: 1fr 2.5fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 2.5fr; 
+  grid-template-rows: 1.5fr 0.5fr;
   gap: 0px 0px;
   grid-template-areas:
-    "BudgetTotalChart BudgetBarChart"
-    "BudgetText BudgetBarChart";
+    "BudgetPieChart BudgetBarChart"
+    "BudgetPieText BudgetBarChart";
 }
+
+.BudgetPieChart { grid-area: BudgetPieChart; }
+.BudgetPieText { grid-area: BudgetPieText; }
+.BudgetBarChart { grid-area: BudgetBarChart; }
 
 .BudgetCard ul {
   list-style-type: none;
@@ -28,11 +32,13 @@
   padding: 5px;
 }
 
-.BudgetBarChart {
+/* .BudgetBarChart {
   max-height: 950px;
   max-width: 950px;
-}
+} */
 
-.BudgetTotalChart { grid-area: BudgetTotalChart; }
-.BudgetText { grid-area: BudgetText; }
-.BudgetBarChart { grid-area: BudgetBarChart; }
+.BudgetPieText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
