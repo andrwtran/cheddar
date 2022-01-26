@@ -16,6 +16,10 @@ export default function BudgetBarChart({ budgets, transactions, today }) {
     };
   });
 
+  if (!budgets.length) {
+    return null
+  }
+
   return (
     <span className='BudgetBarChart'>
       <h4>Category Budget</h4>
