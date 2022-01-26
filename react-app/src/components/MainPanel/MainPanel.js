@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import TransactionList from '../TransactionList/TransactionList';
 import BudgetCard from '../BudgetCard/BudgetCard';
 import TransactionCard from '../TransactionCard/TransactionCard';
+import CategoryCard from '../CategoryCard/CategoryCard';
 import "./MainPanel.css"
 
 const MainPanel = () => {
@@ -17,7 +18,7 @@ const MainPanel = () => {
         <Route path='/'>
           <BudgetCard />
           <TransactionCard />
-          <div className='CategorySpendingCard'><h3>Top Categories</h3></div>
+          <CategoryCard />
           <div className='MonthlySpendingCard'><h3>Spend</h3></div>
         </Route>
       </Switch>
