@@ -11,20 +11,20 @@ const NavBar = () => {
   let sessionLinks = (
     <>
       <li>
-        <NavLink to='/' style={{ color: 'black' }, {textDecoration: 'none'}}>
-          Home
+        <NavLink to='/'>
+          Home <i className="fas fa-home" />
         </NavLink>
       </li>
       <li>|</li>
       <li>
         <NavLink to='/login'>
-          Login
+          Login <i className="fas fa-sign-in-alt" />
         </NavLink>
       </li>
       <li>|</li>
       <li>
         <NavLink to='/sign-up'>
-          Sign Up
+          Sign Up <i className="fas fa-user-plus" />
         </NavLink>
       </li>
     </>
