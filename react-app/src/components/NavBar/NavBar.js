@@ -11,7 +11,7 @@ const NavBar = () => {
   let sessionLinks = (
     <>
       <li>
-        <NavLink to='/'>
+        <NavLink to='/' style={{ color: 'black' }, {textDecoration: 'none'}}>
           Home
         </NavLink>
       </li>

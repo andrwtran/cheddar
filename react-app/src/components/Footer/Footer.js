@@ -1,0 +1,21 @@
+import React from "react";
+import favicon from '../../images/cheddar-favicon.png';
+import './Footer.css'
+
+export default function Footer() {
+  return (
+    <div className="Footer">
+      <p>A Flask/React Project by Andrew Tran</p>
+      <span id="github_link">
+        <a href="https://github.com/andrwtran">
+          <i className="fab fa-github-square" />
+        </a>
+      </span>
+      <span id="linkedin_link">
+        <a href="https://www.linkedin.com/in/andrewvtran/">
+          <i className="fab fa-linkedin" />
+        </a>
+      </span>
+    </div>
+  );
+};
