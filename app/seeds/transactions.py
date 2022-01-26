@@ -21,9 +21,22 @@ def seed_transactions():
   taylor_stitch = Transaction(trans_date=date(2022, 1, 8), trans_payee='Taylor Stitch', trans_amount=35.06, categoryId=19, accountId=5)
   drop = Transaction(trans_date=date(2022, 1, 19), trans_payee='Drop', trans_amount=23.57, categoryId=19, accountId=2)
   grailed = Transaction(trans_date=date(2022, 1, 14), trans_payee='Grailed', trans_amount=28.01, categoryId=19, accountId=3)
+  everlane = Transaction(trans_date=date(2021, 12, 8), trans_payee='Everlane', trans_amount=51.76, categoryId=19, accountId=2)
+  uniqlo = Transaction(trans_date=date(2021, 12, 14), trans_payee='Uniqlo', trans_amount=27.10, categoryId=19, accountId=2)
 
   uber = Transaction(trans_date=date(2022, 1, 10), trans_payee='Uber', trans_amount=15.80, categoryId=21, accountId=3)
   lyft = Transaction(trans_date=date(2022, 1, 2), trans_payee='Lyft', trans_amount=12.61, categoryId=21, accountId=3)
+
+  udemy_one = Transaction(trans_date=date(2022, 1, 9), trans_payee='Udemy', trans_amount=32.57, categoryId=7, accountId=3)
+  udemy_two = Transaction(trans_date=date(2021, 12, 22), trans_payee='Udemy', trans_amount=28.18, categoryId=7, accountId=3)
+
+  stubhub = Transaction(trans_date=date(2022, 1, 21), trans_payee='Stubhub', trans_amount=105.10, categoryId=8, accountId=4)
+  netflix_one = Transaction(trans_date=date(2022, 1, 2), trans_payee='Netflix', trans_amount=9.99, categoryId=8, accountId=2)
+  netflix_two = Transaction(trans_date=date(2021, 12, 2), trans_payee='Netflix', trans_amount=9.99, categoryId=8, accountId=2)
+  netflix_three = Transaction(trans_date=date(2021, 11, 2), trans_payee='Netflix', trans_amount=9.99, categoryId=8, accountId=2)
+
+  west_elm = Transaction(trans_date=date(2022, 1, 19), trans_payee='West Elm', trans_amount=81.21, categoryId=15, accountId=2)
+  home_depot = Transaction(trans_date=date(2021, 12, 16), trans_payee='Home Depot', trans_amount=78.04, categoryId=15, accountId=4)
 
   db.session.add(philz_one)
   db.session.add(philz_two)
@@ -39,9 +52,19 @@ def seed_transactions():
   db.session.add(taylor_stitch)
   db.session.add(drop)
   db.session.add(grailed)
+  db.session.add(everlane)
+  db.session.add(uniqlo)
   db.session.add(uber)
   db.session.add(lyft)
-
+  db.session.add(udemy_one)
+  db.session.add(udemy_two)
+  db.session.add(stubhub)
+  db.session.add(netflix_one)
+  db.session.add(netflix_two)
+  db.session.add(netflix_three)
+  db.session.add(west_elm)
+  db.session.add(home_depot)
+  
   db.session.commit()
 
 def undo_transactions():

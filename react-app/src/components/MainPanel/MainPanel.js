@@ -19,7 +19,6 @@ const MainPanel = () => {
           <BudgetCard />
           <TransactionCard />
           <CategoryCard />
-          <div className='MonthlySpendingCard'><h3>Spend</h3></div>
         </Route>
       </Switch>
     </div>

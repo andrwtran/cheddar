@@ -25,6 +25,8 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    console.log(accountId);
+
     if (!date) {
       return alert("You must enter a date for your transaction.")
     };
@@ -69,7 +71,6 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
           type="text"
           onChange={(e) => setPayee(e.target.value)}
           value={payee}
-          placeholder="Payee"
           name="payee"
         />
         <label htmlFor="amount">Amount</label>
@@ -86,6 +87,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
           value={categoryId}
           name="categoryId"
         >
+          <option value="" selected disabled hidden></option>
           {Object.values(categories).slice(1).map((category) => (
             <option value={category.id}>{category.category_name}</option>
             )
@@ -97,6 +99,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
           value={accountId}
           name="accountId"
         >
+          <option value="" selected disabled hidden></option>
           {Object.values(accounts).map((account) => (
             <option value={account.id}>{account.account_name}</option>
             )

@@ -17,13 +17,9 @@ export default function BudgetPieChart({ transactions, categories, today }) {
     };
   });
 
-  console.log(spend_monthly_byCat);
-  console.log(Object.values(spend_monthly_byCat));
-  console.log(Object.keys(spend_monthly_byCat).map(key => categories[key].category_name));
-
   const [userData, setUserData] = useState(
     {
-      labels: Object.keys(spend_monthly_byCat).map(key => categories[key].category_name),
+      labels: Object.keys(spend_monthly_byCat).map(key => categories[key-1].category_name),
       datasets: [
         {
           data: Object.values(spend_monthly_byCat),
@@ -67,6 +63,9 @@ export default function BudgetPieChart({ transactions, categories, today }) {
     }
   );
 
+  if (!categories.length || !transactions.length) {
+    return null
+  }
 
   return (
     <span className='CategoryBubbleChart'>
