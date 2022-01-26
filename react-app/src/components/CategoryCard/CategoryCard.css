@@ -1,0 +1,14 @@
+.CategoryCard {
+  background-color: #F2F2F2;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 3px 3px #3F3F40;
+}
+
+.CategoryBubbleChart {
+  max-height: 650px;
+  max-width: 650px;
+  position: relative;
+  left: 350px;
+}

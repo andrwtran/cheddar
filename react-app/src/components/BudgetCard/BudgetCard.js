@@ -5,10 +5,10 @@ import { getBudgets } from '../../store/budget';
 import { getTransactions } from '../../store/transaction';
 import BudgetPieChart from '../BudgetPieChart/BudgetPieChart';
 import BudgetBarChart from '../BudgetBarChart/BudgetBarChart';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title } from 'chart.js';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
 import "./BudgetCard.css"
 
-ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title);
+ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
 export default function BudgetCard() {
   const dispatch = useDispatch();
