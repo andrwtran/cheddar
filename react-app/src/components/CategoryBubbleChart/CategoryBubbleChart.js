@@ -63,6 +63,10 @@ export default function BudgetPieChart({ transactions, categories, today }) {
     }
   );
 
+  if (!categories.length || !transactions.length) {
+    return null
+  }
+
   return (
     <span className='CategoryBubbleChart'>
       <Doughnut options={userOptions} data={userData} />

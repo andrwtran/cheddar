@@ -16,7 +16,7 @@ export default function BudgetBarChart({ budgets, transactions, today }) {
     };
   });
 
-  if (!budgets.length) {
+  if (!budgets.length || !transactions.length) {
     return null
   }
 

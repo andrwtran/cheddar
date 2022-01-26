@@ -58,6 +58,10 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
     }
   );
 
+  if (!budgets.length || !transactions.length) {
+    return null
+  }
+
   return (
   <>
   <span className='BudgetPieChart'>
