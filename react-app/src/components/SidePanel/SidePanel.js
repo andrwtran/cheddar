@@ -12,6 +12,7 @@ const SidePanel = () => {
         <h3>Transactions</h3>
         <ul>
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
+          <li><i className="fas fa-money-bill-wave" /> Recent</li>
           <li><i className="fas fa-money-bill-wave" /> Dining & Drinks</li>
           <li><i className="fas fa-money-bill-wave" /> Groceries</li>
           <li><i className="fas fa-money-bill-wave" /> Shopping</li>
