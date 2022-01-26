@@ -22,6 +22,10 @@ export default function CategoryCard() {
     dispatch(getTransactions());
   }, [dispatch]);
 
+  if (!categories.length || !transactions.length) {
+    return null
+  }
+
   return (
     <div className='CategoryCard'>
       <h3>Top Categories</h3>
