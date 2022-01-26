@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import TransactionList from '../TransactionList/TransactionList';
 import BudgetCard from '../BudgetCard/BudgetCard';
+import TransactionCard from '../TransactionCard/TransactionCard';
 import "./MainPanel.css"
 
 const MainPanel = () => {
@@ -15,7 +16,7 @@ const MainPanel = () => {
         </Route>
         <Route path='/'>
           <BudgetCard />
-          <div className='RecentTransCard'><h3>Recent Transactions</h3></div>
+          <TransactionCard />
           <div className='CategorySpendingCard'><h3>Top Categories</h3></div>
           <div className='MonthlySpendingCard'><h3>Spend</h3></div>
         </Route>

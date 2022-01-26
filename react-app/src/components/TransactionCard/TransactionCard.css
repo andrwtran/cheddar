@@ -1,23 +1,15 @@
-.TransactionList {
-  margin: 5px;
-  padding: 5px;
-}
-
-.TransactionList h2 {
-  text-decoration: underline;
-  font-family: "Montserrat", sans-serif;
-}
-
-.TransactionList table {
+.TransactionCard table {
   table-layout: fixed;
   width: 1400px;
   background-color: rgba(244, 107, 23, 0.2);
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
   border-collapse:collapse;
+  margin: 5px;
+  padding: 5px;
 }
 
-.TransactionList th {
+.TransactionCard th {
   text-align: left;
   font-weight: 600;
   font-size: 20px;
@@ -26,7 +18,7 @@
   padding: 5px;
 }
 
-.TransactionList td {
+.TransactionCard td {
   text-align: left;
   font-weight: 600;
   font-size: 14px;
@@ -34,23 +26,14 @@
   padding: 5px;
 }
 
-.TransactionList tbody tr:nth-of-type(even) {
+.TransactionCard tbody tr:nth-of-type(even) {
   background-color:  rgba(244, 107, 23, 0.3);
 }
 
-.TransactionAdd {
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-}
-
-.TransactionAdd form {
-  background-color: transparent;
-}
-
-.TransactionAdd button {
-  margin: 5px;
-}
-
-.TableButtons {
-  width: 10%;
+.TransactionCard {
+  background-color: #F2F2F2;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 3px 3px #3F3F40;
 }
