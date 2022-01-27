@@ -24,22 +24,34 @@ export default function BudgetPieChart({ transactions, categories, today }) {
         {
           data: Object.values(spend_monthly_byCat),
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
+            '#A6CEE3',
+            '#1F78B4',
+            '#B2DF8A',
+            '#33A02C',
+            '#FB9A99',
+            '#E31A1C',
+            '#FDBF6F',
+            '#FF7F00',
+            '#CAB2D6',
+            '#6A3D9A',
+            '#F2EC94',
+            '#B15928',
           ],
           borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
+            '#A6CEE3',
+            '#1F78B4',
+            '#B2DF8A',
+            '#33A02C',
+            '#FB9A99',
+            '#E31A1C',
+            '#FDBF6F',
+            '#FF7F00',
+            '#CAB2D6',
+            '#6A3D9A',
+            '#F2EC94',
+            '#B15928',
           ],
-          borderWidth: 1,
+          borderWidth: 2,
         }
       ]
     }
@@ -51,10 +63,11 @@ export default function BudgetPieChart({ transactions, categories, today }) {
       responsive: true,
       plugins: {
         legend: {
+          position: 'right',
           labels: {
             color: 'black',
             font: {
-              size: '12',
+              size: '18',
               family: "'Montserrat', sans-serif",
             },
           }

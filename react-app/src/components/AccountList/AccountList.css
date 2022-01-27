@@ -17,4 +17,13 @@
 
 .AccountEdit button, .AccountDelete button {
   margin: 5px;
+  border-radius: 50%;
+}
+
+.AccountEdit button:hover, .AccountDelete button:hover {
+  background-color: #F2A20C;
+}
+
+.AccountEdit button:active, .AccountDelete button:active {
+  background-color: #A67B2D;
 }

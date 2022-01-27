@@ -12,19 +12,19 @@ const NavBar = () => {
     <>
       <li>
         <NavLink to='/'>
-          Home <i className="fas fa-home" />
+          <button>Home <i className="fas fa-home" /></button>
         </NavLink>
       </li>
       <li>|</li>
       <li>
         <NavLink to='/login'>
-          Login <i className="fas fa-sign-in-alt" />
+          <button>Login <i className="fas fa-sign-in-alt" /></button>
         </NavLink>
       </li>
       <li>|</li>
       <li>
         <NavLink to='/sign-up'>
-          Sign Up <i className="fas fa-user-plus" />
+          <button>Sign Up <i className="fas fa-user-plus" /></button>
         </NavLink>
       </li>
     </>
@@ -35,7 +35,7 @@ const NavBar = () => {
       <>
         <li>
           <NavLink to='/'>
-            Home
+            <button>Home <i className="fas fa-home" /></button>
           </NavLink>
         </li>
         <li>|</li>

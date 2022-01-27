@@ -42,7 +42,7 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
           labels: {
             color: 'black',
             font: {
-              size: '12',
+              size: '14',
               family: "'Montserrat', sans-serif",
             },
           }
