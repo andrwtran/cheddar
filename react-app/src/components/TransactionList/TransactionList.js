@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTransactions } from "../../store/transaction";
 import { getAccounts } from "../../store/account";
 import { getCategories } from "../../store/category";
+import { currencyFormatter } from "../../utils";
 import TransactionAdd from "../TransactionAdd/TransactionAdd";
 import TransactionEdit from "../TransactionEdit/TransactionEdit";
 import './TransactionList.css';
@@ -53,7 +54,7 @@ const TransactionList = () => {
                 <>
                   <td>{transaction.trans_date.slice(5,16)}</td>
                   <td>{transaction.trans_payee}</td>
-                  <td>${transaction.trans_amount.toFixed(2)}</td>
+                  <td>{currencyFormatter.format(transaction.trans_amount)}</td>
                   <td>{categories[transaction.categoryId - 1]?.category_name}</td>
                   <td colSpan={2}>{accounts[transaction.accountId]?.account_name}</td>
                 </>

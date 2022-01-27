@@ -6,7 +6,7 @@ import "./SidePanel.css";
 const SidePanel = () => {
   return (
     <div className='SidePanel'>
-      <h2>Side Panel</h2>
+      {/* <h2>Side Panel</h2> */}
       <AccountList />
       <div className='Transactions'>
         <h3>Transactions</h3>

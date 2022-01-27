@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { Pie } from 'react-chartjs-2';
+import { currencyFormatter } from '../../utils';
+import overbudget from '../../images/dangerzone.png';
 import "./BudgetPieChart.css"
 
 export default function BudgetPieChart({ budgets, transactions, today, days_in_month}) {
@@ -60,21 +62,39 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
 
   if (!budgets.length || !transactions.length) {
     return null
-  }
+  };
+
+  if (spend_monthly > budgets[0].budget_amount) {
+    return (
+      <>
+        <span className='OverbudgetImage'>
+          <img src={overbudget}></img>
+        </span>
+        <span className='OverbudgetText'>
+          {budgets.length &&
+            <>
+              <p>You are {currencyFormatter.format((budgets[0].budget_amount - spend_monthly))} over your monthly budget!!!</p>
+              <p>( {currencyFormatter.format(budget_left_daily)} per day )</p>
+            </>
+          }
+        </span>
+      </>
+    );
+  };
 
   return (
   <>
-  <span className='BudgetPieChart'>
-    <Pie options={userOptions} data={userData} />
-  </span>
-  <span className='BudgetPieText'>
+    <span className='BudgetPieChart'>
+      <Pie options={userOptions} data={userData} />
+    </span>
+    <span className='BudgetPieText'>
       <ul>
         {budgets.length &&
           <>
-            <li>Monthly Budget ${budgets[0].budget_amount.toFixed(2)}</li>
-            <li>Monthly Spend ${spend_monthly.toFixed(2)}</li>
-            <li>Budget Left ${(budgets[0].budget_amount - spend_monthly).toFixed(2)}</li>
-            <li>( ${budget_left_daily.toFixed(2)} per day )</li>
+            <li>Monthly Budget {currencyFormatter.format(budgets[0].budget_amount)}</li>
+            <li>Monthly Spend {currencyFormatter.format(spend_monthly)}</li>
+            <li>Budget Left {currencyFormatter.format((budgets[0].budget_amount - spend_monthly))}</li>
+            <li>( {currencyFormatter.format(budget_left_daily)} per day )</li>
           </>
         }
       </ul>

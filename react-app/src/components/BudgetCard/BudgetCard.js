@@ -25,7 +25,7 @@ export default function BudgetCard() {
   }, [dispatch]);
 
 
-  if (!budgets.length) return null
+  if (!budgets.length || !transactions.length) return null
 
   return (
     <div className='BudgetCard'>

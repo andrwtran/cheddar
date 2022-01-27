@@ -8,6 +8,7 @@ import NavBar from './components/NavBar/NavBar';
 // import UsersList from './components/User/UsersList';
 // import User from './components/User/User';
 import Splash from './components/Splash/Splash';
+import Footer from './components/Footer/Footer';
 import { authenticate } from './store/session';
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <h1>My Home Page</h1>
         </ProtectedRoute> */}
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

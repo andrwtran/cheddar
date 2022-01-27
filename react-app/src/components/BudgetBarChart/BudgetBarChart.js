@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, ProgressBar } from 'react-bootstrap';
+import { currencyFormatter } from '../../utils';
 import "./BudgetBarChart.css"
 
 export default function BudgetBarChart({ budgets, transactions, today }) {
@@ -28,7 +29,7 @@ export default function BudgetBarChart({ budgets, transactions, today }) {
           <Card.Body>
             <Card.Title className="d-flex justify-content-between">
               <div>{budget.budget_name}</div>
-              <div>${spend_monthly_byCat[budget.categoryId].toFixed(2)} / ${budget.budget_amount.toFixed(2)}</div>
+              <div>{currencyFormatter.format(spend_monthly_byCat[budget.categoryId])} / {currencyFormatter.format(budget.budget_amount)}</div>
             </Card.Title>
           </Card.Body>
           <ProgressBar
@@ -36,7 +37,8 @@ export default function BudgetBarChart({ budgets, transactions, today }) {
           variant={getVariant(spend_monthly_byCat[budget.categoryId], budget.budget_amount)}
           min={0}
           max={budget.budget_amount}
-          now={spend_monthly_byCat[budget.categoryId]} label={`${Math.floor(spend_monthly_byCat[budget.categoryId] / budget.budget_amount * 100)}%`}
+          now={spend_monthly_byCat[budget.categoryId]}
+          label={`${Math.floor(spend_monthly_byCat[budget.categoryId] / budget.budget_amount * 100)}%`}
            />
         </Card>
       ))}

@@ -10,7 +10,7 @@ const MainPanel = () => {
 
   return (
     <div className='MainPanel'>
-      <h2>Main Panel</h2>
+      {/* <h2>Main Panel</h2> */}
       <Switch>
         <Route path='/transactions'>
           <TransactionList />
