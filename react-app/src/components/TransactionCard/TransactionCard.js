@@ -25,7 +25,7 @@ export default function TransactionCard() {
     dispatch(getTransactions());
     dispatch(getAccounts());
     dispatch(getCategories());
-  }, [dispatch]);
+  }, [dispatch, isAdd]);
 
   const toggleAdd = (e) => {
     e.preventDefault();

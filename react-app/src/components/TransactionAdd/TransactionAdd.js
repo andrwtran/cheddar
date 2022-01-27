@@ -20,7 +20,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
     setAmount('');
     setCategoryId('');
     setAccountId('');
-    // setIsAdd(false);
+    setIsAdd(false);
   };
 
   const handleSubmit = (e) => {
