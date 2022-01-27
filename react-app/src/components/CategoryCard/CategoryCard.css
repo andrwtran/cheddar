@@ -4,9 +4,11 @@
   margin: 10px;
   padding: 10px;
   box-shadow: 3px 3px #3F3F40;
+  width: 50vw;
+  height: 35vh;
 }
 
-.CategoryBubbleChart {
+.CategoryBubbleChart canvas {
   max-height: 650px;
   max-width: 650px;
   position: relative;

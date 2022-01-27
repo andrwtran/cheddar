@@ -11,12 +11,14 @@
   box-shadow: 3px 3px #3F3F40;
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-columns: 1fr 2.5fr; 
+  grid-template-columns: 1fr 2.5fr;
   grid-template-rows: 1.5fr 0.5fr;
   gap: 0px 0px;
   grid-template-areas:
     "BudgetPieChart BudgetBarChart"
     "BudgetPieText BudgetBarChart";
+  width: 50vw;
+  height: 35vh;
 }
 
 .BudgetPieChart { grid-area: BudgetPieChart; }
