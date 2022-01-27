@@ -5,10 +5,6 @@ Welcome to Cheddar, a simple budgeting app inspired by the likes of Mint and Sim
 ## Live-link :
    [Cheddar](https://cheddar-sp.herokuapp.com/)
 
-## Summary :
-
-TidyNote is a single-page note-taking app that features a rich-text editor, image uploading, book with notebooks. TidyNote is an Evernote clone, a popular note taking web app.
-
 ## Frontend Technologies Used
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
