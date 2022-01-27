@@ -20,7 +20,7 @@ Welcome to Cheddar, a simple budgeting app inspired by the likes of Mint and Sim
 ## Features
 
 #### 1. Accounts
- Users can save Transactions in collections called Accounts. Users can create, edit, and delete Accounts
+ Users can save Transactions in collections called Accounts. Users can create, edit, and delete Accounts.
 
 #### 2. Transactions
  Users can create, edit, and delete Transactions.
