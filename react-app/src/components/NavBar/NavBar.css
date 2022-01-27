@@ -11,7 +11,7 @@
   align-self: center;
 }
 
-li, a, button {
+li, a {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 20px;
@@ -26,4 +26,28 @@ li, a, button {
   justify-content: space-between;
   align-items: center;
   padding: 10px 10%
+}
+
+.NavBar button {
+  display:inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  padding:0.2em 1.45em;
+  margin:0.1em;
+  border:0.15em solid transparent;
+  box-sizing: border-box;
+  text-decoration:none !important;
+  color:#000000 !important;
+  background-color: transparent;
+  text-align:center;
+  position:relative;
+}
+
+.NavBar button:hover {
+  border-color:#7a7a7a;
+}
+
+.NavBar button:active {
+  background-color:#999999;
 }

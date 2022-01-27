@@ -54,3 +54,16 @@
 .TableButtons {
   width: 10%;
 }
+
+.editButtons button, .saveButtons button {
+  margin: 5px;
+  border-radius: 50%;
+}
+
+.editButtons button:hover, .saveButtons button:hover {
+  background-color: #F2A20C;
+}
+
+.editButtons button:active, .saveButtons button:active {
+  background-color: #A67B2D;
+}

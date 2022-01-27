@@ -25,22 +25,23 @@ export default function BudgetBarChart({ budgets, transactions, today }) {
     <span className='BudgetBarChart'>
       <h4>Category Budget</h4>
       {budgets.slice(1).map(budget => (
-        <Card className="mb-3">
-          <Card.Body>
-            <Card.Title className="d-flex justify-content-between">
-              <div>{budget.budget_name}</div>
-              <div>{currencyFormatter.format(spend_monthly_byCat[budget.categoryId])} / {currencyFormatter.format(budget.budget_amount)}</div>
-            </Card.Title>
-          </Card.Body>
-          <ProgressBar
-          className="rounded-pill m-3"
-          variant={getVariant(spend_monthly_byCat[budget.categoryId], budget.budget_amount)}
-          min={0}
-          max={budget.budget_amount}
-          now={spend_monthly_byCat[budget.categoryId]}
-          label={`${Math.floor(spend_monthly_byCat[budget.categoryId] / budget.budget_amount * 100)}%`}
-           />
-        </Card>
+        getCard(budget, spend_monthly_byCat)
+        // <Card className="mb-3">
+        //   <Card.Body>
+        //     <Card.Title className="d-flex justify-content-between">
+        //       <div>{budget.budget_name}</div>
+        //       <div>{currencyFormatter.format(spend_monthly_byCat[budget.categoryId])} / {currencyFormatter.format(budget.budget_amount)}</div>
+        //     </Card.Title>
+        //   </Card.Body>
+        //   <ProgressBar
+        //   className="rounded-pill m-3"
+        //   variant={getVariant(spend_monthly_byCat[budget.categoryId], budget.budget_amount)}
+        //   min={0}
+        //   max={budget.budget_amount}
+        //   now={spend_monthly_byCat[budget.categoryId]}
+        //   label={`${Math.floor(spend_monthly_byCat[budget.categoryId] / budget.budget_amount * 100)}%`}
+        //    />
+        // </Card>
       ))}
     </span>
   );
@@ -52,3 +53,45 @@ function getVariant(now, max) {
   if (ratio < 0.75) return "warning";
   return "danger";
 }
+
+function getCard(budget, spend_monthly_byCat) {
+  if (spend_monthly_byCat[budget.categoryId] > budget.budget_amount) {
+    return (
+      <Card className="mb-3 bg-danger bg-opacity-10">
+      <Card.Body>
+        <Card.Title className="d-flex justify-content-between">
+          <div>{budget.budget_name}</div>
+          <div>{currencyFormatter.format(spend_monthly_byCat[budget.categoryId])} / {currencyFormatter.format(budget.budget_amount)}</div>
+        </Card.Title>
+      </Card.Body>
+      <ProgressBar
+      className="rounded-pill m-3"
+      variant={getVariant(spend_monthly_byCat[budget.categoryId], budget.budget_amount)}
+      min={0}
+      max={budget.budget_amount}
+      now={spend_monthly_byCat[budget.categoryId]}
+      label={`${Math.floor(spend_monthly_byCat[budget.categoryId] / budget.budget_amount * 100)}%`}
+        />
+    </Card>
+    )
+  } else {
+    return (
+      <Card className="mb-3">
+        <Card.Body>
+          <Card.Title className="d-flex justify-content-between">
+            <div>{budget.budget_name}</div>
+            <div>{currencyFormatter.format(spend_monthly_byCat[budget.categoryId])} / {currencyFormatter.format(budget.budget_amount)}</div>
+          </Card.Title>
+        </Card.Body>
+        <ProgressBar
+        className="rounded-pill m-3"
+        variant={getVariant(spend_monthly_byCat[budget.categoryId], budget.budget_amount)}
+        min={0}
+        max={budget.budget_amount}
+        now={spend_monthly_byCat[budget.categoryId]}
+        label={`${Math.floor(spend_monthly_byCat[budget.categoryId] / budget.budget_amount * 100)}%`}
+          />
+      </Card>
+    )
+  };
+};
