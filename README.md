@@ -1,134 +1,43 @@
-# Flask React Project
+# Welcome to Tidy-Note
 
-This is the starter for the Flask React project.
+Welcome to Cheddar, a simple budgeting app inspired by the likes of Mint and Simplifi.
 
-## Getting started
+## Live-link :
+   [Cheddar](https://cheddar-sp.herokuapp.com/)
 
-1. Clone this repository (only this branch)
+## Summary :
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+TidyNote is a single-page note-taking app that features a rich-text editor, image uploading, book with notebooks. TidyNote is an Evernote clone, a popular note taking web app.
 
-2. Install dependencies
+## Frontend Technologies Used
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+## Backend Technologies Used
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/SA-SQLAlchemy-red)
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+## Features
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+#### 1. Accounts
+ Users can save Transactions in collections called Accounts. Users can create, edit, and delete Accounts
 
-   ```bash
-   pipenv shell
-   ```
+#### 2. Transactions
+ Users can create, edit, and delete Transactions.
 
-   ```bash
-   flask db upgrade
-   ```
+#### 3. Categories
+ Users can tag Transactions with preset categories and filter Transactions by categories.
 
-   ```bash
-   flask seed all
-   ```
+#### 4. Budgets
+ Users can create budgets which track monthly spending and category spending and can see visualizations of their progress.
 
-   ```bash
-   flask run
-   ```
+## Useful Links
+-- [Database Diagram](https://github.com/andrwtran/cheddar/wiki/Database-Schema)
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+-- [MVP List](https://github.com/andrwtran/cheddar/wiki/MVP)
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-## Deploy to Heroku
-
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
-
-   ```bash
-   heroku login
-   ```
-
-6. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. Release your docker container to heroku
-
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
-
-10. set up your database
-
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
-
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
-
-12. profit
-
-### For M1 Mac users
-
-(Replaces **Step 8**)
-
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
-
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
-
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
-
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
-
-3. Use docker to push the image to the Heroku container registry:
-
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
+-- [User Stories](https://github.com/andrwtran/cheddar/wiki/User-Stories)
