@@ -12,8 +12,17 @@ const MainPanel = () => {
     <div className='MainPanel'>
       {/* <h2>Main Panel</h2> */}
       <Switch>
-        <Route path='/transactions'>
+        <Route exact path='/transactions'>
           <TransactionList />
+        </Route>
+        <Route path='/transactions/19'>
+          <TransactionList categoryId={19} categoryName={'Shopping'} />
+        </Route>
+        <Route path='/transactions/13'>
+          <TransactionList categoryId={13} categoryName={'Groceries'} />
+        </Route>
+        <Route path='/transactions/6'>
+          <TransactionList categoryId={6} categoryName={'Dining & Drinks'} />
         </Route>
         <Route path='/'>
           <BudgetCard />

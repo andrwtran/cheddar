@@ -4,6 +4,7 @@ import AccountList from '../AccountList/AccountList';
 import "./SidePanel.css";
 
 const SidePanel = () => {
+
   return (
     <div className='SidePanel'>
       {/* <h2>Side Panel</h2> */}
@@ -12,10 +13,9 @@ const SidePanel = () => {
         <h3>Transactions</h3>
         <ul>
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
-          <li><i className="fas fa-money-bill-wave" /> Recent</li>
-          <li><i className="fas fa-money-bill-wave" /> Dining & Drinks</li>
-          <li><i className="fas fa-money-bill-wave" /> Groceries</li>
-          <li><i className="fas fa-money-bill-wave" /> Shopping</li>
+          <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions/19">Shopping</NavLink></li>
+          <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions/13">Groceries</NavLink></li>
+          <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions/6">Dining & Drinks</NavLink></li>
         </ul>
       </div>
     </div>

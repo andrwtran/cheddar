@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createTransaction } from '../../store/transaction';
+import { getTransactions } from '../../store/transaction';
 import './TransactionAdd.css';
 
 export default function AccountAdd({ accounts, setIsAdd, categories }) {
@@ -24,8 +25,6 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(accountId);
 
     if (!date) {
       return alert("You must enter a date for your transaction.")
