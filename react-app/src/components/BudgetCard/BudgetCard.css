@@ -18,7 +18,7 @@
     "BudgetPieChart BudgetBarChart"
     "BudgetPieText BudgetBarChart";
   width: 50vw;
-  height: 35vh;
+  height: 50vh;
 }
 
 .BudgetPieChart { grid-area: BudgetPieChart; }

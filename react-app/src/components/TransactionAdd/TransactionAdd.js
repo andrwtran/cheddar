@@ -2,7 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createTransaction } from '../../store/transaction';
-import { getTransactions } from '../../store/transaction';
+import  ReactDOM  from 'react-dom';
+// import { getTransactions } from '../../store/transaction';
 import './TransactionAdd.css';
 
 export default function AccountAdd({ accounts, setIsAdd, categories }) {
@@ -55,57 +56,61 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
     reset();
   };
 
-  return (
-    <div className='TransactionAdd'>
-      <form className='TransactionForm' onSubmit={handleSubmit}>
-      <label htmlFor="date">Date</label>
-      <input
-          type="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
-          name="date"
-        />
-        <label htmlFor="payee">Payee</label>
-        <input
-          type="text"
-          onChange={(e) => setPayee(e.target.value)}
-          value={payee}
-          name="payee"
-        />
-        <label htmlFor="amount">Amount</label>
-        <input
-          type="number"
-          onChange={(e) => setAmount(e.target.value)}
-          value={amount}
-          name="amount"
-        />
-        <label htmlFor="categoryId">Category</label>
+  return ReactDOM.createPortal(
+    <>
+      <div className="TransactionFormOverlay" onClick={reset}></div>
+      <div className='TransactionForm'>
+        <form className='TransactionForm' onSubmit={handleSubmit}>
+          <label htmlFor="date">Date</label>
+          <input
+            type="date"
+            onChange={(e) => setDate(e.target.value)}
+            value={date}
+            name="date"
+          />
+          <label htmlFor="payee">Payee</label>
+          <input
+            type="text"
+            onChange={(e) => setPayee(e.target.value)}
+            value={payee}
+            name="payee"
+          />
+          <label htmlFor="amount">Amount</label>
+          <input
+            type="number"
+            onChange={(e) => setAmount(e.target.value)}
+            value={amount}
+            name="amount"
+          />
+          <label htmlFor="categoryId">Category</label>
 
-        <select
-          onChange={(e) => setCategoryId(e.target.value)}
-          value={categoryId}
-          name="categoryId"
-        >
-          <option value="" selected disabled hidden></option>
-          {Object.values(categories).slice(1).map((category) => (
-            <option value={category.id}>{category.category_name}</option>
-            )
-          )}
-        </select>
-        <label htmlFor="accountId">Account</label>
-        <select
-          onChange={(e) => setAccountId(e.target.value)}
-          value={accountId}
-          name="accountId"
-        >
-          <option value="" selected disabled hidden></option>
-          {Object.values(accounts).map((account) => (
-            <option value={account.id}>{account.account_name}</option>
-            )
-          )}
-        </select>
-        <button className='submit-button' type="submit">Save</button>
-      </form>
-    </div>
-  );
+          <select
+            onChange={(e) => setCategoryId(e.target.value)}
+            value={categoryId}
+            name="categoryId"
+          >
+            <option value="" selected disabled hidden></option>
+            {Object.values(categories).slice(1).map((category) => (
+              <option value={category.id}>{category.category_name}</option>
+              )
+            )}
+          </select>
+          <label htmlFor="accountId">Account</label>
+          <select
+            onChange={(e) => setAccountId(e.target.value)}
+            value={accountId}
+            name="accountId"
+          >
+            <option value="" selected disabled hidden></option>
+            {Object.values(accounts).map((account) => (
+              <option value={account.id}>{account.account_name}</option>
+              )
+            )}
+          </select>
+          <button className='submit-button' type="submit">Save</button>
+          <button className='close-button' onClick={() => setIsAdd(false)}>Close</button>
+        </form>
+      </div>
+    </>,
+  document.getElementById('root'));
 }

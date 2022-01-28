@@ -1,12 +1,13 @@
 .TransactionCard table {
   table-layout: fixed;
-  width: 1400px;
+  width: 48vw;
   background-color: rgba(244, 107, 23, 0.2);
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
   border-collapse:collapse;
   margin: 5px;
   padding: 5px;
+  align-self: center;
 }
 
 .TransactionCard th {
@@ -14,7 +15,7 @@
   font-weight: 600;
   font-size: 20px;
   background-color: rgba(244, 107, 23, 0.6);
-  border: 2px solid black;
+  border: 1px solid black;
   padding: 5px;
 }
 
@@ -37,5 +38,7 @@
   padding: 10px;
   box-shadow: 3px 3px #3F3F40;
   width: 50vw;
-  height: 35vh;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
 }

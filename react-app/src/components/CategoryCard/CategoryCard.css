@@ -5,12 +5,16 @@
   padding: 10px;
   box-shadow: 3px 3px #3F3F40;
   width: 50vw;
-  height: 35vh;
+  height: fit-content;
+}
+
+.CategoryBubbleChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .CategoryBubbleChart canvas {
-  max-height: 650px;
+  max-height: 40vh;
   max-width: 650px;
-  position: relative;
-  left: 350px;
 }

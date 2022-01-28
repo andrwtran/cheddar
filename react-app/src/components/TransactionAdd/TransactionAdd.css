@@ -1,13 +1,52 @@
-.TransactionAdd label, .TransactionAdd input, .TransactionAdd select {
+.TransactionForm label, .TransactionForm input, .TransactionForm select {
   margin: 2px;
   padding: 2px;
 }
 
-.TransactionAdd select {
+/* .TransactionAdd select {
   height: 30px;
-}
+} */
 
-.TransactionAdd form {
+/* .TransactionAdd  {
   margin: 0px;
   padding: 0px;
+  max-width: 20vw;
+} */
+
+.TransactionForm {
+  /* align-self: center;
+  justify-self: center; */
+  margin: 0px;
+  padding: 50px;
+  height: 15vh;
+  width: 30vw;
+  z-index: 1000;
+  /* position: absolute;
+  top: 29vh;
+  left: 20vw; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.TransactionForm form {
+  background-color: white !important;
+  border: 2px solid black;
+}
+
+/* .TransactionForm {
+  border: 1px solid black;
+  border-radius: 8px;
+
+} */
+
+.TransactionFormOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .7);
+  z-index: 1000;
 }
