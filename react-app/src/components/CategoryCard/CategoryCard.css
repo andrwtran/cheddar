@@ -1,11 +1,12 @@
 .CategoryCard {
+  display: flex;
+  flex-direction: column;
   background-color: #F2F2F2;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-  box-shadow: 3px 3px #3F3F40;
-  width: 50vw;
-  height: fit-content;
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 1em;
+  box-shadow: 10px 5px 5px black;
+  width: 100%;
 }
 
 .CategoryBubbleChart {
@@ -15,6 +16,7 @@
 }
 
 .CategoryBubbleChart canvas {
-  max-height: 40vh;
-  max-width: 650px;
+  max-height: 50vh;
+  max-width: 40vw;
+  /* max-width: 650px; */
 }

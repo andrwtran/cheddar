@@ -1,4 +1,4 @@
-.TransactionList {
+/* .TransactionList {
   margin: 5px;
   padding: 5px;
 }
@@ -10,7 +10,7 @@
 
 .TransactionList table {
   table-layout: fixed;
-  width: 1400px;
+  min-width: 60vw;
   background-color: rgba(244, 107, 23, 0.2);
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
@@ -66,4 +66,4 @@
 
 .editButtons button:active, .saveButtons button:active {
   background-color: #A67B2D;
-}
+} */

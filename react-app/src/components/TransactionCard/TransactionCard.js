@@ -40,14 +40,20 @@ export default function TransactionCard() {
           {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} transactions_monthly={transactions_monthly} />}
         </div>
       <table>
+        <col className='TableDate'></col>
+        <col className='TablePayee'></col>
+        <col className='TableAmount'></col>
+        <col className='TableCategory'></col>
+        <col className='TableAccount'></col>
+        <col className='TableButtons'></col>
         <thead>
           <tr>
             <th>Date</th>
             <th>Payee</th>
             <th>Amount</th>
             <th>Category</th>
-            <th colSpan={2}>Account</th>
-            <th className="TableButtons"></th>
+            <th>Account</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -59,7 +65,7 @@ export default function TransactionCard() {
                   <td>{transaction.trans_payee}</td>
                   <td>{currencyFormatter.format(transaction.trans_amount)}</td>
                   <td>{categories[transaction.categoryId - 1]?.category_name}</td>
-                  <td colSpan={2}>{accounts[transaction.accountId]?.account_name}</td>
+                  <td>{accounts[transaction.accountId]?.account_name}</td>
                 </>
               }
               <TransactionEdit

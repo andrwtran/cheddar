@@ -84,9 +84,9 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
 
   return (
   <>
-    <span className='BudgetPieChart'>
+    <div className='BudgetPieChart'>
       <Pie options={userOptions} data={userData} />
-    </span>
+    </div>
     <span className='BudgetPieText'>
       <ul>
         {budgets.length &&

@@ -1,14 +1,25 @@
-.AccountEdit form {
+/* .AccountEdit form {
+  margin: 5px;
+  font-size: 16px;
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-columns: 3.2fr 0.3fr 0.3fr;
+  grid-template-columns: 0.2fr 3.2fr 0.3fr 0.3fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas:
-    ". . .";
-  width: 595px;
+    ". . . .";
+  grid-template-areas:
+    ". AccountEditInput AccountEditSubmit AccountEditCancel";
   margin: 0px;
   padding: 0px;
   background-color: transparent;
   border-radius: 0px;
 }
+
+#AccountEditInput { grid-area: AccountEditInput; }
+#AccountEditSubmit { grid-area: AccountEditSubmit; }
+#AccountEditCancel { grid-area: AccountEditCancel; }
+
+.AccountEdit input {
+  min-width: 14.2vw;
+} */

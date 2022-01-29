@@ -1,10 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-
-.MainPanel input, .MainPanel option, .MainPanel select, .MainPanel form  {
-  font-family: "Montserrat", sans-serif;
-}
-
 .MainPanel {
-  margin: 5px;
-  padding: 5px;
+  width: 80vw;
 }

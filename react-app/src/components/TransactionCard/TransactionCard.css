@@ -1,12 +1,11 @@
 .TransactionCard table {
   table-layout: fixed;
-  width: 48vw;
+  width: 75vw;
   background-color: rgba(244, 107, 23, 0.2);
-  font-family: "Montserrat", sans-serif;
-  border-radius: 5px;
+  border-radius: 0.5em;
   border-collapse:collapse;
-  margin: 5px;
-  padding: 5px;
+  margin: 1em;
+  padding: 1em;
   align-self: center;
 }
 
@@ -16,15 +15,13 @@
   font-size: 20px;
   background-color: rgba(244, 107, 23, 0.6);
   border: 1px solid black;
-  padding: 5px;
 }
 
 .TransactionCard td {
   text-align: left;
-  font-weight: 600;
+  padding-left: 0.5em;
   font-size: 14px;
   border: 1px solid black;
-  padding: 5px;
 }
 
 .TransactionCard tbody tr:nth-of-type(even) {
@@ -32,13 +29,20 @@
 }
 
 .TransactionCard {
-  background-color: #F2F2F2;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-  box-shadow: 3px 3px #3F3F40;
-  width: 50vw;
-  min-height: 50vh;
   display: flex;
   flex-direction: column;
+  background-color: #F2F2F2;
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 1em;
+  box-shadow: 10px 5px 5px black;
+  width: 100%;
+}
+
+.TableDate, .TablePayee, .TableAmount, .TableCategory, .TableAccount {
+  width: 14vw;
+}
+
+.TableButtons {
+  width: 4vw;
 }

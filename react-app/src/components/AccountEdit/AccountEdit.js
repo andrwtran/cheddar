@@ -40,16 +40,22 @@ export default function AccountEdit({ setEditId, editId, account, accounts, setI
 
       {editId === account.id &&
         <form className='AccountEditForm' onSubmit={handleSubmit}>
-          <input
-            type="text"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-            placeholder={name}
-            name="name"
-          />
-          {name && <button className='submit-button' type="submit"><i className="fas fa-save" /></button>}
-          {!name && <button className='submit-button' type="submit" disabled="disabled"><i className="fas fa-save" /></button>}
-          <button className='cancel-button' onClick={reset}><i className="far fa-window-close" /></button>
+          <span id="AccountEditInput">
+            <input
+              type="text"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+              placeholder={name}
+              name="name"
+            />
+          </span>
+          <span id="AccountEditSubmit">
+            {name && <button className='submit-button' type="submit"><i className="fas fa-save" /></button>}
+            {!name && <button className='submit-button' type="submit" disabled="disabled"><i className="fas fa-save" /></button>}
+          </span>
+          <span id="AccountEditCancel">
+            <button className='cancel-button' onClick={reset}><i className="far fa-window-close" /></button>
+          </span>
         </form>
       }
   </div>

@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
 .SignUpForm, .LoginForm {
   min-width: 500px;
   min-height: 500px;
-  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 20px;
   display: flex;
@@ -12,33 +10,41 @@
   justify-content: center;
 }
 
-.LoginButton, .SignUpButton {
+#LoginButtons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  margin: 10px;
+}
+
+.LoginButton, .SignUpButton {
+  margin: 0.5em;
+  margin-top: 0.8em;
 }
 
 .LoginForm label, .SignUpForm label {
-  margin: 5px;
+  margin: 0.3em;
 }
 
-.LoginForm input, .SignUpForm input {
+.LoginForm form, .SignUpForm form {
+  border: 1px solid black;
+  box-shadow: 10px 5px 5px black;
+  padding: 1em;
+  background-color: rgba(244, 107, 23, 0.8);
+}
+
+.SignUpButton {
+  display: flex;
+  justify-content: center;
+}
+
+/* .LoginForm input, .SignUpForm input {
   margin: 5px;
   padding: 5px;
   border: 0;
   box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
   border-radius:5px;
-}
+} */
 
-.LoginForm button, .SignUpForm button {
+/* .LoginForm button, .SignUpForm button {
   border-radius:5px;
-}
-
-form {
-  background-color: rgba(244, 107, 23, 0.8);
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-}
+} */

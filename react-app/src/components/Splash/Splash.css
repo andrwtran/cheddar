@@ -3,6 +3,19 @@
   min-height: 500px;
   background-image: url('/src/images/cheddar-logo.png');
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
+
+.HomeContainer {
+  width: 100%;
+  display: flex;
+}
+
+/* .HomeContainer {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". .";
+} */

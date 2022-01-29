@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-
-.SidePanel input, .SidePanel h3 {
-  font-family: "Montserrat", sans-serif;
-}
-
-.SidePanel h3 {
+/* .SidePanel h3 {
   font-weight: 600;
   font-size: 20px;
 }
@@ -23,4 +17,27 @@
 .Transactions li {
  font-size: 16px;
  margin: 5px;
+}
+
+#SideMax {
+  position: sticky;
+  left: 22%;
+}
+
+#SideMin {
+  position: sticky;
+  left: 25%;
+}
+
+#SideMin button, #SideMax button {
+  font-size: 10px;
+  border-radius: 10px;
+} */
+
+#MinSidePanel {
+  width: 10vw;
+}
+
+#MaxSidePanel {
+  width: 20vw;
 }
