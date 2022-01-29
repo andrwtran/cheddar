@@ -7,7 +7,7 @@ import AccountDelete from '../AccountDelete/AccountDelete';
 import AccountEdit from '../AccountEdit/AccountEdit';
 import './AccountList.css';
 
-export default function AccountList() {
+export default function AccountList({ isMax }) {
   const dispatch = useDispatch();
   const accounts = useSelector((state) => state.account.all);
 
@@ -24,10 +24,29 @@ export default function AccountList() {
     setEditId();
   };
 
+  if (!isMax) {
+    return (
+      <div className='AccountList'>
+      <h3>Accounts</h3>
+      <button className='NewAccountButton' onClick={toggleAdd}>New Account</button>
+      {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
+      <ul>
+        {accounts.map((account) => (
+          <li key={account.id}>
+            {editId !== account.id && <i className="fas fa-cheese" />}
+            {editId !== account.id && account.account_name}
+          </li>
+        )
+        )}
+      </ul>
+    </div>
+    );
+  };
+
   return (
     <div className='AccountList'>
       <h3>Accounts</h3>
-      <button onClick={toggleAdd}>New Account</button>
+      <button className='NewAccountButton' onClick={toggleAdd}>New Account</button>
       {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
       <ul>
         {accounts.map((account) => (

@@ -1,19 +1,17 @@
 .TransactionList {
-  margin: 5px;
-  padding: 5px;
+  margin: 0.5em;
+  /* padding: 1em; */
 }
 
-.TransactionList h2 {
+/* .TransactionList h2 {
   text-decoration: underline;
-  font-family: "Montserrat", sans-serif;
-}
+} */
 
 .TransactionList table {
   table-layout: fixed;
-  width: 1400px;
+  min-width: 75vw;
   background-color: rgba(244, 107, 23, 0.2);
-  font-family: "Montserrat", sans-serif;
-  border-radius: 5px;
+  border-radius: 0.5em;
   border-collapse:collapse;
 }
 
@@ -22,16 +20,15 @@
   font-weight: 600;
   font-size: 20px;
   background-color: rgba(244, 107, 23, 0.6);
-  border: 2px solid black;
-  padding: 5px;
+  border: 1px solid black;
+  /* padding: 5px; */
 }
 
 .TransactionList td {
   text-align: left;
-  font-weight: 600;
   font-size: 14px;
   border: 1px solid black;
-  padding: 5px;
+  padding-left: 0.5em;
 }
 
 .TransactionList tbody tr:nth-of-type(even) {
@@ -39,31 +36,35 @@
 }
 
 .TransactionAdd {
-  margin-bottom: 10px;
-  padding-bottom: 10px;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
 }
 
-.TransactionAdd form {
+.TransactionList input, .TransactionList select {
+  width: 12vw;
+}
+
+/* .TransactionAdd form {
   background-color: transparent;
-}
+} */
 
-.TransactionAdd button {
+/* .TransactionAdd button {
   margin: 5px;
-}
+} */
 
-.TableButtons {
+/* .TableButtons {
   width: 10%;
-}
+} */
 
-.editButtons button, .saveButtons button {
+/* .editButtons button, .saveButtons button {
   margin: 5px;
   border-radius: 50%;
-}
+} */
 
-.editButtons button:hover, .saveButtons button:hover {
+/* .editButtons button:hover, .saveButtons button:hover {
   background-color: #F2A20C;
-}
+} */
 
-.editButtons button:active, .saveButtons button:active {
+/* .editButtons button:active, .saveButtons button:active {
   background-color: #A67B2D;
-}
+} */

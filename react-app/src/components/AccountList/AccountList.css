@@ -1,21 +1,26 @@
 .AccountList ul{
   list-style: none;
-  padding-inline-start: 20px;
+  padding-inline-start: 0.1em;
 }
 
 .AccountList li{
-  margin: 5px;
-  font-size: 16px;
+  margin: 0.2em;
+  font-size: 12px;
   display: grid;
   grid-auto-columns: 1fr;
   grid-template-columns: 0.2fr 3.2fr 0.3fr 0.3fr;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
+  gap: 0.2em 0.2em;
   grid-template-areas:
     ". . . .";
 }
 
-.AccountEdit button, .AccountDelete button {
+.NewAccountButton {
+  font-size: 10px !important;
+  margin-bottom: 0.8em;
+}
+
+/* .AccountEdit button, .AccountDelete button {
   margin: 5px;
   border-radius: 50%;
 }
@@ -26,4 +31,4 @@
 
 .AccountEdit button:active, .AccountDelete button:active {
   background-color: #A67B2D;
-}
+} */

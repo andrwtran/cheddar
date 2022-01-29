@@ -44,7 +44,6 @@ const LoginForm = () => {
           <input
             name='email'
             type='text'
-            placeholder='Email'
             value={email}
             onChange={updateEmail}
           />
@@ -54,14 +53,15 @@ const LoginForm = () => {
           <input
             name='password'
             type='password'
-            placeholder='Password'
             value={password}
             onChange={updatePassword}
           />
-          <div className='LoginButton'>
+        </div>
+        <div id="LoginButtons">
+          <span className='LoginButton'>
             <button type='submit'>Login</button>
-          </div>
-          <div className='LoginButton'>
+          </span>
+          <span className='LoginButton'>
             <button type='submit'
               onClick={() => {
               setEmail("demo@aa.io");
@@ -70,7 +70,7 @@ const LoginForm = () => {
             >
             Demo
             </button>
-          </div>
+          </span>
         </div>
       </form>
     </div>

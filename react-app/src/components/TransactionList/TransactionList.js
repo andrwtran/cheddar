@@ -39,13 +39,19 @@ const TransactionList = ({ categoryId, categoryName }) => {
           {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
         </div>
         <table>
+          <col className='TableDate'></col>
+          <col className='TablePayee'></col>
+          <col className='TableAmount'></col>
+          <col className='TableCategory'></col>
+          <col className='TableAccount'></col>
+          <col className='TableButtons'></col>
           <thead>
             <tr>
               <th>Date</th>
               <th>Payee</th>
               <th>Amount</th>
               <th>Category</th>
-              <th colSpan={2}>Account</th>
+              <th>Account</th>
               <th className="TableButtons"></th>
             </tr>
           </thead>
@@ -58,7 +64,7 @@ const TransactionList = ({ categoryId, categoryName }) => {
                     <td>{transaction.trans_payee}</td>
                     <td>{currencyFormatter.format(transaction.trans_amount)}</td>
                     <td>{categories[transaction.categoryId - 1]?.category_name}</td>
-                    <td colSpan={2}>{accounts[transaction.accountId]?.account_name}</td>
+                    <td>{accounts[transaction.accountId]?.account_name}</td>
                   </>
                 }
                 <TransactionEdit
@@ -86,13 +92,19 @@ const TransactionList = ({ categoryId, categoryName }) => {
         {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
       </div>
       <table>
+        <col className='TableDate'></col>
+        <col className='TablePayee'></col>
+        <col className='TableAmount'></col>
+        <col className='TableCategory'></col>
+        <col className='TableAccount'></col>
+        <col className='TableButtons'></col>
         <thead>
           <tr>
             <th>Date</th>
             <th>Payee</th>
             <th>Amount</th>
             <th>Category</th>
-            <th colSpan={2}>Account</th>
+            <th>Account</th>
             <th className="TableButtons"></th>
           </tr>
         </thead>
@@ -105,7 +117,7 @@ const TransactionList = ({ categoryId, categoryName }) => {
                   <td>{transaction.trans_payee}</td>
                   <td>{currencyFormatter.format(transaction.trans_amount)}</td>
                   <td>{categories[transaction.categoryId - 1]?.category_name}</td>
-                  <td colSpan={2}>{accounts[transaction.accountId]?.account_name}</td>
+                  <td>{accounts[transaction.accountId]?.account_name}</td>
                 </>
               }
               <TransactionEdit

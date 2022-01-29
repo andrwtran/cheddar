@@ -8,10 +8,12 @@ td input, td select {
   padding: 0;
   margin: 0;
   border: 0;
-  width: 90%;
 }
 
 .editButtons, .saveButtons {
   display: flex;
-  justify-content: space-evenly;
+}
+
+.editButtons span, .saveButtons span {
+  margin: 0.5em 0.5em;
 }

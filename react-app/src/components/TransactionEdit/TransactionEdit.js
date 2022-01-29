@@ -68,8 +68,12 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
         <>
           <td>
             <div className='editButtons'>
-              <button onClick={toggleEdit}><i className="fas fa-edit" /></button>
-              <TransactionDelete oldTransaction={transaction} />
+              <span>
+                <button onClick={toggleEdit}><i className="fas fa-edit" /></button>
+              </span>
+              <span>
+                <TransactionDelete oldTransaction={transaction} />
+              </span>
             </div>
           </td>
         </>
@@ -120,7 +124,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               )}
             </select>
           </td>
-          <td colSpan={2}>
+          <td>
             <select
               form='Edit'
               onChange={(e) => setAccountId(e.target.value)}
@@ -133,10 +137,14 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               )}
             </select>
           </td>
-          <td colSpan={0.5}>
+          <td>
             <div className='saveButtons'>
-              <button className='submit-button' type="submit" form='Edit'><i className="fas fa-save" /></button>
-              <button className='cancel-button' onClick={reset}><i className="far fa-window-close" /></button>
+              <span>
+                <button className='submit-button' type="submit" form='Edit'><i className="fas fa-save" /></button>
+              </span>
+              <span>
+                <button className='cancel-button' onClick={reset}><i className="far fa-window-close" /></button>
+              </span>
             </div>
           </td>
         </>

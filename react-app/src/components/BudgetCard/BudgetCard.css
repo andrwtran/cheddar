@@ -1,14 +1,16 @@
 .BudgetPieChart {
-  max-height: 500px;
-  max-width: 500px;
+  /* max-height: 500px;
+  max-width: 500px; */
+  width: 20vw;
 }
 
 .BudgetCard {
   background-color: #F2F2F2;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-  box-shadow: 3px 3px #3F3F40;
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 1em;
+  box-shadow: 10px 5px 5px black;
+  width: 100%;
   display: grid;
   grid-auto-columns: 1fr;
   grid-template-columns: 1fr 2.5fr;
@@ -17,8 +19,6 @@
   grid-template-areas:
     "BudgetPieChart BudgetBarChart"
     "BudgetPieText BudgetBarChart";
-  width: 50vw;
-  height: 35vh;
 }
 
 .BudgetPieChart { grid-area: BudgetPieChart; }
@@ -29,18 +29,20 @@
   list-style-type: none;
 }
 
-.BudgetCard li {
-  margin: 5px;
-  padding: 5px;
+.BudgetBarChart {
+  /* max-height: 950px;
+  max-width: 950px; */
+  width: 55vw;
 }
 
-/* .BudgetBarChart {
-  max-height: 950px;
-  max-width: 950px;
-} */
+.BudgetCard li {
+  margin: 0.2em;
+  padding: 0.2em;
+}
 
 .BudgetPieText {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  position: relative;
+  right: 3em;
+  margin-top: 1em;
 }

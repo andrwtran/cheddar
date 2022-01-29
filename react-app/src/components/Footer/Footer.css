@@ -1,31 +1,19 @@
 .Footer {
-  /* background-color: #F2A20C; */
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  width: 30%;
-  border-radius: 5px;
   align-self: center;
-  margin: 10px;
 }
 
 .Footer #github_link a, .Footer #linkedin_link a {
   font-size: 35px;
-  margin: 5px;
+  margin: 0.2em;
   color: black;
 }
 
-/* #footer_logo {
-  max-height: 120px;
-  max-width: 120px;
-} */
-
 .Footer p {
   font-size: 14px;
-  margin: 5px;
-  inline-size: 100px;
+  margin: 0.4em;
+  inline-size: 7em;
   overflow-wrap: break-word;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import  ReactDOM  from 'react-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createAccount } from '../../store/account';
@@ -27,19 +28,23 @@ export default function AccountAdd({ setIsAdd, accounts }) {
     reset();
   };
 
-  return (
-    <div className='AccountAdd'>
-      <form className='AccountAddForm' onSubmit={handleSubmit}>
-        <input
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-          placeholder="New Account"
-          name="name"
-        />
-        {name && <button className='submit-button' type="submit">Save</button>}
-        {!name && <button className='submit-button' type="submit" disabled="disabled">Save</button>}
-      </form>
-    </div>
-  );
+  return ReactDOM.createPortal(
+    <>
+      <div className="AccountFormOverlay" onClick={reset}></div>
+      <div className='AccountAdd'>
+        <form className='AccountAddForm' onSubmit={handleSubmit}>
+          <input
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            placeholder="New Account"
+            name="name"
+          />
+          {name && <button className='submit-button' type="submit">Save</button>}
+          {!name && <button className='submit-button' type="submit" disabled="disabled">Save</button>}
+          <button onClick={reset}>Cancel</button>
+        </form>
+      </div>
+    </>,
+  document.getElementById('root'));
 }
