@@ -1,23 +1,29 @@
-/* .SidePanel h3 {
+.SidePanel h3 {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .SidePanel {
   background-color: #F2A20C;
-  border-radius: 5px;
-  padding: 5px;
+  border-radius: 1em;
+  padding: 0.5em;
+  margin: 0.5em;
 }
 
 .Transactions ul {
   list-style-type: none;
-  padding-inline-start: 20px;
+  padding-inline-start: 0.1em;
 }
 
 .Transactions li {
- font-size: 16px;
+ font-size: 12px;
  margin: 5px;
 }
+
+.Transactions a {
+  color: black !important;
+  text-decoration: none !important;
+ }
 
 #SideMax {
   position: sticky;
@@ -31,8 +37,8 @@
 
 #SideMin button, #SideMax button {
   font-size: 10px;
-  border-radius: 10px;
-} */
+  /* border-radius: 10px; */
+}
 
 #MinSidePanel {
   width: 10vw;

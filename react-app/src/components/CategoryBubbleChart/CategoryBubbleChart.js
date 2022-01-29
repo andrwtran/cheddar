@@ -1,9 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+// import { getCategories } from '../../store/category';
+// import { getTransactions } from '../../store/transaction';
 import { Doughnut } from 'react-chartjs-2';
 import "./CategoryBubbleChart.css"
 
 export default function BudgetPieChart({ transactions, categories, today }) {
+  // const dispatch = useDispatch();
+
+  // const transactions = useSelector((state) => state.transaction.all);
+  // const categories = useSelector((state) => state.category);
+
+  // useEffect(() => {
+  //   dispatch(getCategories());
+  //   dispatch(getTransactions());
+  // }, [dispatch]);
+
   const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
 
   const spend_monthly_byCat = {};

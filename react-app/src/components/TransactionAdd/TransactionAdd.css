@@ -5,14 +5,14 @@
 
 .TransactionForm select, .TransactionForm input {
   box-sizing: content-box;
-  width: 10vw;
+  width: 15vw;
 }
 
 .TransactionForm {
   margin: 0px;
-  padding: 50px;
-  min-height: 22vh;
-  min-width: 22vw;
+  padding: 2vh;
+  min-height: 25vh;
+  min-width: 30vw;
   z-index: 1000;
   position: fixed;
   top: 50%;

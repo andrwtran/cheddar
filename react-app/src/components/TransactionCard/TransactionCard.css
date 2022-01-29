@@ -40,9 +40,13 @@
 }
 
 .TableDate, .TablePayee, .TableAmount, .TableCategory, .TableAccount {
-  width: 14vw;
+  width: 13vw;
 }
 
 .TableButtons {
-  width: 4vw;
+  width: 8vw;
+}
+
+.TransactionCard input, .TransactionCard select {
+  width: 12vw;
 }
