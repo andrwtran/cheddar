@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { currencyFormatter } from '../../utils';
 import overbudget from '../../images/dangerzone.png';
@@ -14,8 +14,8 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
   const budget_left = budget_monthly - spend_monthly;
   const budget_left_daily = budget_left / days_in_month;
 
-  const [userData, setUserData] = useState(
-    {
+  // const [userData, setUserData] = useState(
+  const userData =  {
       labels: ['Spent', 'Left'],
       datasets: [
         {
@@ -32,10 +32,10 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
         },
       ]
     }
-  );
+  // );
 
-  const [userOptions, setUserOptions] = useState(
-    {
+  // const [userOptions, setUserOptions] = useState(
+  const userOptions =  {
       responsive: true,
       plugins: {
         legend: {
@@ -58,7 +58,7 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
         },
       },
     }
-  );
+  // );
 
   if (!budgets.length || !transactions.length) {
     return null
