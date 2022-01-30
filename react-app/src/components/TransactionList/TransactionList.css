@@ -44,6 +44,17 @@
   width: 12vw;
 }
 
+.editButtons button, .saveButtons button {
+  background-color: transparent;
+  border: 0.1em solid transparent;
+  font-size: 14px;
+}
+
+.editButtons button:hover, .saveButtons button:hover {
+  border: 0.1em solid black;
+  background-color: #F2F2F2;
+}
+
 /* .TransactionAdd form {
   background-color: transparent;
 } */

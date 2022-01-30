@@ -31,7 +31,7 @@ const NavBar = () => {
   // );
 
   if (sessionUser) return (
-    <nav className='NavBar' style={{width:"95%"}}>
+    <nav className='NavBar' style={{width:"95%", height:"3em"}}>
       <ul>
         <li>
           <NavLink to='/'>

@@ -20,15 +20,13 @@
   margin-bottom: 0.8em;
 }
 
-/* .AccountEdit button, .AccountDelete button {
-  margin: 5px;
-  border-radius: 50%;
+.AccountEdit button, .AccountDelete button {
+  background-color: transparent;
+  border: 0.1em solid transparent;
+  font-size: 12px;
 }
 
 .AccountEdit button:hover, .AccountDelete button:hover {
-  background-color: #F2A20C;
+  border: 0.1em solid black;
+  background-color: #F2F2F2;
 }
-
-.AccountEdit button:active, .AccountDelete button:active {
-  background-color: #A67B2D;
-} */
