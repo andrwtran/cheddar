@@ -42,7 +42,7 @@ export default function AccountAdd({ setIsAdd, accounts }) {
           />
           {name && <button className='submit-button' type="submit">Save</button>}
           {!name && <button className='submit-button' type="submit" disabled="disabled">Save</button>}
-          <button onClick={reset}>Cancel</button>
+          <button onClick={reset}>Close</button>
         </form>
       </div>
     </>,

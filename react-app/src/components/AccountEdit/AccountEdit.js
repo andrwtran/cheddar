@@ -49,12 +49,14 @@ export default function AccountEdit({ setEditId, editId, account, accounts, setI
               name="name"
             />
           </span>
-          <span id="AccountEditSubmit">
+          <span id="AccountEditButtons">
+          {/* <span id="AccountEditSubmit"> */}
             {name && <button className='submit-button' type="submit"><i className="fas fa-save" /></button>}
             {!name && <button className='submit-button' type="submit" disabled="disabled"><i className="fas fa-save" /></button>}
-          </span>
-          <span id="AccountEditCancel">
+          {/* </span> */}
+          {/* <span id="AccountEditCancel"> */}
             <button className='cancel-button' onClick={reset}><i className="far fa-window-close" /></button>
+          {/* </span> */}
           </span>
         </form>
       }

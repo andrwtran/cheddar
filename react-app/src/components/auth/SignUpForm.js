@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import logo from '../../images/cheddar-logo-small.png';
 import "./auth.css"
 
 const SignUpForm = () => {
@@ -45,6 +46,7 @@ const SignUpForm = () => {
 
   return (
     <div className='SignUpForm'>
+      <img src={logo}></img>
       <form onSubmit={onSignUp}>
         <div className='SignUpErrors'>
           {errors.map((error, ind) => (

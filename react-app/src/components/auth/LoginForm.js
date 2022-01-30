@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import logo from '../../images/cheddar-logo-small.png';
 import "./auth.css"
 
 const LoginForm = () => {
@@ -33,6 +34,7 @@ const LoginForm = () => {
 
   return (
     <div className='LoginForm'>
+      <img src={logo}></img>
       <form onSubmit={onLogin}>
         <div className='LoginErrors'>
           {errors.map((error, ind) => (
