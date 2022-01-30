@@ -82,14 +82,16 @@ const transactionReducer = (state = initialState, action) => {
         let transaction = action.transactions[i];
         newState.byId[transaction.id] = transaction;
         newState.all.push(transaction);
-      }
+      };
       return newState;
     };
     case ADD_TRANSACTION: {
       const newState = { byId: { ...state.byId }, all: [ ...state.all] };
       const newTransaction = action.newTransaction;
-      newState.byId[newTransaction.id] = newTransaction;
-      newState.all.push(newTransaction);
+      if (!newState.byId[newTransaction.id]) {
+        newState.byId[newTransaction.id] = newTransaction;
+        newState.all.push(newTransaction);
+      };
       return newState;
     };
     case REMOVE_TRANSACTION: {

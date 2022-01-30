@@ -36,11 +36,13 @@ const LoginForm = () => {
     <div className='LoginForm'>
       <img src={logo}></img>
       <form onSubmit={onLogin}>
-        <div className='LoginErrors'>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
+        {errors.length > 0 &&
+          <div className='LoginErrors'>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+        }
         <div className='LoginEmail'>
           <label htmlFor='email'>Email</label>
           <input

@@ -48,11 +48,13 @@ const SignUpForm = () => {
     <div className='SignUpForm'>
       <img src={logo}></img>
       <form onSubmit={onSignUp}>
-        <div className='SignUpErrors'>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
+        {errors.length > 0 &&
+          <div className='SignUpErrors'>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+        }
         <div className='SignUpUserName'>
           <label>User Name</label>
           <input

@@ -17,9 +17,9 @@ export default function AccountAdd({ setIsAdd, accounts }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (accounts.find((account) => account.account_name === name)) {
-      return alert("You cannot have two accounts with the same name.");
-    };
+    // if (accounts.find((account) => account.account_name === name)) {
+    //   return alert("You cannot have two accounts with the same name.");
+    // };
 
     const newAccount = {
       account_name: name
