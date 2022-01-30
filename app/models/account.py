@@ -5,7 +5,7 @@ class Account(db.Model):
     __tablename__ = 'accounts'
 
     id = db.Column(db.Integer, primary_key=True)
-    account_name = db.Column(db.String(40), nullable=False, unique=True)
+    account_name = db.Column(db.String(40), nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user = db.relationship('User', back_populates='accounts')

@@ -1,4 +1,3 @@
-
 .SignUpForm, .LoginForm {
   min-width: 500px;
   min-height: 500px;
@@ -38,13 +37,27 @@
 }
 
 .LoginForm img {
-  height: 60%;
-  width: 60%
+  height: 50%;
+  width: 50%;
+  margin-bottom: 1em;
 }
 
 .SignUpForm img {
-  height: 45%;
-  width: 45%;
+  height: 40%;
+  width: 40%;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+.LoginErrors div, .SignUpErrors div{
+  color: red !important;
+}
+
+.LoginErrors, .SignUpErrors {
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin-bottom: 0.2em;
+  background-color: white;
 }
 
 /* .LoginForm input, .SignUpForm input {

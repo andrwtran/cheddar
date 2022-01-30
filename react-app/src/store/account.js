@@ -82,14 +82,16 @@ const accountReducer = (state = initialState, action) => {
         let account = action.accounts[i];
         newState.byId[account.id] = account;
         newState.all.push(account);
-      }
+      };
       return newState;
     };
     case ADD_ACCOUNT: {
       const newState = { byId: { ...state.byId }, all: [ ...state.all] };
       const newAccount = action.newAccount;
-      newState.byId[newAccount.id] = newAccount;
-      newState.all.push(newAccount);
+      if (!newState.byId[newAccount.id]) {
+        newState.byId[newAccount.id] = newAccount;
+        newState.all.push(newAccount);
+      };
       return newState;
     };
     case REMOVE_ACCOUNT: {
@@ -110,7 +112,7 @@ const accountReducer = (state = initialState, action) => {
     default:
       return state;
   };
-  
+
 };
 
 export default accountReducer;

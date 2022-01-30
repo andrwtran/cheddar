@@ -80,7 +80,7 @@ function getCard(budget, spend_monthly_byCat) {
         <Card.Body>
           <Card.Title className="d-flex justify-content-between">
             <div>{budget.budget_name}</div>
-            <div>{currencyFormatter.format(spend_monthly_byCat[budget.categoryId])} / {currencyFormatter.format(budget.budget_amount)}</div>
+            <div>{currencyFormatter.format(spend_monthly_byCat[budget.categoryId] || 0)} / {currencyFormatter.format(budget.budget_amount)}</div>
           </Card.Title>
         </Card.Body>
         <ProgressBar
@@ -89,7 +89,7 @@ function getCard(budget, spend_monthly_byCat) {
         min={0}
         max={budget.budget_amount}
         now={spend_monthly_byCat[budget.categoryId]}
-        label={`${Math.floor(spend_monthly_byCat[budget.categoryId] / budget.budget_amount * 100)}%`}
+        label={`${Math.floor(spend_monthly_byCat[budget.categoryId] / budget.budget_amount * 100) || 0}%`}
           />
       </Card>
     )
