@@ -15,7 +15,7 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
   const budget_left = budget_monthly - spend_monthly;
   let budget_left_daily = budget_left / days_in_month;
 
-  if (budget_left_daily === Infinity) {
+  if (budget_left_daily === Infinity || budget_left_daily === -Infinity) {
     budget_left_daily = budget_left / 1;
   };
 
