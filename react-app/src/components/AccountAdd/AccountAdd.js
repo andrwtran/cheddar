@@ -17,9 +17,9 @@ export default function AccountAdd({ setIsAdd, accounts }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (accounts.find((account) => account.account_name === name)) {
-    //   return alert("You cannot have two accounts with the same name.");
-    // };
+    if (accounts.find((account) => account.account_name === name)) {
+      return alert("You cannot have two accounts with the same name.");
+    };
 
     const newAccount = {
       account_name: name
@@ -33,11 +33,12 @@ export default function AccountAdd({ setIsAdd, accounts }) {
       <div className="AccountFormOverlay" onClick={reset}></div>
       <div className='AccountAdd'>
         <form className='AccountAddForm' onSubmit={handleSubmit}>
+          <h3><i className="fas fa-cheese" /> New Account</h3>
           <input
             type="text"
             onChange={(e) => setName(e.target.value)}
             value={name}
-            placeholder="New Account"
+            placeholder="Account Name"
             name="name"
           />
           {name && <button className='submit-button' type="submit">Save</button>}

@@ -72,10 +72,11 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
         </span>
         <span className='OverbudgetText'>
           {budgets.length &&
-            <>
-              <p>You are {currencyFormatter.format((spend_monthly - budgets[0].budget_amount))} over your monthly budget!!!</p>
-              <p>( {currencyFormatter.format(budget_left_daily)} per day )</p>
-            </>
+            <ul>
+              <li>You are {currencyFormatter.format((spend_monthly - budgets[0].budget_amount))} over</li>
+              <li>your monthly budget!!!</li>
+              <li>( {currencyFormatter.format(budget_left_daily)} per day )</li>
+            </ul>
           }
         </span>
       </>
