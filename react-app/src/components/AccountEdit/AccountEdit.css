@@ -1,4 +1,4 @@
-.AccountEdit form {
+/* .AccountEdit form {
   display: grid;
   grid-auto-columns: 1fr;
   grid-template-columns: 0.2fr 3.2fr 0.3fr 0.3fr;
@@ -15,8 +15,20 @@
 }
 
 #AccountEditInput { grid-area: AccountEditInput; }
-#AccountEditButtons { grid-area: AccountEditButtons; }
+#AccountEditButtons { grid-area: AccountEditButtons; } */
+
+.AccountEdit form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.AccountEdit input {
+  width: 12vw;
+}
+
 
 #AccountEditButtons {
   display: flex;
+  position: relative;
+  left: 1.4em;
 }

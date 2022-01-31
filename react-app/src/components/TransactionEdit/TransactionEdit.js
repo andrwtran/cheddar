@@ -98,7 +98,6 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               type="text"
               onChange={(e) => setPayee(e.target.value)}
               value={payee}
-              placeholder="Payee"
               name="payee"
             />
           </td>

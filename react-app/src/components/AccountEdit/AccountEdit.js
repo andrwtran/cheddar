@@ -45,7 +45,7 @@ export default function AccountEdit({ setEditId, editId, account, accounts, setI
               type="text"
               onChange={(e) => setName(e.target.value)}
               value={name}
-              placeholder={name}
+              // placeholder={name}
               name="name"
             />
           </span>

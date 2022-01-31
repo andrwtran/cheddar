@@ -61,8 +61,9 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
       <div className="TransactionFormOverlay" onClick={reset}></div>
       <div className='TransactionForm'>
         <form className='TransactionForm' onSubmit={handleSubmit}>
+          <h3><i className="fas fa-money-bill-wave" /> New Transaction</h3>
           <div>
-            <label htmlFor="date">Date</label>
+            <label htmlFor="date"> Date</label>
             <input
               type="date"
               onChange={(e) => setDate(e.target.value)}
@@ -71,7 +72,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
             />
           </div>
           <div>
-            <label htmlFor="payee">Payee</label>
+            <label htmlFor="payee"> Payee</label>
             <input
               type="text"
               onChange={(e) => setPayee(e.target.value)}
@@ -80,7 +81,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
             />
           </div>
           <div>
-            <label htmlFor="amount">Amount</label>
+            <label htmlFor="amount"> Amount</label>
             <input
               type="number"
               onChange={(e) => setAmount(e.target.value)}
@@ -89,7 +90,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
             />
           </div>
           <div>
-            <label htmlFor="categoryId">Category</label>
+            <label htmlFor="categoryId"> Category</label>
             <select
               onChange={(e) => setCategoryId(e.target.value)}
               value={categoryId}
@@ -103,7 +104,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
             </select>
           </div>
           <div>
-            <label htmlFor="accountId">Account</label>
+            <label htmlFor="accountId"> Account</label>
             <select
               onChange={(e) => setAccountId(e.target.value)}
               value={accountId}
