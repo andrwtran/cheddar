@@ -13,7 +13,11 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
   // const budget_monthly = budgets[0].budget_amount;
   const budget_monthly = budgets.find(budget => budget.categoryId === 1).budget_amount;
   const budget_left = budget_monthly - spend_monthly;
-  const budget_left_daily = budget_left / days_in_month;
+  let budget_left_daily = budget_left / days_in_month;
+
+  if (budget_left_daily === Infinity) {
+    budget_left_daily = budget_left / 1;
+  };
 
   // const [userData, setUserData] = useState(
   const userData =  {
