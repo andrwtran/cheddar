@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { currencyFormatter } from '../../utils';
 import overbudget from '../../images/dangerzone.png';
@@ -10,7 +9,6 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
   const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
   const spend_monthly = transactions_monthly.reduce((acc, el) => acc + el.trans_amount, 0);
 
-  // const budget_monthly = budgets[0].budget_amount;
   const budget_monthly = budgets.find(budget => budget.categoryId === 1).budget_amount;
   const budget_left = budget_monthly - spend_monthly;
   let budget_left_daily = budget_left / days_in_month;
@@ -19,7 +17,6 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
     budget_left_daily = budget_left / 1;
   };
 
-  // const [userData, setUserData] = useState(
   const userData =  {
       labels: ['Spent', 'Left'],
       datasets: [
@@ -37,9 +34,7 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
         },
       ]
     }
-  // );
 
-  // const [userOptions, setUserOptions] = useState(
   const userOptions =  {
       responsive: true,
       plugins: {
@@ -63,23 +58,20 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
         },
       },
     }
-  // );
 
   if (!budgets.length || !transactions.length) {
     return null
   };
 
-  // if (spend_monthly > budgets[0].budget_amount) {
     if (spend_monthly > budgets.find(budget => budget.categoryId === 1).budget_amount) {
     return (
       <>
         <span className='OverbudgetImage'>
-          <img src={overbudget}></img>
+          <img src={overbudget} alt=''></img>
         </span>
         <span className='OverbudgetText'>
           {budgets.length &&
             <ul>
-              {/* <li>You are {currencyFormatter.format((spend_monthly - budgets[0].budget_amount))} over</li> */}
               <li>You are {currencyFormatter.format((spend_monthly - budgets.find(budget => budget.categoryId === 1).budget_amount))} over</li>
               <li>your monthly budget!!!</li>
               <li>( {currencyFormatter.format(budget_left_daily)} per day )</li>
@@ -99,10 +91,8 @@ export default function BudgetPieChart({ budgets, transactions, today, days_in_m
       <ul>
         {budgets.length &&
           <>
-            {/* <li>Monthly Budget {currencyFormatter.format(budgets[0].budget_amount)}</li> */}
             <li>Monthly Budget {currencyFormatter.format(budgets.find(budget => budget.categoryId === 1).budget_amount)}</li>
             <li>Monthly Spend {currencyFormatter.format(spend_monthly)}</li>
-            {/* <li>Budget Left {currencyFormatter.format((budgets[0].budget_amount - spend_monthly))}</li> */}
             <li>Budget Left {currencyFormatter.format((budgets.find(budget => budget.categoryId === 1).budget_amount - spend_monthly))}</li>
             <li>( {currencyFormatter.format(budget_left_daily)} per day )</li>
           </>

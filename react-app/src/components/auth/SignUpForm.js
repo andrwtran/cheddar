@@ -46,7 +46,7 @@ const SignUpForm = () => {
 
   return (
     <div className='SignUpForm'>
-      <img src={logo}></img>
+      <img src={logo} alt=''></img>
       <form onSubmit={onSignUp}>
         {errors.length > 0 &&
           <div className='SignUpErrors'>
