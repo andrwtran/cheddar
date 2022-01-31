@@ -24,7 +24,8 @@ export default function BudgetBarChart({ budgets, transactions, today }) {
   return (
     <span className='BudgetBarChart'>
       <h4>Category Budget</h4>
-      {budgets.slice(1).map(budget => (
+      {/* {budgets.slice(1).map(budget => ( */}
+      {budgets.filter(budget => budget.categoryId !== 1).map(budget => (
         getCard(budget, spend_monthly_byCat)
         // <Card className="mb-3">
         //   <Card.Body>
@@ -70,7 +71,7 @@ function getCard(budget, spend_monthly_byCat) {
       min={0}
       max={budget.budget_amount}
       now={spend_monthly_byCat[budget.categoryId]}
-      label={`${Math.floor(spend_monthly_byCat[budget.categoryId] / budget.budget_amount * 100)}%`}
+      label={`${Math.floor(spend_monthly_byCat[budget.categoryId] / budget.budget_amount * 100) || 0}%`}
         />
     </Card>
     )

@@ -15,11 +15,11 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
   const dispatch = useDispatch();
 
   const reset = () => {
-    setDate(transaction.trans_date);
-    setPayee(transaction.trans_payee);
-    setAmount(transaction.trans_amount);
-    setCategoryId(transaction.categoryId);
-    setAccountId(transaction.accountId);
+    // setDate(transaction.trans_date);
+    // setPayee(transaction.trans_payee);
+    // setAmount(transaction.trans_amount);
+    // setCategoryId(transaction.categoryId);
+    // setAccountId(transaction.accountId);
     setEditId();
   };
 

@@ -8,7 +8,7 @@
 }
 
 .TransactionForm label {
-  width: 10vw;
+  width: 8vw;
 }
 
 .TransactionForm select, .TransactionForm input {
@@ -18,7 +18,7 @@
 
 .TransactionForm {
   margin: 0px;
-  padding: 2vh;
+  padding: 4vh;
   min-height: 25vh;
   min-width: 30vw;
   z-index: 1000;
