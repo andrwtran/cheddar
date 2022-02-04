@@ -11,7 +11,9 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+
   const user = useSelector(state => state.session.user);
+
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
@@ -21,6 +23,9 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    }
+    if (password !== repeatPassword) {
+      return alert("Passwords must match.")
     }
   };
 
