@@ -23,9 +23,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
-    }
-    if (password !== repeatPassword) {
-      return alert("Passwords must match.")
+    } else {
+      setErrors(["password : Passwords must match."])
     }
   };
 
