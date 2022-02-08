@@ -11,7 +11,9 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+
   const user = useSelector(state => state.session.user);
+
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
@@ -21,6 +23,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors([ "password : Passwords must match." ])
     }
   };
 
@@ -46,7 +50,7 @@ const SignUpForm = () => {
 
   return (
     <div className='SignUpForm'>
-      <img src={logo}></img>
+      <img src={logo} alt=''></img>
       <form onSubmit={onSignUp}>
         {errors.length > 0 &&
           <div className='SignUpErrors'>

@@ -1,22 +1,3 @@
-/* .AccountEdit form {
-  display: grid;
-  grid-auto-columns: 1fr;
-  grid-template-columns: 0.2fr 3.2fr 0.3fr 0.3fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    ". . . .";
-  grid-template-areas:
-    ". AccountEditInput AccountEditButtons AccountEditButtons";
-  margin: 0px;
-  padding: 0px;
-  background-color: transparent;
-  border-radius: 0px;
-}
-
-#AccountEditInput { grid-area: AccountEditInput; }
-#AccountEditButtons { grid-area: AccountEditButtons; } */
-
 .AccountEdit form {
   display: flex;
   justify-content: space-around;

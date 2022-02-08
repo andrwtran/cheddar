@@ -34,7 +34,7 @@ const LoginForm = () => {
 
   return (
     <div className='LoginForm'>
-      <img src={logo}></img>
+      <img src={logo} alt=''></img>
       <form onSubmit={onLogin}>
         {errors.length > 0 &&
           <div className='LoginErrors'>

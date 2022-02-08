@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import "./CategoryBubbleChart.css"
 
@@ -18,7 +17,6 @@ export default function BudgetPieChart({ transactions, categories, today }) {
     };
   });
 
-  // const [userData, setUserData] = useState(
   const userData =  {
       labels: Object.keys(spend_monthly_byCat).map(key => categories[key-1].category_name),
       datasets: [
@@ -56,10 +54,7 @@ export default function BudgetPieChart({ transactions, categories, today }) {
         }
       ]
     }
-  // );
 
-
-  // const [userOptions, setUserOptions] = useState(
   const userOptions =  {
       responsive: true,
       plugins: {
@@ -75,7 +70,6 @@ export default function BudgetPieChart({ transactions, categories, today }) {
         },
       },
     }
-  // );
 
   if (!categories.length || !transactions.length) {
     return null

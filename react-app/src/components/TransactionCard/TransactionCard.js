@@ -16,8 +16,9 @@ export default function TransactionCard() {
   const categories = useSelector((state) => state.category);
 
   const today = new Date();
-  const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
-
+  // const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
+  const transactions_monthly = transactions.filter(transaction => parseInt(transaction.trans_date.slice(5,7)) === today.getMonth()+1);
+  
   const [isAdd, setIsAdd] = useState(false);
   const [editId, setEditId] = useState();
 
@@ -61,7 +62,8 @@ export default function TransactionCard() {
             <tr key={transaction.id}>
               {editId !== transaction.id &&
                 <>
-                  <td>{transaction.trans_date.slice(5,16)}</td>
+                  {/* <td>{transaction.trans_date.slice(5,16)}</td> */}
+                  <td>{transaction.trans_date}</td>
                   <td>{transaction.trans_payee}</td>
                   <td>{currencyFormatter.format(transaction.trans_amount)}</td>
                   <td>{categories[transaction.categoryId - 1]?.category_name}</td>
