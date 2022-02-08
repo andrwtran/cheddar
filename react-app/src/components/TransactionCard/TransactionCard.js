@@ -15,10 +15,12 @@ export default function TransactionCard() {
   const accounts = useSelector((state) => state.account.byId);
   const categories = useSelector((state) => state.category);
 
+  const num_accounts = Object.keys(accounts).length;
+
   const today = new Date();
   // const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
   const transactions_monthly = transactions.filter(transaction => parseInt(transaction.trans_date.slice(5,7)) === today.getMonth()+1);
-  
+
   const [isAdd, setIsAdd] = useState(false);
   const [editId, setEditId] = useState();
 
@@ -26,7 +28,7 @@ export default function TransactionCard() {
     dispatch(getTransactions());
     dispatch(getAccounts());
     dispatch(getCategories());
-  }, [dispatch, isAdd]);
+  }, [dispatch, isAdd, num_accounts]);
 
   const toggleAdd = (e) => {
     e.preventDefault();
