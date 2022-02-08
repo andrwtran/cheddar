@@ -24,6 +24,7 @@ export const getTransactions = () => async (dispatch) => {
 
   if (response.ok) {
     const transactions = await response.json();
+    // console.log("!!!!!!!!!!!!!!", transactions)
     dispatch(load(transactions.all_transactions));
     return transactions;
   }
@@ -80,6 +81,8 @@ const transactionReducer = (state = initialState, action) => {
       const newState = { byId: { }, all: [ ] };
       for (let i = 0; i < action.transactions.length; i++) {
         let transaction = action.transactions[i];
+        // console.log('!!!!!!!!!!!!!', transaction.trans_date);
+        // transaction.trans_date = (new Date(transaction.trans_date)).toDateString();
         newState.byId[transaction.id] = transaction;
         newState.all.push(transaction);
       };
@@ -88,6 +91,8 @@ const transactionReducer = (state = initialState, action) => {
     case ADD_TRANSACTION: {
       const newState = { byId: { ...state.byId }, all: [ ...state.all] };
       const newTransaction = action.newTransaction;
+      // console.log("!!!!!!!!!!!", newTransaction.trans_date);
+      // newTransaction.trans_date = (new Date(newTransaction.trans_date)).toDateString();
       if (!newState.byId[newTransaction.id]) {
         newState.byId[newTransaction.id] = newTransaction;
         newState.all.push(newTransaction);
@@ -104,6 +109,7 @@ const transactionReducer = (state = initialState, action) => {
     case UPDATE_TRANSACTION: {
       const newState = { byId: { ...state.byId }, all: [ ...state.all] };
       const editTransaction = action.transaction;
+      // editTransaction.trans_date = (new Date(editTransaction.trans_date)).toDateString();
       newState.byId[editTransaction.id] = editTransaction;
       const updateIndex = newState.all.findIndex((transaction) => transaction.id === editTransaction.id);
       newState.all[updateIndex] = editTransaction;

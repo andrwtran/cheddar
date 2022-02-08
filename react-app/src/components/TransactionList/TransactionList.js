@@ -60,7 +60,8 @@ const TransactionList = ({ categoryId, categoryName }) => {
               <tr key={transaction.id}>
                 {editId !== transaction.id &&
                   <>
-                    <td>{transaction.trans_date.slice(5,16)}</td>
+                    {/* <td>{transaction.trans_date.slice(5,16)}</td> */}
+                    <td>{transaction.trans_date}</td>
                     <td>{transaction.trans_payee}</td>
                     <td>{currencyFormatter.format(transaction.trans_amount)}</td>
                     <td>{categories[transaction.categoryId - 1]?.category_name}</td>
@@ -113,7 +114,8 @@ const TransactionList = ({ categoryId, categoryName }) => {
             <tr key={transaction.id}>
               {editId !== transaction.id &&
                 <>
-                  <td>{transaction.trans_date.slice(5,16)}</td>
+                  {/* <td>{transaction.trans_date.slice(5,16)}</td> */}
+                  <td>{transaction.trans_date}</td>
                   <td>{transaction.trans_payee}</td>
                   <td>{currencyFormatter.format(transaction.trans_amount)}</td>
                   <td>{categories[transaction.categoryId - 1]?.category_name}</td>

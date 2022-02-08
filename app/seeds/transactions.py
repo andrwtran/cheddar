@@ -6,6 +6,7 @@ def seed_transactions():
   philz_one = Transaction(trans_date=date(2022, 1, 17), trans_payee='Philz Coffee', trans_amount=6.02, categoryId=6, accountId=2)
   philz_two = Transaction(trans_date=date(2022, 1, 7), trans_payee='Philz Coffee', trans_amount=6.02, categoryId=6, accountId=2)
   philz_three = Transaction(trans_date=date(2022, 1, 9), trans_payee='Philz Coffee', trans_amount=5.27, categoryId=6, accountId=3)
+  philz_four = Transaction(trans_date=date(2022, 2, 6), trans_payee='Philz Coffee', trans_amount=6.13, categoryId=6, accountId=3)
 
   chipotle_one = Transaction(trans_date=date(2022, 1, 13), trans_payee='Chipotle', trans_amount=8.59, categoryId=6, accountId=2)
   chipotle_two = Transaction(trans_date=date(2022, 1, 18), trans_payee='Chipotle', trans_amount=10.46, categoryId=6, accountId=4)
@@ -27,6 +28,7 @@ def seed_transactions():
   everlane = Transaction(trans_date=date(2021, 12, 8), trans_payee='Everlane', trans_amount=51.76, categoryId=19, accountId=2)
   uniqlo = Transaction(trans_date=date(2021, 12, 14), trans_payee='Uniqlo', trans_amount=27.10, categoryId=19, accountId=2)
   amazon_three = Transaction(trans_date=date(2022, 2, 3), trans_payee='Amazon.com', trans_amount=17.34, categoryId=19, accountId=2)
+  uniqlo_two = Transaction(trans_date=date(2022, 2, 7), trans_payee='Uniqlo', trans_amount=31.43, categoryId=19, accountId=2)
 
   uber = Transaction(trans_date=date(2022, 1, 10), trans_payee='Uber', trans_amount=15.80, categoryId=21, accountId=3)
   lyft = Transaction(trans_date=date(2022, 1, 2), trans_payee='Lyft', trans_amount=12.61, categoryId=21, accountId=3)
@@ -47,6 +49,7 @@ def seed_transactions():
   db.session.add(philz_one)
   db.session.add(philz_two)
   db.session.add(philz_three)
+  db.session.add(philz_four)
   db.session.add(chipotle_one)
   db.session.add(chipotle_two)
   db.session.add(shake_shack)
@@ -64,6 +67,7 @@ def seed_transactions():
   db.session.add(grailed)
   db.session.add(everlane)
   db.session.add(uniqlo)
+  db.session.add(uniqlo_two)
   db.session.add(uber)
   db.session.add(lyft)
   db.session.add(uber_two)

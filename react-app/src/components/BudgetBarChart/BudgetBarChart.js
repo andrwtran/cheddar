@@ -4,7 +4,11 @@ import { currencyFormatter } from '../../utils';
 import "./BudgetBarChart.css"
 
 export default function BudgetBarChart({ budgets, transactions, today }) {
-  const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
+  // const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
+  const transactions_monthly = transactions.filter(transaction => parseInt(transaction.trans_date.slice(5,7)) === today.getMonth()+1);
+
+  // console.log("!!!!!!!!!!!!!!!!!", parseInt("2022-02-01".slice(5,7)) === today.getMonth())
+  // console.log("!!!!!!!!!!!!!!!!!!!!!!!!", today);
 
   const spend_monthly_byCat = {};
 

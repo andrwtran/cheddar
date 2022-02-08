@@ -1,4 +1,5 @@
 from .db import db
+from datetime import date
 
 class Transaction(db.Model):
   __tablename__ = 'transactions'
@@ -14,9 +15,12 @@ class Transaction(db.Model):
   account = db.relationship('Account', back_populates='transactions')
 
   def to_dict(self):
+    # print("!!!!!!!!!!!!!")
+    # print(self.trans_date)
     return {
         'id': self.id,
-        'trans_date': self.trans_date,
+        # 'trans_date': self.trans_date,
+        'trans_date': self.trans_date.isoformat(),
         'trans_payee': self.trans_payee,
         'trans_amount': self.trans_amount,
         'categoryId': self.categoryId,
