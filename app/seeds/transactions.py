@@ -11,6 +11,7 @@ def seed_transactions():
 
   chipotle_one = Transaction(trans_date=date(2022, 1, 13), trans_payee='Chipotle', trans_amount=8.59, categoryId=6, accountId=2)
   chipotle_two = Transaction(trans_date=date(2022, 1, 18), trans_payee='Chipotle', trans_amount=10.46, categoryId=6, accountId=4)
+  chipotle_three = Transaction(trans_date=date(2022, 2, 8), trans_payee='Chipotle', trans_amount=16.92, categoryId=6, accountId=4)
   shake_shack = Transaction(trans_date=date(2022, 2, 4), trans_payee='Shake Shack', trans_amount=13.88, categoryId=6, accountId=4)
 
   trader_joes = Transaction(trans_date=date(2022, 1, 13), trans_payee='Trader Joes', trans_amount=20.56, categoryId=13, accountId=2)
@@ -34,6 +35,7 @@ def seed_transactions():
   uber = Transaction(trans_date=date(2022, 1, 10), trans_payee='Uber', trans_amount=15.80, categoryId=21, accountId=3)
   lyft = Transaction(trans_date=date(2022, 1, 2), trans_payee='Lyft', trans_amount=12.61, categoryId=21, accountId=3)
   uber_two = Transaction(trans_date=date(2022, 2, 4), trans_payee='Uber', trans_amount=10.17, categoryId=21, accountId=3)
+  lyft_two = Transaction(trans_date=date(2022, 2, 8), trans_payee='Lyft', trans_amount=14.89, categoryId=21, accountId=3)
 
   udemy_one = Transaction(trans_date=date(2022, 1, 9), trans_payee='Udemy', trans_amount=32.57, categoryId=7, accountId=3)
   udemy_two = Transaction(trans_date=date(2021, 12, 22), trans_payee='Udemy', trans_amount=28.18, categoryId=7, accountId=3)
@@ -54,6 +56,7 @@ def seed_transactions():
   db.session.add(starbucks)
   db.session.add(chipotle_one)
   db.session.add(chipotle_two)
+  db.session.add(chipotle_three)
   db.session.add(shake_shack)
   db.session.add(trader_joes)
   db.session.add(whole_foods)
@@ -71,8 +74,9 @@ def seed_transactions():
   db.session.add(uniqlo)
   db.session.add(uniqlo_two)
   db.session.add(uber)
-  db.session.add(lyft)
   db.session.add(uber_two)
+  db.session.add(lyft)
+  db.session.add(lyft_two)
   db.session.add(udemy_one)
   db.session.add(udemy_two)
   db.session.add(stubhub)
