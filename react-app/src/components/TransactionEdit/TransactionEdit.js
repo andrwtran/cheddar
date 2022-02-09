@@ -111,6 +111,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               onChange={(e) => setCategoryId(e.target.value)}
               value={categoryId}
               name="categoryId"
+              id="CategorySelect"
             >
               {Object.values(categories).slice(1).map((category) => (
                 <option value={category.id}>{category.category_name}</option>
@@ -124,6 +125,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               onChange={(e) => setAccountId(e.target.value)}
               value={accountId}
               name="accountId"
+              id="AccountSelect"
             >
               {Object.values(accounts).map((account) => (
                 <option value={account.id}>{account.account_name}</option>
