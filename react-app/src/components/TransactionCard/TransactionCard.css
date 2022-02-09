@@ -23,7 +23,7 @@
 }
 
 .TransactionCard td {
-  padding-left: 0.4em;
+  padding-left: 12px;
 }
 
 .TransactionCard tbody tr {
@@ -60,7 +60,7 @@
   border-radius: 0.5em;
   margin: 1em;
   padding: 1em;
-  box-shadow: 10px 5px 5px black;
+  box-shadow: 10px 5px 5px #001219;
   width: 100%;
 }
 

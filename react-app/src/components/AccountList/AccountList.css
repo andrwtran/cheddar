@@ -28,6 +28,6 @@
 }
 
 .AccountEdit button:hover, .AccountDelete button:hover {
-  border: 0.1em solid black;
+  border: 0.1em solid #001219;
   background-color: #001219;
 }

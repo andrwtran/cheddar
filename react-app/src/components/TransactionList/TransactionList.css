@@ -15,7 +15,8 @@
   overflow: hidden;
   margin: 25px 0;
   border-radius: 5px 5px 0 0;
-  /* background-color: rgba(238, 155, 0, 0.2); */
+  /* background-color: rgba(148, 210, 189, 0.2); */
+  background-color: #F2F2F2;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -24,7 +25,7 @@
   text-align: left;
   font-weight: 600;
   font-size: 20px;
-  background-color: rgba(187, 62, 3, 0.8);
+  background-color: rgba(10, 147, 150, 0.8);
 }
 
 .TransactionList th, .TransactionList tr {
@@ -32,11 +33,11 @@
 }
 
 .TransactionList td {
-  padding-left: 0.4em;
+  padding-left: 12px;
 }
 
 .TransactionList tbody tr {
-  border-bottom: 1px solid rgba(202, 103, 2, 0.2);
+  border-bottom: 1px solid rgba(148, 210, 189, 0.6);
 }
 
 /* .TransactionList th {
@@ -54,11 +55,11 @@
 } */
 
 .TransactionList tbody tr:nth-of-type(even) {
-  background-color:  rgba(242, 242, 242, 0.4);
+  background-color:  rgba(148, 210, 189, 0.6);
 }
 
 .TransactionList tbody tr:last-of-type {
-  border-bottom: 2px solid rgba(202, 103, 2, 0.4);
+  border-bottom: 2px solid rgba(148, 210, 189, 0.8);
 }
 
 .TransactionAdd {
@@ -85,6 +86,6 @@
 }
 
 .editButtons button:hover, .saveButtons button:hover {
-  border: 0.1em solid black;
+  border: 0.1em solid #001219;
   background-color: #F2F2F2;
 }
