@@ -9,7 +9,7 @@
   border-radius: 0.5em;
   margin: 1em;
   padding: 1em;
-  box-shadow: 10px 5px 5px black;
+  box-shadow: 10px 5px 5px #001219;
   width: 100%;
   display: grid;
   grid-auto-columns: 1fr;

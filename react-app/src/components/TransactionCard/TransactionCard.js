@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTransactions } from "../../store/transaction";
 import { getAccounts } from "../../store/account";
 import { getCategories } from "../../store/category";
-import { currencyFormatter } from '../../utils';
+import { currencyFormatter, dateConverter } from '../../utils';
 import TransactionAdd from "../TransactionAdd/TransactionAdd";
 import TransactionEdit from "../TransactionEdit/TransactionEdit";
 import "./TransactionCard.css"
@@ -65,7 +65,7 @@ export default function TransactionCard() {
               {editId !== transaction.id &&
                 <>
                   {/* <td>{transaction.trans_date.slice(5,16)}</td> */}
-                  <td>{transaction.trans_date}</td>
+                  <td>{dateConverter(transaction.trans_date)}</td>
                   <td>{transaction.trans_payee}</td>
                   <td>{currencyFormatter.format(transaction.trans_amount)}</td>
                   <td>{categories[transaction.categoryId - 1]?.category_name}</td>

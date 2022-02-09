@@ -4,10 +4,12 @@
 }
 
 .SidePanel {
-  background-color: #F2A20C;
+  /* background-color: #F2A20C; */
+  background-color: rgba(0, 95, 115, 1);
   border-radius: 1em;
   padding: 0.5em;
   margin: 0.5em;
+  color: #F2F2F2;
 }
 
 .Transactions ul {
@@ -21,7 +23,7 @@
 }
 
 .Transactions a {
-  color: black !important;
+  color: #F2F2F2 !important;
   text-decoration: none !important;
  }
 
