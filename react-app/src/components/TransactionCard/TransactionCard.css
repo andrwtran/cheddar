@@ -4,9 +4,9 @@
   border-collapse:collapse;
   overflow: hidden;
   width: 75vw;
-  margin: 25px 0;
+  /* margin: 25px 0; */
   border-radius: 5px 5px 0 0;
-  background-color: rgba(244, 107, 23, 0.2);
+  background-color: rgba(148, 210, 189, 0.2);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -15,7 +15,7 @@
   text-align: left;
   font-weight: 600;
   font-size: 20px;
-  background-color: rgba(244, 107, 23, 0.6);
+  background-color: rgba(10, 147, 150, 0.8);
 }
 
 .TransactionCard th, .TransactionCard tr {
@@ -27,7 +27,7 @@
 }
 
 .TransactionCard tbody tr {
-  border-bottom: 1px solid rgba(244, 107, 23, 0.6);
+  border-bottom: 1px solid rgba(148, 210, 189, 0.6);
 }
 
 /* .TransactionCard th {
@@ -46,11 +46,11 @@
 } */
 
 .TransactionCard tbody tr:nth-of-type(even) {
-  background-color:  rgba(244, 107, 23, 0.2);
+  background-color: rgba(148, 210, 189, 0.6);
 }
 
 .TransactionCard tbody tr:last-of-type {
-  border-bottom: 2px solid rgba(244, 107, 23, 0.6);
+  border-bottom: 2px solid rgba(148, 210, 189, 0.8);
 }
 
 .TransactionCard {

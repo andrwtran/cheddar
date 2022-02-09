@@ -10,13 +10,12 @@
 .TransactionList table {
   table-layout: fixed;
   min-width: 75vw;
-  background-color: rgba(244, 107, 23, 0.2);
   /* border-radius: 0.5em; */
   border-collapse:collapse;
   overflow: hidden;
   margin: 25px 0;
   border-radius: 5px 5px 0 0;
-  background-color: rgba(244, 107, 23, 0.2);
+  /* background-color: rgba(238, 155, 0, 0.2); */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -25,7 +24,7 @@
   text-align: left;
   font-weight: 600;
   font-size: 20px;
-  background-color: rgba(244, 107, 23, 0.6);
+  background-color: rgba(187, 62, 3, 0.8);
 }
 
 .TransactionList th, .TransactionList tr {
@@ -37,7 +36,7 @@
 }
 
 .TransactionList tbody tr {
-  border-bottom: 1px solid rgba(244, 107, 23, 0.6);
+  border-bottom: 1px solid rgba(202, 103, 2, 0.2);
 }
 
 /* .TransactionList th {
@@ -55,7 +54,11 @@
 } */
 
 .TransactionList tbody tr:nth-of-type(even) {
-  background-color:  rgba(244, 107, 23, 0.3);
+  background-color:  rgba(242, 242, 242, 0.4);
+}
+
+.TransactionList tbody tr:last-of-type {
+  border-bottom: 2px solid rgba(202, 103, 2, 0.4);
 }
 
 .TransactionAdd {

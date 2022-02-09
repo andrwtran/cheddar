@@ -1,9 +1,13 @@
 .NavBar {
-  background-color: rgba(244, 107, 23, 0.8);
+  /* background-color: rgba(244, 107, 23, 0.8); */
+  /* background-color: rgba(42, 157, 143, 1); */
+  background-color: rgba(10, 147, 150, 1);
   height: 5%;
-  width: 50%;
+  width: 60%;
   align-self: center;
   border-radius: 0.5em;
+  color: #F2F2F2;
+  box-shadow: 2px 2px 2px #001219;
 }
 
 .NavBar ul{
@@ -25,14 +29,13 @@
   box-sizing: border-box;
   text-decoration:none;
   font-weight:300;
-  color:black;
+  color: #F2F2F2;
   text-align:center;
   transition: all 0.2s;
   background-color: inherit;
 }
 
 .NavBar button:hover{
-  color:#000000;
-  border:0.1em solid black;
-  background-color: #F2F2F2;
+  border:0.1em solid #001219;
+  background-color: #005f73;
 }
