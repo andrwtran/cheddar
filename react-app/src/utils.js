@@ -20,7 +20,10 @@ export const tableSorter = (table, column, asc = true) => {
     const aText = a.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
     const bText = b.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
 
-    return aText > bText ? (1 * dir) : (-1 * dir)
+    if (column === 0) return new Date(aText) > new Date(bText) ? (1 * dir) : (-1 * dir);
+    if (column === 2) return parseInt(aText.slice(1)) > parseInt(bText.slice(1)) ? (1 * dir) : (-1 * dir);
+
+    return aText > bText ? (1 * dir) : (-1 * dir);
   })
 
   while (tBody.firstChild) {
