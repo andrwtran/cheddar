@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTransactions } from "../../store/transaction";
 import { getAccounts } from "../../store/account";
 import { getCategories } from "../../store/category";
-import { currencyFormatter, dateConverter } from "../../utils";
+import { currencyFormatter, dateConverter, tableSorter } from "../../utils";
 import TransactionAdd from "../TransactionAdd/TransactionAdd";
 import TransactionEdit from "../TransactionEdit/TransactionEdit";
 import './TransactionList.css';
@@ -22,11 +22,24 @@ const TransactionList = ({ categoryId, categoryName }) => {
     dispatch(getTransactions());
     dispatch(getAccounts());
     dispatch(getCategories());
+    addSort();
   }, [dispatch]);
 
   const toggleAdd = (e) => {
     e.preventDefault();
     setIsAdd(!isAdd);
+  };
+
+  const addSort = () => {
+    document.querySelectorAll("th").forEach(header => {
+      header.addEventListener("click", () => {
+        const table = header.parentElement.parentElement.parentElement;
+        const index = Array.prototype.indexOf.call(header.parentElement.children, header);
+        const asc = header.classList.contains("th-sort-asc")
+
+        tableSorter(table, index, !asc);
+      })
+    })
   };
 
   if (categoryId) {
@@ -88,6 +101,7 @@ const TransactionList = ({ categoryId, categoryName }) => {
   return (
     <div className="TransactionList">
       <h2>All Transactions</h2>
+      {/* <button onClick={toggleSort}>Sort</button> */}
       <div className="TransactionAdd">
         <button onClick={toggleAdd}>New Transaction</button>
         {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}

@@ -40,26 +40,32 @@
   border-bottom: 1px solid rgba(148, 210, 189, 0.6);
 }
 
-/* .TransactionList th {
-  text-align: left;
-  font-weight: 600;
-  font-size: 20px;
-  background-color: rgba(244, 107, 23, 0.6);
-  padding: 0.5em;
-} */
-
-/* .TransactionList td {
-  text-align: left;
-  font-size: 14px;
-  padding-left: 0.5em;
-} */
-
 .TransactionList tbody tr:nth-of-type(even) {
   background-color:  rgba(148, 210, 189, 0.6);
 }
 
 .TransactionList tbody tr:last-of-type {
   border-bottom: 2px solid rgba(148, 210, 189, 0.8);
+}
+
+.TransactionList th {
+  cursor: pointer;
+}
+
+.TransactionList .th-sort-asc::after {
+  content: "\25b4";
+}
+
+.TransactionList .th-sort-desc::after {
+  content: "\25be";
+}
+
+.TransactionList .th-sort-asc::after, .TransactionList .th-sort-desc::after {
+  margin-left: 5px;
+}
+
+.TransactionList .th-sort-asc, .TransactionList .th-sort-desc {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .TransactionAdd {
