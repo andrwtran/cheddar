@@ -30,7 +30,7 @@ const SidePanel = () => {
 
   if (!isMax) {
     return (
-      <div className='SidePanel' id='MinSidePanel'>
+    <div className='SidePanel' id='MinSidePanel'>
       <span id={'SideMax'}>
           <button onClick={toggleMax}><i class="fas fa-window-maximize" /></button>
       </span>
@@ -43,10 +43,8 @@ const SidePanel = () => {
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
         </ul>
       </div>
-      <div className='TransactionFilter'>
-        {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc}/>}
-        {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc}/>}
-      </div>
+      {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc}/>}
+      {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc}/>}
     </div>
     );
   };

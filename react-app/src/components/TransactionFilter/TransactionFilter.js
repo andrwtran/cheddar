@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import  ReactDOM  from 'react-dom';
 import "./TransactionFilter.css";
 
 export default function TransactionFilter({ isFilterCat, isFilterAcc, setIsFilterCat, setIsFilterAcc }) {
@@ -28,50 +29,62 @@ export default function TransactionFilter({ isFilterCat, isFilterAcc, setIsFilte
   };
 
   if (isFilterCat) {
-    return (
+    return ReactDOM.createPortal(
       <>
         <div className="TransactionFilterOverlay" onClick={reset}></div>
-        <div className='TransactionFilter'>
-          <h3><i className="fas fa-money-bill-wave" /> Transactions</h3>
-          <label>by Category</label>
-          <select
-            onChange={(e) => setCategoryId(e.target.value)}
-            value={categoryId}
-            name="categoryId"
-            id="CategoryFilter"
-          >
-            {Object.values(categories).slice(1).map((category) => (
-              <option value={category.id}>{category.category_name}</option>
-              )
-            )}
-          </select>
-          <button onClick={filterCatClick}>Filter</button>
+        <div className='TransactionFilter scale-up-center'>
+          <form>
+            <h3><i className="fas fa-money-bill-wave" /> Transactions</h3>
+            <label>by Category</label>
+            <select
+              onChange={(e) => setCategoryId(e.target.value)}
+              value={categoryId}
+              name="categoryId"
+              id="CategoryFilter"
+            >
+              {Object.values(categories).slice(1).map((category) => (
+                <option value={category.id}>{category.category_name}</option>
+                )
+              )}
+            </select>
+            <span className="TransactionFilterButtons">
+              <button onClick={filterCatClick}>Filter</button>
+              <button onClick={reset}>Close</button>
+            </span>
+          </form>
         </div>
-      </>
-    )
+      </>,
+    document.getElementById('root'))
   };
 
   if (isFilterAcc) {
-    return (
+    return ReactDOM.createPortal(
       <>
         <div className="TransactionFilterOverlay" onClick={reset}></div>
-        <div className='TransactionFilter'>
-          <h3><i className="fas fa-money-bill-wave" /> Transactions</h3>
-          <label>by Account</label>
-          <select
-              onChange={(e) => setAccountId(e.target.value)}
-              value={accountId}
-              name="accountId"
-              id="AccountFilter"
-            >
-              {Object.values(accounts).map((account) => (
-                <option value={account.id}>{account.account_name}</option>
-                )
-              )}
-          </select>
-          <button onClick={filterAccClick}>Filter</button>
+        <div className='TransactionFilter scale-up-center'>
+          <form>
+            <h3><i className="fas fa-money-bill-wave" /> Transactions</h3>
+            <label>by Account</label>
+            <select
+                onChange={(e) => setAccountId(e.target.value)}
+                value={accountId}
+                name="accountId"
+                id="AccountFilter"
+              >
+                {Object.values(accounts).map((account) => (
+                  <option value={account.id}>{account.account_name}</option>
+                  )
+                )}
+            </select>
+            <span className="TransactionFilterButtons">
+              <button onClick={filterAccClick}>Filter</button>
+              <button onClick={reset}>Close</button>
+            </span>
+          </form>
         </div>
-      </>
-    )
+      </>,
+    document.getElementById('root'))
   };
+
+  return null
 };
