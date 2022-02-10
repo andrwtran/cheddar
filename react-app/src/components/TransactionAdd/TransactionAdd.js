@@ -59,7 +59,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
   return ReactDOM.createPortal(
     <>
       <div className="TransactionFormOverlay" onClick={reset}></div>
-      <div className='TransactionForm'>
+      <div className='TransactionForm scale-up-center'>
         <form className='TransactionForm' onSubmit={handleSubmit}>
           <h3><i className="fas fa-money-bill-wave" /> New Transaction</h3>
           <div>
