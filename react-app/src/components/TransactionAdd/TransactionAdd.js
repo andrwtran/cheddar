@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createTransaction } from '../../store/transaction';
 import  ReactDOM  from 'react-dom';
-// import { getTransactions } from '../../store/transaction';
 import './TransactionAdd.css';
 
 export default function AccountAdd({ accounts, setIsAdd, categories }) {

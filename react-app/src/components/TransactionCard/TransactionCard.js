@@ -64,7 +64,6 @@ export default function TransactionCard() {
             <tr key={transaction.id}>
               {editId !== transaction.id &&
                 <>
-                  {/* <td>{transaction.trans_date.slice(5,16)}</td> */}
                   <td>{dateConverter(transaction.trans_date)}</td>
                   <td>{transaction.trans_payee}</td>
                   <td>{currencyFormatter.format(transaction.trans_amount)}</td>

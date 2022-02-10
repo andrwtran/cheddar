@@ -1,21 +1,13 @@
 .TransactionList {
   margin: 0.5em;
-  /* padding: 1em; */
 }
-
-/* .TransactionList h2 {
-  text-decoration: underline;
-} */
 
 .TransactionList table {
   table-layout: fixed;
   min-width: 75vw;
-  /* border-radius: 0.5em; */
   border-collapse:collapse;
   overflow: hidden;
-  /* margin: 25px 0; */
   border-radius: 5px 5px 0 0;
-  /* background-color: rgba(148, 210, 189, 0.2); */
   background-color: #F2F2F2;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
