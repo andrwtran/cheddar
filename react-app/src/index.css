@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
 body {
-  /* background-color: #E9F2A0; */
-  /* background-color: rgba(233, 196, 106, 1); */
-  /* background-color: rgba(244, 162, 97, 1); */
+
   background-color: rgba(233, 216, 166, 1);
 }
 
@@ -15,7 +13,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-/* A */
+/* ANIMATION */
 
 .scale-up-center {
 	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.1s both;

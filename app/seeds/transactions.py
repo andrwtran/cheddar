@@ -13,6 +13,7 @@ def seed_transactions():
   chipotle_two = Transaction(trans_date=date(2022, 1, 18), trans_payee='Chipotle', trans_amount=10.46, categoryId=6, accountId=4)
   chipotle_three = Transaction(trans_date=date(2022, 2, 8), trans_payee='Chipotle', trans_amount=16.92, categoryId=6, accountId=4)
   shake_shack = Transaction(trans_date=date(2022, 2, 4), trans_payee='Shake Shack', trans_amount=13.88, categoryId=6, accountId=4)
+  bojangles = Transaction(trans_date=date(2022, 2, 10), trans_payee='Bojangles', trans_amount=12.72, categoryId=6, accountId=4)
 
   trader_joes = Transaction(trans_date=date(2022, 1, 13), trans_payee='Trader Joes', trans_amount=20.56, categoryId=13, accountId=2)
   whole_foods = Transaction(trans_date=date(2022, 1, 1), trans_payee='Whole Foods', trans_amount=23.40, categoryId=13, accountId=3)
@@ -45,6 +46,7 @@ def seed_transactions():
   netflix_two = Transaction(trans_date=date(2021, 12, 2), trans_payee='Netflix', trans_amount=9.99, categoryId=8, accountId=2)
   netflix_three = Transaction(trans_date=date(2021, 11, 2), trans_payee='Netflix', trans_amount=9.99, categoryId=8, accountId=2)
   netflix_four = Transaction(trans_date=date(2022, 2, 2), trans_payee='Netflix', trans_amount=9.99, categoryId=8, accountId=2)
+  epic_games = Transaction(trans_date=date(2022, 2, 9), trans_payee='Epic Games', trans_amount=39.99, categoryId=8, accountId=2)
 
   west_elm = Transaction(trans_date=date(2022, 1, 19), trans_payee='West Elm', trans_amount=81.21, categoryId=15, accountId=2)
   home_depot = Transaction(trans_date=date(2021, 12, 16), trans_payee='Home Depot', trans_amount=78.04, categoryId=15, accountId=4)
@@ -58,6 +60,7 @@ def seed_transactions():
   db.session.add(chipotle_two)
   db.session.add(chipotle_three)
   db.session.add(shake_shack)
+  db.session.add(bojangles)
   db.session.add(trader_joes)
   db.session.add(whole_foods)
   db.session.add(whole_foods_two)
@@ -84,6 +87,7 @@ def seed_transactions():
   db.session.add(netflix_two)
   db.session.add(netflix_three)
   db.session.add(netflix_four)
+  db.session.add(epic_games)
   db.session.add(west_elm)
   db.session.add(home_depot)
 
