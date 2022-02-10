@@ -33,7 +33,7 @@ const LoginForm = () => {
   }
 
   return (
-    <div className='LoginForm'>
+    <div className='LoginForm scale-up-center'>
       <img src={logo} alt=''></img>
       <form onSubmit={onLogin}>
         {errors.length > 0 &&

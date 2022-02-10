@@ -49,3 +49,7 @@
 #MaxSidePanel {
   width: 20vw;
 }
+
+.FilterButtons {
+  cursor: pointer;
+}

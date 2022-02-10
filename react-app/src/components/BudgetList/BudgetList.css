@@ -1,8 +1,8 @@
 .BudgetList {
   z-index: 1000;
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 20%;
+  left: 35%;
   transform: translate(-50%, -50%);
   background-color: rgba(244, 107, 23, 0.8);
   color: white;

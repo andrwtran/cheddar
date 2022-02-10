@@ -14,14 +14,11 @@ const MainPanel = () => {
         <Route exact path='/transactions'>
           <TransactionList />
         </Route>
-        <Route path='/transactions/19'>
-          <TransactionList categoryId={19} categoryName={'Shopping'} />
+        <Route path='/transactions/category/:categoryId'>
+          <TransactionList />
         </Route>
-        <Route path='/transactions/13'>
-          <TransactionList categoryId={13} categoryName={'Groceries'} />
-        </Route>
-        <Route path='/transactions/6'>
-          <TransactionList categoryId={6} categoryName={'Dining & Drinks'} />
+        <Route path='/transactions/account/:accountId'>
+          <TransactionList />
         </Route>
         <Route path='/'>
           <BudgetCard />
