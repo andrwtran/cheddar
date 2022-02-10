@@ -49,7 +49,7 @@ const TransactionList = () => {
     const transactions_category = transactions.filter(transaction => transaction.categoryId === +categoryId );
     return (
       <div className="TransactionList">
-        {/* <h2>{categoryName} Transactions</h2> */}
+        <h2>{categories[parseInt(categoryId)-1].category_name} Transactions</h2>
         <div className="TransactionAdd">
           <button onClick={toggleAdd}>New Transaction</button>
           {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
@@ -76,7 +76,6 @@ const TransactionList = () => {
               <tr key={transaction.id}>
                 {editId !== transaction.id &&
                   <>
-                    {/* <td>{transaction.trans_date.slice(5,16)}</td> */}
                     <td>{dateConverter(transaction.trans_date)}</td>
                     <td>{transaction.trans_payee}</td>
                     <td>{currencyFormatter.format(transaction.trans_amount)}</td>
@@ -105,7 +104,7 @@ const TransactionList = () => {
     const transactions_category = transactions.filter(transaction => transaction.accountId === +accountId );
     return (
       <div className="TransactionList">
-        {/* <h2>{categoryName} Transactions</h2> */}
+        <h2>{accounts[parseInt(accountId)].account_name} Transactions</h2>
         <div className="TransactionAdd">
           <button onClick={toggleAdd}>New Transaction</button>
           {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
@@ -132,7 +131,6 @@ const TransactionList = () => {
               <tr key={transaction.id}>
                 {editId !== transaction.id &&
                   <>
-                    {/* <td>{transaction.trans_date.slice(5,16)}</td> */}
                     <td>{dateConverter(transaction.trans_date)}</td>
                     <td>{transaction.trans_payee}</td>
                     <td>{currencyFormatter.format(transaction.trans_amount)}</td>
@@ -186,7 +184,6 @@ const TransactionList = () => {
             <tr key={transaction.id}>
               {editId !== transaction.id &&
                 <>
-                  {/* <td>{transaction.trans_date.slice(5,16)}</td> */}
                   <td>{dateConverter(transaction.trans_date)}</td>
                   <td>{transaction.trans_payee}</td>
                   <td>{currencyFormatter.format(transaction.trans_amount)}</td>

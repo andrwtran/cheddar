@@ -31,8 +31,8 @@ export default function AccountAdd({ setIsAdd, accounts }) {
   return ReactDOM.createPortal(
     <>
       <div className="AccountFormOverlay" onClick={reset}></div>
-      <div className='AccountAdd slide-bottom'>
-        <form className='AccountAddForm scale-up-center' onSubmit={handleSubmit}>
+      <div className='AccountAdd scale-up-center'>
+        <form className='AccountAddForm' onSubmit={handleSubmit}>
           <h3><i className="fas fa-cheese" /> New Account</h3>
           <input
             type="text"

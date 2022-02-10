@@ -1,13 +1,21 @@
 .TransactionFilter {
-  margin: 0px;
+  margin: 0vh;
   padding: 2vh;
-  min-height: 20vh;
-  min-width: 40vw;
+  min-height: 30vh;
+  min-width: 58vw;
   z-index: 1000;
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 35%;
+  left: 25%;
   transform: translate(-50%, -50%);
+}
+
+.TransactionFilter form {
+  background-color: rgba(244, 107, 23, 0.8);
+  font-weight: 600;
+  font-size: 18px;
+  color: white !important;
+  padding: 1em;
 }
 
 .TransactionFilterOverlay {
@@ -27,4 +35,9 @@
 
 .TransactionFilter option {
   width: 30vw;
+}
+
+.TransactionFilterButtons {
+  display: inline-flex;
+  gap: 0.5em;
 }
