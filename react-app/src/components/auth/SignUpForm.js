@@ -49,7 +49,7 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className='SignUpForm'>
+    <div className='SignUpForm scale-up-center'>
       <img src={logo} alt=''></img>
       <form onSubmit={onSignUp}>
         {errors.length > 0 &&
