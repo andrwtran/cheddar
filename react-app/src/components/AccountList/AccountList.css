@@ -5,7 +5,9 @@
 
 .AccountList li{
   margin: 0.2em;
-  font-size: 12px;
+  font-size: 10px;
+  /* overflow: hidden; */
+  /* white-space: nowrap; */
   display: grid;
   grid-auto-columns: 1fr;
   grid-template-columns: 0.2fr 3.2fr 0.3fr 0.3fr;
