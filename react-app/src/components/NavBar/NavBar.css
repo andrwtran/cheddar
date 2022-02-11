@@ -1,11 +1,12 @@
 .NavBar {
   background-color: rgba(10, 147, 150, 1);
-  height: 5%;
+  height: 2em;
   width: 60%;
   align-self: center;
   border-radius: 0.5em;
   color: #F2F2F2;
   box-shadow: 2px 2px 2px #001219;
+  font-size: 14px;
 }
 
 .NavBar ul{
@@ -14,21 +15,21 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 0.1em;
-  margin: 0.1em;
+  /* padding: 0.1em;
+  margin: 0.1em; */
 }
 
 .NavBar button {
   display:inline-block;
-  padding:0.35em 1.2em;
+  /* padding:0.35em 1.2em; */
+  /* margin:0 0.3em 0.3em 0; */
   border:0.1em solid transparent;
-  margin:0 0.3em 0.3em 0;
   border-radius:0.12em;
   box-sizing: border-box;
   text-decoration:none;
   font-weight:300;
   color: #F2F2F2;
-  text-align:center;
+  text-align: center;
   transition: all 0.2s;
   background-color: inherit;
 }
@@ -36,4 +37,9 @@
 .NavBar button:hover{
   border:0.1em solid #001219;
   background-color: #005f73;
+}
+
+#WelcomeMessage {
+  border: 1px solid rgba(10, 147, 150, 1);
+  box-shadow: 1px 1px rgba(10, 147, 150, 0.2);
 }

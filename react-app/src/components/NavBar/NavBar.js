@@ -9,18 +9,18 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
 
   if (sessionUser) return (
-    <nav className='NavBar' style={{width:"95%", height:"3em"}}>
+    <nav className='NavBar' style={{width:"99%"}}>
       <ul>
         <li>
           <NavLink to='/'>
             <button>Home <i className="fas fa-home" /></button>
           </NavLink>
         </li>
-        <li>|</li>
+        {/* <li>|</li> */}
         <li>
-          {`Welcome, ${sessionUser.username}!`}
+          <span id='WelcomeMessage'>{`Welcome, ${sessionUser.username}!`}</span>
         </li>
-        <li>|</li>
+        {/* <li>|</li> */}
         <li>
           <LogoutButton />
         </li>
