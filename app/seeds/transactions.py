@@ -37,6 +37,7 @@ def seed_transactions():
   amazon_three = Transaction(trans_date=date(2022, 2, 3), trans_payee='Amazon.com', trans_amount=17.34, categoryId=19, accountId=2)
   uniqlo_two = Transaction(trans_date=date(2022, 2, 7), trans_payee='Uniqlo', trans_amount=31.43, categoryId=19, accountId=2)
   danner = Transaction(trans_date=date(2022, 2, 14), trans_payee='Danner', trans_amount=121.53, categoryId=19, accountId=2)
+  keychron = Transaction(trans_date=date(2022, 2, 15), trans_payee='Keychron', trans_amount=77.36, categoryId=19, accountId=3)
 
   uber = Transaction(trans_date=date(2022, 1, 10), trans_payee='Uber', trans_amount=15.80, categoryId=21, accountId=3)
   lyft = Transaction(trans_date=date(2022, 1, 2), trans_payee='Lyft', trans_amount=12.61, categoryId=21, accountId=3)
@@ -86,6 +87,7 @@ def seed_transactions():
   db.session.add(uniqlo)
   db.session.add(uniqlo_two)
   db.session.add(danner)
+  db.session.add(keychron)
   db.session.add(uber)
   db.session.add(uber_two)
   db.session.add(lyft)
