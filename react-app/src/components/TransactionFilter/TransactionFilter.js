@@ -10,8 +10,8 @@ export default function TransactionFilter({ isFilterCat, isFilterAcc, setIsFilte
   const accounts = useSelector((state) => state.account.byId);
   const categories = useSelector((state) => state.category);
 
-  const [categoryId, setCategoryId] = useState(null);
-  const [accountId, setAccountId] = useState(null);
+  const [categoryId, setCategoryId] = useState(2);
+  const [accountId, setAccountId] = useState(1);
 
   const reset = () => {
     setIsFilterCat(false);
@@ -33,7 +33,7 @@ export default function TransactionFilter({ isFilterCat, isFilterAcc, setIsFilte
       <>
         <div className="TransactionFilterOverlay" onClick={reset}></div>
         <div className='TransactionFilter scale-up-center'>
-          <form>
+          <form onSubmit={filterCatClick}>
             <h3><i className="fas fa-money-bill-wave" /> Transactions</h3>
             <label>by Category</label>
             <select
@@ -48,7 +48,7 @@ export default function TransactionFilter({ isFilterCat, isFilterAcc, setIsFilte
               )}
             </select>
             <span className="TransactionFilterButtons">
-              <button onClick={filterCatClick}>Filter</button>
+              <button type="submit">Filter</button>
               <button onClick={reset}>Close</button>
             </span>
           </form>

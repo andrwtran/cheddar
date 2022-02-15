@@ -49,7 +49,7 @@ const TransactionList = () => {
     const transactions_category = transactions.filter(transaction => transaction.categoryId === +categoryId );
     return (
       <div className="TransactionList">
-        <h2>{categories[parseInt(categoryId)-1].category_name} Transactions</h2>
+        <h2>{categories[parseInt(categoryId)-1]?.category_name} Transactions</h2>
         <div className="TransactionAdd">
           <button onClick={toggleAdd}>New Transaction</button>
           {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
@@ -104,7 +104,7 @@ const TransactionList = () => {
     const transactions_category = transactions.filter(transaction => transaction.accountId === +accountId );
     return (
       <div className="TransactionList">
-        <h2>{accounts[parseInt(accountId)].account_name} Transactions</h2>
+        <h2>{accounts[parseInt(accountId)]?.account_name} Transactions</h2>
         <div className="TransactionAdd">
           <button onClick={toggleAdd}>New Transaction</button>
           {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
