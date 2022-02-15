@@ -9,6 +9,7 @@ const SidePanel = () => {
   const [isMax, setIsMax] = useState(false);
   const [isFilterCat, setIsFilterCat] = useState(false);
   const [isFilterAcc, setIsFilterAcc] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
 
   const toggleMax = (e) => {
     e.preventDefault();
@@ -28,6 +29,10 @@ const SidePanel = () => {
     setIsFilterAcc(true);
   };
 
+  const searchClick = () => {
+    setIsSearch(true);
+  }
+
   if (!isMax) {
     return (
     <div className='SidePanel' id='MinSidePanel'>
@@ -41,6 +46,7 @@ const SidePanel = () => {
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
+          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
         </ul>
       </div>
       {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc}/>}
@@ -61,6 +67,7 @@ const SidePanel = () => {
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
+          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
         </ul>
       </div>
       {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc}/>}

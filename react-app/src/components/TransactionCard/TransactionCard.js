@@ -25,9 +25,9 @@ export default function TransactionCard() {
   const [editId, setEditId] = useState();
 
   useEffect(() => {
-    dispatch(getTransactions());
-    dispatch(getAccounts());
     dispatch(getCategories());
+    dispatch(getAccounts());
+    dispatch(getTransactions());
   }, [dispatch, isAdd, num_accounts]);
 
   const toggleAdd = (e) => {
@@ -36,12 +36,12 @@ export default function TransactionCard() {
   };
 
   return (
-    <div className='TransactionCard'>
+    <div className='TransactionCard zoom'>
       <h3>Recent Transactions</h3>
       <div className="TransactionAdd">
           <button onClick={toggleAdd}>New Transaction</button>
           {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} transactions_monthly={transactions_monthly} />}
-        </div>
+      </div>
       <table>
         <col className='TableDate'></col>
         <col className='TablePayee'></col>

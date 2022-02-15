@@ -32,7 +32,7 @@ export default function BudgetCard() {
   if (!budgets.length || !transactions.length) return null;
 
   return (
-    <div className='BudgetCard'>
+    <div className='BudgetCard zoom'>
       <BudgetList budgets={budgets} isEdit={isEdit} setIsEdit={setIsEdit} />
       <BudgetPieChart budgets={budgets} transactions={transactions} days_in_month={days_in_month} today={today}/>
       <BudgetBarChart budgets={budgets} transactions={transactions} today={today}/>
