@@ -42,10 +42,12 @@ const SidePanel = () => {
       <AccountList isMax={isMax} />
       <div className='Transactions'>
         <h3>Transactions</h3>
+        <button className='NewTransactionButton'><i className="fas fa-plus-square" /> Add</button>
         <ul>
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
+          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons'>by Date</span></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
         </ul>
       </div>
@@ -63,10 +65,12 @@ const SidePanel = () => {
       <AccountList isMax={isMax} />
       <div className='Transactions'>
         <h3>Transactions</h3>
+        <button className='NewTransactionButton'>New Transaction</button>
         <ul>
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
+          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons'>by Date</span></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
         </ul>
       </div>

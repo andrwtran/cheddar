@@ -5,7 +5,8 @@
   align-self: center;
   border-radius: 0.5em;
   color: #F2F2F2;
-  box-shadow: 2px 2px 2px #001219;
+  /* box-shadow: 2px 2px 2px #001219; */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   font-size: 14px;
 }
 
