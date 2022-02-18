@@ -9,6 +9,7 @@ const SidePanel = () => {
   const [isMax, setIsMax] = useState(false);
   const [isFilterCat, setIsFilterCat] = useState(false);
   const [isFilterAcc, setIsFilterAcc] = useState(false);
+  const [isFilterDate, setIsFilterDate] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
 
   const toggleMax = (e) => {
@@ -29,6 +30,10 @@ const SidePanel = () => {
     setIsFilterAcc(true);
   };
 
+  const filterDateClick = () => {
+    setIsFilterDate(true);
+  };
+
   const searchClick = () => {
     setIsSearch(true);
   }
@@ -47,12 +52,13 @@ const SidePanel = () => {
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
-          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons'>by Date</span></li>
+          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
         </ul>
       </div>
-      {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc}/>}
-      {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc}/>}
+      {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+      {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+      {isFilterDate && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
     </div>
     );
   };
@@ -70,12 +76,13 @@ const SidePanel = () => {
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
-          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons'>by Date</span></li>
+          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
         </ul>
       </div>
-      {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc}/>}
-      {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc}/>}
+      {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+      {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+      {isFilterDate && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
     </div>
   );
 };

@@ -1,8 +1,8 @@
 .TransactionFilter {
   margin: 0vh;
   padding: 2vh;
-  min-height: 30vh;
-  min-width: 58vw;
+  /* min-height: 30vh;
+  min-width: 58vw; */
   z-index: 1000;
   position: fixed;
   top: 35%;
