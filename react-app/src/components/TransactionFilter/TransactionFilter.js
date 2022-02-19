@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import  ReactDOM  from 'react-dom';
+import { dateConverter } from "../../utils";
 import "react-datepicker/dist/react-datepicker.css";
 import "./TransactionFilter.css";
 
@@ -14,7 +15,7 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
 
   const [categoryId, setCategoryId] = useState(2);
   const [accountId, setAccountId] = useState(1);
-  // const [date, setDate] = useState();
+
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -36,7 +37,9 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
 
   const filterDateClick = () => {
     reset();
-    history.push() // `/transactions/date/${DATESTRING}`
+    const firstDateString = `${startDate.getFullYear()}${("0" + (startDate.getMonth() + 1).toString()).slice(-2)}${startDate.getDate()}`;
+    const secondDateString = `${endDate.getFullYear()}${("0" + (endDate.getMonth() + 1).toString()).slice(-2)}${endDate.getDate()}`;
+    history.push(`/transactions/date/${firstDateString + 'x' + secondDateString}`);
   };
 
   const onChange = (dates) => {
@@ -107,42 +110,16 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
     return ReactDOM.createPortal(
       <>
         <div className="TransactionFilterOverlay" onClick={reset}></div>
-        <div className='TransactionFilter scale-up-center'>
-          {/* <form> */}
+        <div className='TransactionFilter scale-up-center' id='TransactionFilterDate'>
           <div>
             <h3><i className="fas fa-money-bill-wave" /> Transactions</h3>
-            {/* <label>by Date</label> */}
-            {/* <select
-                onChange={(e) => setAccountId(e.target.value)}
-                value={accountId}
-                name="accountId"
-                id="AccountFilter"
-              >
-                {Object.values(accounts).map((account) => (
-                  <option value={account.id}>{account.account_name}</option>
-                  )
-                )}
-            </select> */}
-            {/* <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              selectsStart
-              startDate={startDate}
-              endDate={endDate}
-            />
-            <DatePicker
-              selected={endDate}
-              onChange={(date) => setEndDate(date)}
-              selectsEnd
-              startDate={startDate}
-              endDate={endDate}
-              minDate={startDate}
-            /> */}
+            <span className="TransactionFilterText">by Date</span>
             <DatePicker
               selected={startDate}
               onChange={onChange}
               startDate={startDate}
               endDate={endDate}
+              maxDate={new Date()}
               selectsRange
               inline
             />
@@ -151,7 +128,6 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
               <button onClick={reset}>Close</button>
             </span>
           </div>
-          {/* </form> */}
         </div>
       </>,
     document.getElementById('root'))
