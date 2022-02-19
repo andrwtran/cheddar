@@ -10,7 +10,7 @@ def seed_transactions():
   starbucks = Transaction(trans_date=date(2022, 2, 1), trans_payee='Starbucks', trans_amount=12.78, categoryId=6, accountId=2)
   starbucks_two = Transaction(trans_date=date(2022, 2, 11), trans_payee='Starbucks', trans_amount=10.56, categoryId=6, accountId=3)
   bevmo = Transaction(trans_date=date(2022, 2, 13), trans_payee='BevMo!', trans_amount=18.34, categoryId=6, accountId=3)
-  # starbucks_three = Transaction(trans_date=date(2022, 2, 16), trans_payee='Starbucks', trans_amount=11.28, categoryId=6, accountId=2)
+  starbucks_three = Transaction(trans_date=date(2022, 2, 16), trans_payee='Starbucks', trans_amount=11.28, categoryId=6, accountId=2)
   # philz_five = Transaction(trans_date=date(2022, 2, 20), trans_payee='Philz Coffee', trans_amount=7.40, categoryId=6, accountId=4)
   # boba = Transaction(trans_date=date(2022, 2, 22), trans_payee='Boba Guys', trans_amount=6.36, categoryId=6, accountId=2)
   # starbucks_four = Transaction(trans_date=date(2022, 2, 25), trans_payee='Starbucks', trans_amount=8.77, categoryId=6, accountId=2)
@@ -21,7 +21,7 @@ def seed_transactions():
   shake_shack = Transaction(trans_date=date(2022, 2, 4), trans_payee='Shake Shack', trans_amount=13.88, categoryId=6, accountId=4)
   bojangles = Transaction(trans_date=date(2022, 2, 10), trans_payee='Bojangles', trans_amount=12.72, categoryId=6, accountId=4)
   buffalo = Transaction(trans_date=date(2022, 2, 13), trans_payee='Wingstop', trans_amount=26.69, categoryId=6, accountId=4)
-  # chipotle_four = Transaction(trans_date=date(2022, 2, 15), trans_payee='Chipotle', trans_amount=12.67, categoryId=6, accountId=3)
+  chipotle_four = Transaction(trans_date=date(2022, 2, 15), trans_payee='Chipotle', trans_amount=12.67, categoryId=6, accountId=3)
   # chipotle_five = Transaction(trans_date=date(2022, 2, 23), trans_payee='Chipotle', trans_amount=11.14, categoryId=6, accountId=4)
   # portillos = Transaction(trans_date=date(2022, 2, 26), trans_payee='Portillos', trans_amount=18.55, categoryId=6, accountId=4)
 
@@ -58,7 +58,7 @@ def seed_transactions():
 
   udemy_one = Transaction(trans_date=date(2022, 1, 9), trans_payee='Udemy', trans_amount=32.57, categoryId=7, accountId=3)
   udemy_two = Transaction(trans_date=date(2021, 12, 22), trans_payee='Udemy', trans_amount=28.18, categoryId=7, accountId=3)
-  # leetcode = Transaction(trans_date=date(2022, 2, 27), trans_payee='Leetcode', trans_amount=35.00, categoryId=7, accountId=2)
+  leetcode = Transaction(trans_date=date(2022, 2, 17), trans_payee='Leetcode', trans_amount=35.00, categoryId=7, accountId=2)
 
   stubhub = Transaction(trans_date=date(2022, 1, 21), trans_payee='Stubhub', trans_amount=105.10, categoryId=8, accountId=4)
   netflix_one = Transaction(trans_date=date(2022, 1, 2), trans_payee='Netflix', trans_amount=9.99, categoryId=8, accountId=2)
@@ -77,7 +77,7 @@ def seed_transactions():
   db.session.add(starbucks)
   db.session.add(starbucks_two)
   db.session.add(bevmo)
-  # db.session.add(starbucks_three)
+  db.session.add(starbucks_three)
   # db.session.add(philz_five)
   # db.session.add(boba)
   # db.session.add(starbucks_four)
@@ -88,7 +88,7 @@ def seed_transactions():
   db.session.add(shake_shack)
   db.session.add(bojangles)
   db.session.add(buffalo)
-  # db.session.add(chipotle_four)
+  db.session.add(chipotle_four)
   # db.session.add(chipotle_five)
   # db.session.add(portillos)
 
@@ -125,7 +125,7 @@ def seed_transactions():
 
   db.session.add(udemy_one)
   db.session.add(udemy_two)
-  # db.session.add(leetcode)
+  db.session.add(leetcode)
 
   db.session.add(stubhub)
   db.session.add(netflix_one)

@@ -1,6 +1,7 @@
 .SidePanel h3 {
   font-weight: 600;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 .SidePanel {
@@ -13,6 +14,7 @@
   top: 0;
   height: fit-content;
   min-height: 90vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .Transactions ul {
@@ -46,13 +48,24 @@
 }
 
 #MinSidePanel {
-  width: 10vw;
+  width: 11vw;
 }
 
 #MaxSidePanel {
-  width: 20vw;
+  width: 21vw;
+}
+
+#MaxSidePanel .Transactions {
+  margin-top: 37%;
 }
 
 .FilterButtons {
   cursor: pointer;
+}
+
+.NewTransactionButton {
+  font-size: 10px !important;
+  margin: 0;
+  /* padding: 0; */
+  margin-bottom: 0.5em;
 }

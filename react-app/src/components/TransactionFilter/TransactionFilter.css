@@ -1,13 +1,25 @@
 .TransactionFilter {
   margin: 0vh;
   padding: 2vh;
-  min-height: 30vh;
-  min-width: 58vw;
+  /* min-height: 30vh;
+  min-width: 58vw; */
   z-index: 1000;
   position: fixed;
   top: 35%;
   left: 25%;
   transform: translate(-50%, -50%);
+}
+
+#TransactionFilterDate {
+  background-color: rgba(244, 107, 23, 0.8);
+  top: 18%;
+  left: 35%;
+  padding: 4vh;
+  color: white !important;
+}
+
+#TransactionFilterDate .TransactionFilterText span{
+  padding-bottom: 5em;
 }
 
 .TransactionFilter form {
@@ -38,6 +50,11 @@
 }
 
 .TransactionFilterButtons {
-  display: inline-flex;
-  gap: 0.5em;
+  display: flex;
+  gap: 0.6em;
+  justify-content: center;
+}
+
+.react-datepicker {
+  margin: 1em;
 }

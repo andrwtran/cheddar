@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import DatePicker from "react-datepicker";
 import  ReactDOM  from 'react-dom';
+import { dateConverter } from "../../utils";
+import "react-datepicker/dist/react-datepicker.css";
 import "./TransactionFilter.css";
 
-export default function TransactionFilter({ isFilterCat, isFilterAcc, setIsFilterCat, setIsFilterAcc }) {
+export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterAcc, setIsFilterDate, setIsFilterCat, setIsFilterAcc }) {
   let history = useHistory();
 
   const accounts = useSelector((state) => state.account.byId);
@@ -13,9 +16,13 @@ export default function TransactionFilter({ isFilterCat, isFilterAcc, setIsFilte
   const [categoryId, setCategoryId] = useState(2);
   const [accountId, setAccountId] = useState(1);
 
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
   const reset = () => {
     setIsFilterCat(false);
     setIsFilterAcc(false);
+    setIsFilterDate(false);
   }
 
   const filterCatClick = () => {
@@ -26,6 +33,19 @@ export default function TransactionFilter({ isFilterCat, isFilterAcc, setIsFilte
   const filterAccClick = () => {
     reset();
     history.push(`/transactions/account/${accountId}`)
+  };
+
+  const filterDateClick = () => {
+    reset();
+    const firstDateString = `${startDate.getFullYear()}${("0" + (startDate.getMonth() + 1).toString()).slice(-2)}${startDate.getDate()}`;
+    const secondDateString = `${endDate.getFullYear()}${("0" + (endDate.getMonth() + 1).toString()).slice(-2)}${endDate.getDate()}`;
+    history.push(`/transactions/date/${firstDateString + 'x' + secondDateString}`);
+  };
+
+  const onChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
   };
 
   if (isFilterCat) {
@@ -81,6 +101,33 @@ export default function TransactionFilter({ isFilterCat, isFilterAcc, setIsFilte
               <button onClick={reset}>Close</button>
             </span>
           </form>
+        </div>
+      </>,
+    document.getElementById('root'))
+  };
+
+  if (isFilterDate) {
+    return ReactDOM.createPortal(
+      <>
+        <div className="TransactionFilterOverlay" onClick={reset}></div>
+        <div className='TransactionFilter scale-up-center' id='TransactionFilterDate'>
+          <div>
+            <h3><i className="fas fa-money-bill-wave" /> Transactions</h3>
+            <span className="TransactionFilterText">by Date</span>
+            <DatePicker
+              selected={startDate}
+              onChange={onChange}
+              startDate={startDate}
+              endDate={endDate}
+              maxDate={new Date()}
+              selectsRange
+              inline
+            />
+            <span className="TransactionFilterButtons">
+              <button onClick={filterDateClick}>Filter</button>
+              <button onClick={reset}>Close</button>
+            </span>
+          </div>
         </div>
       </>,
     document.getElementById('root'))

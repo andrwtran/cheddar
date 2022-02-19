@@ -33,3 +33,7 @@
   border: 0.1em solid #001219;
   background-color: #001219;
 }
+
+.AccountList h3 {
+  text-transform: uppercase;
+}

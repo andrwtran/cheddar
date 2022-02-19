@@ -28,7 +28,7 @@ export default function AccountList({ isMax }) {
     return (
       <div className='AccountList'>
       <h3>Accounts</h3>
-      <button className='NewAccountButton' onClick={toggleAdd}>New Account</button>
+      <button className='NewAccountButton' onClick={toggleAdd}><i className="fas fa-plus-square" /> Add</button>
       {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
       <ul>
         {accounts.map((account) => (
