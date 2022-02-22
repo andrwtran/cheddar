@@ -11,7 +11,7 @@ def seed_transactions():
   starbucks_two = Transaction(trans_date=date(2022, 2, 11), trans_payee='Starbucks', trans_amount=10.56, categoryId=6, accountId=3)
   bevmo = Transaction(trans_date=date(2022, 2, 13), trans_payee='BevMo!', trans_amount=18.34, categoryId=6, accountId=3)
   starbucks_three = Transaction(trans_date=date(2022, 2, 16), trans_payee='Starbucks', trans_amount=11.28, categoryId=6, accountId=2)
-  # philz_five = Transaction(trans_date=date(2022, 2, 20), trans_payee='Philz Coffee', trans_amount=7.40, categoryId=6, accountId=4)
+  philz_five = Transaction(trans_date=date(2022, 2, 20), trans_payee='Philz Coffee', trans_amount=7.40, categoryId=6, accountId=4)
   # boba = Transaction(trans_date=date(2022, 2, 22), trans_payee='Boba Guys', trans_amount=6.36, categoryId=6, accountId=2)
   # starbucks_four = Transaction(trans_date=date(2022, 2, 25), trans_payee='Starbucks', trans_amount=8.77, categoryId=6, accountId=2)
 
@@ -29,12 +29,12 @@ def seed_transactions():
   whole_foods = Transaction(trans_date=date(2022, 1, 1), trans_payee='Whole Foods', trans_amount=23.40, categoryId=13, accountId=3)
   whole_foods_two = Transaction(trans_date=date(2022, 2, 2), trans_payee='Whole Foods', trans_amount=32.13, categoryId=13, accountId=3)
   costco = Transaction(trans_date=date(2022, 2, 3), trans_payee='Costco', trans_amount=41.58, categoryId=13, accountId=3)
-  # trader_joes_two = Transaction(trans_date=date(2022, 2, 19), trans_payee='Trader Joes', trans_amount=20.49, categoryId=13, accountId=4)
+  trader_joes_two = Transaction(trans_date=date(2022, 2, 19), trans_payee='Trader Joes', trans_amount=20.49, categoryId=13, accountId=4)
 
   chewy_one = Transaction(trans_date=date(2022, 1, 6), trans_payee='Chewy.com', trans_amount=30.98, categoryId=18, accountId=2)
   chewy_two = Transaction(trans_date=date(2022, 1, 12), trans_payee='Chewy.com', trans_amount=10.23, categoryId=18, accountId=2)
   chewy_three = Transaction(trans_date=date(2022, 2, 12), trans_payee='Chewy.com', trans_amount=22.97, categoryId=18, accountId=2)
-  # chewy_four = Transaction(trans_date=date(2022, 2, 21), trans_payee='Chewy.com', trans_amount=32.72, categoryId=18, accountId=3)
+  chewy_four = Transaction(trans_date=date(2022, 2, 21), trans_payee='Chewy.com', trans_amount=32.72, categoryId=18, accountId=3)
 
   amazon_one = Transaction(trans_date=date(2022, 1, 8), trans_payee='Amazon.com', trans_amount=50.51, categoryId=19, accountId=2)
   amazon_two = Transaction(trans_date=date(2022, 1, 11), trans_payee='Amazon.com', trans_amount=12.80, categoryId=19, accountId=2)
@@ -54,7 +54,7 @@ def seed_transactions():
   lyft = Transaction(trans_date=date(2022, 1, 2), trans_payee='Lyft', trans_amount=12.61, categoryId=21, accountId=3)
   uber_two = Transaction(trans_date=date(2022, 2, 4), trans_payee='Uber', trans_amount=10.17, categoryId=21, accountId=3)
   lyft_two = Transaction(trans_date=date(2022, 2, 8), trans_payee='Lyft', trans_amount=14.89, categoryId=21, accountId=3)
-  # uber_three = Transaction(trans_date=date(2022, 2, 20), trans_payee='Uber', trans_amount=18.01, categoryId=21, accountId=2)
+  uber_three = Transaction(trans_date=date(2022, 2, 20), trans_payee='Uber', trans_amount=18.01, categoryId=21, accountId=2)
 
   udemy_one = Transaction(trans_date=date(2022, 1, 9), trans_payee='Udemy', trans_amount=32.57, categoryId=7, accountId=3)
   udemy_two = Transaction(trans_date=date(2021, 12, 22), trans_payee='Udemy', trans_amount=28.18, categoryId=7, accountId=3)
@@ -78,7 +78,7 @@ def seed_transactions():
   db.session.add(starbucks_two)
   db.session.add(bevmo)
   db.session.add(starbucks_three)
-  # db.session.add(philz_five)
+  db.session.add(philz_five)
   # db.session.add(boba)
   # db.session.add(starbucks_four)
 
@@ -96,12 +96,12 @@ def seed_transactions():
   db.session.add(whole_foods)
   db.session.add(whole_foods_two)
   db.session.add(costco)
-  # db.session.add(trader_joes_two)
+  db.session.add(trader_joes_two)
 
   db.session.add(chewy_one)
   db.session.add(chewy_two)
   db.session.add(chewy_three)
-  # db.session.add(chewy_four)
+  db.session.add(chewy_four)
 
   db.session.add(amazon_one)
   db.session.add(amazon_two)
@@ -121,7 +121,7 @@ def seed_transactions():
   db.session.add(uber_two)
   db.session.add(lyft)
   db.session.add(lyft_two)
-  # db.session.add(uber_three)
+  db.session.add(uber_three)
 
   db.session.add(udemy_one)
   db.session.add(udemy_two)
