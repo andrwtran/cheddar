@@ -156,21 +156,49 @@ const TransactionList = () => {
   };
 
   if (dateQuery) {
-    const firstDateYear = parseInt(dateQuery.split('x')[0].slice(0,4));
-    const firstDateMonth = parseInt(dateQuery.split('x')[0].slice(4,6));
-    const firstDateDay = parseInt(dateQuery.split('x')[0].slice(6));
-    const secondDateYear = parseInt(dateQuery.split('x')[1].slice(0,4));
-    const secondDateMonth = parseInt(dateQuery.split('x')[1].slice(4,6));
-    const secondDateDay = parseInt(dateQuery.split('x')[1].slice(6));
+    let firstDateYear;
+    let firstDateMonth;
+    let firstDateDay;
+    let secondDateYear;
+    let secondDateMonth;
+    let secondDateDay;
+    let transactions_date;
+    let firstDate
+    let secondDate
 
-    const firstDate = new Date(firstDateYear,firstDateMonth-1,firstDateDay);
-    const secondDate = new Date(secondDateYear,secondDateMonth-1,secondDateDay);
+    if (dateQuery.indexOf("&") === -1) {
+      firstDateYear = parseInt(dateQuery.slice(0,4));
+      firstDateMonth = parseInt(dateQuery.slice(4,6));
+      firstDateDay = parseInt(dateQuery.slice(6));
 
-    const transactions_date = transactions.filter(transaction => (new Date(transaction.trans_date) >= firstDate && new Date(transaction.trans_date) <= secondDate));
+      firstDate = new Date(Date.UTC(firstDateYear,firstDateMonth-1,firstDateDay));
+
+      transactions_date = transactions.filter(transaction => (new Date(transaction.trans_date).getTime() === firstDate.getTime()));
+    } else {
+      firstDateYear = parseInt(dateQuery.split('&')[0].slice(0,4));
+      firstDateMonth = parseInt(dateQuery.split('&')[0].slice(4,6));
+      firstDateDay = parseInt(dateQuery.split('&')[0].slice(6));
+      secondDateYear = parseInt(dateQuery.split('&')[1].slice(0,4));
+      secondDateMonth = parseInt(dateQuery.split('&')[1].slice(4,6));
+      secondDateDay = parseInt(dateQuery.split('&')[1].slice(6));
+
+      firstDate = new Date(Date.UTC(firstDateYear,firstDateMonth-1,firstDateDay));
+      secondDate = new Date(Date.UTC(secondDateYear,secondDateMonth-1,secondDateDay));
+
+      transactions_date = transactions.filter(transaction => (new Date(transaction.trans_date) >= firstDate && new Date(transaction.trans_date) <= secondDate));
+    };
+
+    const myDateToString = (year, month, day) => {
+      const months = { 1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr", 5: "May", 6: "Jun", 7: "Jul", 8: "Aug", 9: "Sep", 10: "Oct", 11: "Nov", 12: "Dec"};
+      return `${months[month]} ${day}, ${year}`;
+    };
 
     return (
       <div className="TransactionList">
-        <h2>Date Transactions</h2>
+        {!secondDate
+        ? <h2>Transactions on {myDateToString(firstDateYear, firstDateMonth, firstDateDay)}</h2>
+        : <h2>Transactions from {myDateToString(firstDateYear, firstDateMonth, firstDateDay)} to {myDateToString(secondDateYear, secondDateMonth, secondDateDay)}</h2>
+        }
         <div className="TransactionAdd">
           <button onClick={toggleAdd}>New Transaction</button>
           {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
@@ -193,7 +221,7 @@ const TransactionList = () => {
             </tr>
           </thead>
           <tbody>
-            {transactions_date.map((transaction) => (
+            {transactions_date.reverse().map((transaction) => (
               <tr key={transaction.id}>
                 {editId !== transaction.id &&
                   <>

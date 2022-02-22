@@ -10,6 +10,7 @@ const SidePanel = () => {
   const [isFilterCat, setIsFilterCat] = useState(false);
   const [isFilterAcc, setIsFilterAcc] = useState(false);
   const [isFilterDate, setIsFilterDate] = useState(false);
+  const [filterStyle, setFilterStyle] = useState("hide");
   const [isSearch, setIsSearch] = useState(false);
 
   const toggleMax = (e) => {
@@ -38,6 +39,14 @@ const SidePanel = () => {
     setIsSearch(true);
   }
 
+  const filterShowClick = () => {
+    if (filterStyle === "hide") {
+      setFilterStyle("")
+    } else {
+      setFilterStyle("hide")
+    };
+  }
+
   if (!isMax) {
     return (
     <div className='SidePanel' id='MinSidePanel'>
@@ -48,11 +57,15 @@ const SidePanel = () => {
       <div className='Transactions'>
         <h3>Transactions</h3>
         <button className='NewTransactionButton'><i className="fas fa-plus-square" /> Add</button>
-        <ul>
+        <ul onClick={filterShowClick}>
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
-          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
-          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
-          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
+          <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i className="fas fa-money-bill-wave" /> Filter
+            <ul className={filterStyle}>
+              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
+              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
+              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
+            </ul>
+          </li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
         </ul>
       </div>
@@ -74,9 +87,13 @@ const SidePanel = () => {
         <button className='NewTransactionButton'>New Transaction</button>
         <ul>
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
-          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
-          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
-          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
+          <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i className="fas fa-money-bill-wave" /> Filter
+            <ul className={filterStyle}>
+              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
+              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
+              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
+            </ul>
+          </li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
         </ul>
       </div>

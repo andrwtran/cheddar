@@ -37,9 +37,15 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
 
   const filterDateClick = () => {
     reset();
-    const firstDateString = `${startDate.getFullYear()}${("0" + (startDate.getMonth() + 1).toString()).slice(-2)}${startDate.getDate()}`;
-    const secondDateString = `${endDate.getFullYear()}${("0" + (endDate.getMonth() + 1).toString()).slice(-2)}${endDate.getDate()}`;
-    history.push(`/transactions/date/${firstDateString + 'x' + secondDateString}`);
+    if (endDate) {
+      const firstDateString = `${startDate.getFullYear()}${("0" + (startDate.getMonth() + 1).toString()).slice(-2)}${startDate.getDate()}`;
+      const secondDateString = `${endDate.getFullYear()}${("0" + (endDate.getMonth() + 1).toString()).slice(-2)}${endDate.getDate()}`;
+      history.push(`/transactions/date/${firstDateString + '&' + secondDateString}`);
+    } else {
+      const firstDateString = `${startDate.getFullYear()}${("0" + (startDate.getMonth() + 1).toString()).slice(-2)}${startDate.getDate()}`;
+      // history.push(`/transactions/date/${firstDateString + '&' + firstDateString}`);
+      history.push(`/transactions/date/${firstDateString}`);
+    };
   };
 
   const onChange = (dates) => {
