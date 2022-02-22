@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import  ReactDOM  from 'react-dom';
-import { dateConverter } from "../../utils";
+// import { dateConverter } from "../../utils";
 import "react-datepicker/dist/react-datepicker.css";
 import "./TransactionFilter.css";
 
@@ -43,7 +43,6 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
       history.push(`/transactions/date/${firstDateString + '&' + secondDateString}`);
     } else {
       const firstDateString = `${startDate.getFullYear()}${("0" + (startDate.getMonth() + 1).toString()).slice(-2)}${startDate.getDate()}`;
-      // history.push(`/transactions/date/${firstDateString + '&' + firstDateString}`);
       history.push(`/transactions/date/${firstDateString}`);
     };
   };

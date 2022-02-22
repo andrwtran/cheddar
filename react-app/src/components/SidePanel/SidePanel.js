@@ -23,23 +23,33 @@ const SidePanel = () => {
     setIsMax(false);
   };
 
-  const filterCatClick = () => {
+  const filterCatClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation()
     setIsFilterCat(true);
   };
 
-  const filterAccClick = () => {
+  const filterAccClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation()
     setIsFilterAcc(true);
   };
 
-  const filterDateClick = () => {
+  const filterDateClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation()
     setIsFilterDate(true);
   };
 
-  const searchClick = () => {
+  const searchClick = (e) => {
+    e.preventDefault();
+    // e.stopPropagation()
     setIsSearch(true);
   }
 
-  const filterShowClick = () => {
+  const filterShowClick = (e) => {
+    e.preventDefault();
+    // e.stopPropagation()
     if (filterStyle === "hide") {
       setFilterStyle("")
     } else {
@@ -57,7 +67,7 @@ const SidePanel = () => {
       <div className='Transactions'>
         <h3>Transactions</h3>
         <button className='NewTransactionButton'><i className="fas fa-plus-square" /> Add</button>
-        <ul onClick={filterShowClick}>
+        <ul>
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i className="fas fa-money-bill-wave" /> Filter
             <ul className={filterStyle}>
