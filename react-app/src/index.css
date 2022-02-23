@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
 body {
-
   background-color: rgba(233, 216, 166, 1);
 }
 
@@ -45,11 +44,11 @@ body {
   }
 }
 
-.zoom {
+/* .zoom {
   transition: transform .2s;
 }
 
 .zoom:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 20px #36454F;
-}
+  transform: scale(1.005);
+  box-shadow: 0 0 10px #36454F;
+} */

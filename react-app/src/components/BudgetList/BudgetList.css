@@ -7,6 +7,7 @@
   background-color: rgba(244, 107, 23, 0.8);
   color: white;
   padding: 3vh;
+  border-radius: 0.3em;
 }
 
 .BudgetList ul {
@@ -30,4 +31,19 @@
 #BudgetEditCloseButton {
   position: relative;
   left: 38%;
+  display:inline-block;
+  border:0.1em solid #F2F2F2;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:300;
+  color: #F2F2F2;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: inherit;
+  border-radius: 0.3em;
+}
+
+#BudgetEditCloseButton:hover {
+  border:0.1em solid #001219;
+  background-color: #001219;
 }

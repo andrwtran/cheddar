@@ -1,17 +1,24 @@
 import React from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import AccountList from '../AccountList/AccountList';
 import TransactionFilter from '../TransactionFilter/TransactionFilter';
+import TransactionAdd from '../TransactionAdd/TransactionAdd';
+import TransactionSearch from '../TransactionSearch/TransactionSearch';
 import "./SidePanel.css";
 
 const SidePanel = () => {
   const [isMax, setIsMax] = useState(false);
+  const [isAdd, setIsAdd] = useState(false);
   const [isFilterCat, setIsFilterCat] = useState(false);
   const [isFilterAcc, setIsFilterAcc] = useState(false);
   const [isFilterDate, setIsFilterDate] = useState(false);
   const [filterStyle, setFilterStyle] = useState("hide");
   const [isSearch, setIsSearch] = useState(false);
+
+  const accounts = useSelector((state) => state.account.byId);
+  const categories = useSelector((state) => state.category);
 
   const toggleMax = (e) => {
     e.preventDefault();
@@ -23,23 +30,36 @@ const SidePanel = () => {
     setIsMax(false);
   };
 
-  const filterCatClick = () => {
+  const toggleAdd = (e) => {
+    e.preventDefault();
+    setIsAdd(!isAdd);
+  };
+
+  const filterCatClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation()
     setIsFilterCat(true);
   };
 
-  const filterAccClick = () => {
+  const filterAccClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation()
     setIsFilterAcc(true);
   };
 
-  const filterDateClick = () => {
+  const filterDateClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation()
     setIsFilterDate(true);
   };
 
-  const searchClick = () => {
+  const searchClick = (e) => {
+    e.preventDefault();
     setIsSearch(true);
   }
 
-  const filterShowClick = () => {
+  const filterShowClick = (e) => {
+    e.preventDefault();
     if (filterStyle === "hide") {
       setFilterStyle("")
     } else {
@@ -56,8 +76,9 @@ const SidePanel = () => {
       <AccountList isMax={isMax} />
       <div className='Transactions'>
         <h3>Transactions</h3>
-        <button className='NewTransactionButton'><i className="fas fa-plus-square" /> Add</button>
-        <ul onClick={filterShowClick}>
+        <button className='NewTransactionButton' onClick={toggleAdd}><i className="fas fa-plus-square" /> Add</button>
+        {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
+        <ul>
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i className="fas fa-money-bill-wave" /> Filter
             <ul className={filterStyle}>
@@ -67,6 +88,7 @@ const SidePanel = () => {
             </ul>
           </li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
+          {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>}
         </ul>
       </div>
       {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
@@ -84,7 +106,8 @@ const SidePanel = () => {
       <AccountList isMax={isMax} />
       <div className='Transactions'>
         <h3>Transactions</h3>
-        <button className='NewTransactionButton'>New Transaction</button>
+        <button className='NewTransactionButton' onClick={toggleAdd}>New Transaction</button>
+        {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
         <ul>
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i className="fas fa-money-bill-wave" /> Filter
@@ -95,6 +118,7 @@ const SidePanel = () => {
             </ul>
           </li>
           <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
+          {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>}
         </ul>
       </div>
       {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}

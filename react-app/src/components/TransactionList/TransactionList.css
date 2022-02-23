@@ -78,12 +78,24 @@
 }
 
 .editButtons button, .saveButtons button {
-  background-color: transparent;
-  border: 0.1em solid transparent;
+  /* background-color: transparent;
+  border: 0.1em solid transparent; */
   font-size: 14px;
+  display:inline-block;
+  border:0.1em solid transparent;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:300;
+  color: #001219;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: transparent;
+  border-radius: 0.3em;
 }
 
 .editButtons button:hover, .saveButtons button:hover {
-  border: 0.1em solid #001219;
-  background-color: #F2F2F2;
+  /* border: 0.1em solid #001219; */
+  /* background-color: #F2F2F2; */
+  background-color: #0A9396;
+  color: #F2F2F2;
 }

@@ -5,7 +5,7 @@ import { getTransactions } from "../../store/transaction";
 import { getAccounts } from "../../store/account";
 import { getCategories } from "../../store/category";
 import { currencyFormatter, dateConverter } from '../../utils';
-import TransactionAdd from "../TransactionAdd/TransactionAdd";
+// import TransactionAdd from "../TransactionAdd/TransactionAdd";
 import TransactionEdit from "../TransactionEdit/TransactionEdit";
 import "./TransactionCard.css"
 
@@ -16,32 +16,33 @@ export default function TransactionCard() {
   const categories = useSelector((state) => state.category);
 
   const num_accounts = Object.keys(accounts).length;
+  const num_transactions = transactions.length;
 
   const today = new Date();
   // const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
   const transactions_monthly = transactions.filter(transaction => parseInt(transaction.trans_date.slice(5,7)) === today.getMonth()+1);
 
-  const [isAdd, setIsAdd] = useState(false);
+  // const [isAdd, setIsAdd] = useState(false);
   const [editId, setEditId] = useState();
 
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getAccounts());
     dispatch(getTransactions());
-  }, [dispatch, isAdd, num_accounts]);
+  }, [dispatch, num_accounts, num_transactions]);
 
-  const toggleAdd = (e) => {
-    e.preventDefault();
-    setIsAdd(!isAdd);
-  };
+  // const toggleAdd = (e) => {
+  //   e.preventDefault();
+  //   setIsAdd(!isAdd);
+  // };
 
   return (
-    <div className='TransactionCard zoom'>
+    <div className='TransactionCard'>
       <h3>Recent Transactions</h3>
-      <div className="TransactionAdd">
+      {/* <div className="TransactionAdd">
           <button onClick={toggleAdd}>New Transaction</button>
           {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} transactions_monthly={transactions_monthly} />}
-      </div>
+      </div> */}
       <table>
         <col className='TableDate'></col>
         <col className='TablePayee'></col>
@@ -76,7 +77,7 @@ export default function TransactionCard() {
               editId={editId}
               setEditId={setEditId}
               accounts={accounts}
-              setIsAdd={setIsAdd}
+              // setIsAdd={setIsAdd}
               categories={categories}
               />
             </tr>
