@@ -45,8 +45,25 @@
 }
 
 #EditBudgetsButton {
-  width: 30%;
+  width: 40%;
   font-size: 12px;
   position: relative;
-  left: 28%;
+  left: 25%;
+  padding: 0.5em;
+  display:inline-block;
+  border:0.1em solid #001219;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:300;
+  color: #001219;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: #FCFCFC;
+  border-radius: 0.3em;
+}
+
+#EditBudgetsButton:hover {
+  border:0.1em solid transparent;
+  background-color: #0A9396;
+  color: #F2F2F2;
 }

@@ -6,7 +6,7 @@
 
 .SidePanel {
   background-color: rgba(0, 95, 115, 1);
-  border-radius: 1em;
+  border-radius: 0.3em;
   padding: 0.5em;
   margin: 0.5em;
   color: #F2F2F2;
@@ -45,6 +45,16 @@
 #SideMin button, #SideMax button {
   font-size: 8px;
   border-radius: 2em;
+  display:inline-block;
+  border:0.1em solid #F2F2F2;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:300;
+  color: #F2F2F2;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: inherit;
+  /* border-radius: 0.3em; */
 }
 
 #MinSidePanel {
@@ -68,4 +78,19 @@
   margin: 0;
   /* padding: 0; */
   margin-bottom: 0.5em;
+  display:inline-block;
+  border:0.1em solid #F2F2F2;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:300;
+  color: #F2F2F2;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: inherit;
+  border-radius: 0.3em;
+}
+
+.NewTransactionButton:hover, #SideMin button:hover, #SideMax button:hover {
+  border:0.1em solid #001219;
+  background-color: #001219;
 }

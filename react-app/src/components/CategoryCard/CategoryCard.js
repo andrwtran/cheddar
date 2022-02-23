@@ -27,7 +27,7 @@ export default function CategoryCard() {
   }
 
   return (
-    <div className='CategoryCard zoom'>
+    <div className='CategoryCard'>
       <h3>Top Categories</h3>
       <CategoryBubbleChart transactions={transactions} categories={categories} today={today} />
     </div>

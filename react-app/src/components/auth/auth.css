@@ -2,7 +2,7 @@
   min-width: 500px;
   min-height: 500px;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,22 +15,48 @@
   justify-content: center;
 }
 
-.LoginButton, .SignUpButton {
-  margin: 0.5em;
-  margin-top: 0.8em;
+.LoginButton, .SignUpButton, .DemoButton {
+  margin: 0.8em 0.5em 0 0.5em;
+  /* margin-top: 0.8em; */
 }
 
-.LoginForm label, .SignUpForm label {
-  margin: 0.3em;
+.LoginButton button, .SignUpButton button, .DemoButton button {
+  display:inline-block;
+  border:0.1em solid #F2F2F2;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:300;
+  color: #F2F2F2;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: inherit;
+  border-radius: 0.3em;
 }
+
+.LoginButton button:hover,  .SignUpButton button:hover, .DemoButton button:hover {
+  border:0.1em solid #001219;
+  background-color: #001219;
+}
+
+/* .LoginForm label, .SignUpForm label {
+  margin: 0.3em;
+} */
 
 .LoginForm form, .SignUpForm form {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /* box-shadow: 10px 5px 5px #001219; */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  padding: 1em;
+  padding: 1.8em;
   background-color: rgba(0, 95, 115, 1);
   color: #F2F2F2;
+  border-radius: 0.3em;
+}
+
+.LoginForm input, .SignUpForm input {
+  border-radius: 0.3em;
+  margin: 0.2em 0;
+  padding: 0.2em;
+  border: none;
 }
 
 .SignUpButton {
@@ -56,8 +82,23 @@
 }
 
 .LoginErrors, .SignUpErrors {
-  border-radius: 0.5em;
-  padding: 0.5em;
-  margin-bottom: 0.2em;
+  border-radius: 0.3em;
+  padding: 0.3em;
+  margin-bottom: 0.5em;
   background-color: white;
 }
+
+/* #LoginEmailLabel {
+  margin-right: 2.3em;
+  text-align: center;
+}
+
+#SignUpEmailLabel {
+  margin-right: 2.7em;
+  text-align: center;
+}
+
+#SignUpPasswordLabel, #SignUpRepeatPasswordLabel {
+  margin-right: 0.7em;
+  text-align: center;
+} */

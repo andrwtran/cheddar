@@ -17,7 +17,7 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
   const [accountId, setAccountId] = useState(1);
 
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(null);
 
   const reset = () => {
     setIsFilterCat(false);

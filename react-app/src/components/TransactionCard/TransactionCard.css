@@ -68,3 +68,7 @@
 .TransactionCard input {
   width: 11vw;
 }
+
+.TransactionCard h3 {
+  margin-bottom: 0.6em;
+}

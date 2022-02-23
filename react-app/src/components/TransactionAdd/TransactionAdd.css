@@ -14,6 +14,8 @@
 .TransactionForm select, .TransactionForm input {
   box-sizing: content-box;
   width: 15vw;
+  border-radius: 0.3em;
+  border: none;
 }
 
 .TransactionForm {
@@ -28,6 +30,7 @@
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
+  border-radius: 0.3em;
 }
 
 .TransactionForm form {
@@ -51,4 +54,22 @@
   display: flex;
   justify-content: center;
   padding: 0.5em;
+}
+
+.TransactionFormButtons span button {
+  display:inline-block;
+  border:0.1em solid #F2F2F2;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:300;
+  color: #F2F2F2;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: inherit;
+  border-radius: 0.3em;
+}
+
+.TransactionFormButtons span button:hover {
+  border:0.1em solid #001219;
+  background-color: #001219;
 }

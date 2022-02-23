@@ -20,6 +20,21 @@
 .NewAccountButton {
   font-size: 10px !important;
   margin-bottom: 0.8em;
+  display:inline-block;
+  border:0.1em solid #F2F2F2;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:300;
+  color: #F2F2F2;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: inherit;
+  border-radius: 0.3em;
+}
+
+.NewAccountButton:hover {
+  border:0.1em solid #001219;
+  background-color: #001219;
 }
 
 .AccountEdit button, .AccountDelete button {

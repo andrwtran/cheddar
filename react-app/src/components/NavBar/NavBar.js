@@ -36,13 +36,13 @@ const NavBar = () => {
             <button>Home <i className="fas fa-home" /></button>
           </NavLink>
         </li>
-        <li>|</li>
+        {/* <li>|</li> */}
         <li>
           <NavLink to='/login'>
             <button>Login <i className="fas fa-sign-in-alt" /></button>
           </NavLink>
         </li>
-        <li>|</li>
+        {/* <li>|</li> */}
         <li>
           <NavLink to='/sign-up'>
             <button>Sign Up <i className="fas fa-user-plus" /></button>

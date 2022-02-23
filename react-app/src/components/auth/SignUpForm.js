@@ -51,49 +51,57 @@ const SignUpForm = () => {
   return (
     <div className='SignUpForm scale-up-center'>
       <img src={logo} alt=''></img>
+      {errors.length > 0 &&
+        <div className='SignUpErrors'>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
+      }
       <form onSubmit={onSignUp}>
-        {errors.length > 0 &&
-          <div className='SignUpErrors'>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
-          </div>
-        }
         <div className='SignUpUserName'>
-          <label>User Name</label>
+          {/* <label id='SignUpUserNameLabel'>Username</label> */}
           <input
             type='text'
             name='username'
             onChange={updateUsername}
             value={username}
+            id='SignUpUserNameInput'
+            placeholder='Username'
           ></input>
         </div>
         <div className='SignUpEmail'>
-          <label>Email</label>
+          {/* <label id='SignUpEmailLabel'>Email</label> */}
           <input
             type='text'
             name='email'
             onChange={updateEmail}
             value={email}
+            id='SignUpEmailInput'
+            placeholder='Email'
           ></input>
         </div>
         <div className='SignUpPassword'>
-          <label>Password</label>
+          {/* <label id='SignUpPasswordLabel'>Password</label> */}
           <input
             type='password'
             name='password'
             onChange={updatePassword}
             value={password}
+            id='SignUpPasswordInput'
+            placeholder='Password'
           ></input>
         </div>
         <div className='SignUpRepeatPassword'>
-          <label>Password</label>
+          {/* <label id='SignUpRepeatPasswordLabel'>Password</label> */}
           <input
             type='password'
             name='repeat_password'
             onChange={updateRepeatPassword}
             value={repeatPassword}
             required={true}
+            id='SignUpRepeatPasswordInput'
+            placeholder='Password'
           ></input>
         </div>
         <div className='SignUpButton'>

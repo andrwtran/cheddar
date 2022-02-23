@@ -5,7 +5,7 @@ import { updateTransaction } from '../../store/transaction';
 import TransactionDelete from '../TransactionDelete/TransactionDelete';
 import './TransactionEdit.css';
 
-export default function TransactionEdit({ transaction, editId, setEditId, accounts, setIsAdd, categories }) {
+export default function TransactionEdit({ transaction, editId, setEditId, accounts, categories }) {
   const [date, setDate] = useState(transaction.trans_date);
   const [payee, setPayee] = useState(transaction.trans_payee);
   const [amount, setAmount] = useState(transaction.trans_amount);
@@ -54,7 +54,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
   const toggleEdit = (e) => {
     e.preventDefault();
       setEditId(transaction.id);
-      setIsAdd(false);
+      // setIsAdd(false);
   };
 
   return (
