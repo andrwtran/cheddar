@@ -7,12 +7,12 @@ export default function Footer() {
       <p>A project by Andrew Tran</p>
       <span id="github_link">
         <a href="https://github.com/andrwtran">
-          <i className="fab fa-github-square" />
+          <i className="fa-brands fa-github-square" />
         </a>
       </span>
       <span id="linkedin_link">
         <a href="https://www.linkedin.com/in/andrewvtran/">
-          <i className="fab fa-linkedin" />
+          <i className="fa-brands fa-linkedin" />
         </a>
       </span>
     </div>

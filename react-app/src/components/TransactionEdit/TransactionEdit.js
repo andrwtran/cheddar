@@ -16,6 +16,11 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
 
   const reset = () => {
     setEditId();
+    setDate(transaction.trans_date);
+    setPayee(transaction.trans_payee);
+    setAmount(transaction.trans_amount);
+    setCategoryId(transaction.categoryId);
+    setAccountId(transaction.accountId);
   };
 
   const handleSubmit = (e) => {
@@ -48,7 +53,8 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
       accountId
     };
     dispatch(updateTransaction(editTransaction));
-    reset();
+    // reset();
+    setEditId();
   };
 
   const toggleEdit = (e) => {
@@ -64,7 +70,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
           <td>
             <div className='editButtons'>
               <span>
-                <button onClick={toggleEdit}><i className="fas fa-edit" /></button>
+                <button onClick={toggleEdit}><i class="fa-solid fa-pen-to-square" /></button>
               </span>
               <span>
                 <TransactionDelete oldTransaction={transaction} />
@@ -136,10 +142,10 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
           <td>
             <div className='saveButtons'>
               <span>
-                <button className='submit-button' type="submit" form='Edit'><i className="fas fa-save" /></button>
+                <button className='submit-button' type="submit" form='Edit'><i class="fa-solid fa-floppy-disk" /></button>
               </span>
               <span>
-                <button className='cancel-button' onClick={reset}><i className="far fa-window-close" /></button>
+                <button className='cancel-button' onClick={reset}><i class="fa-solid fa-square-xmark" /></button>
               </span>
             </div>
           </td>

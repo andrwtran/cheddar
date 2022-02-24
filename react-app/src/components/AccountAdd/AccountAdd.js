@@ -33,7 +33,7 @@ export default function AccountAdd({ setIsAdd, accounts }) {
       <div className="AccountFormOverlay" onClick={reset}></div>
       <div className='AccountAdd scale-up-center'>
         <form className='AccountAddForm' onSubmit={handleSubmit}>
-          <h3><i className="fas fa-cheese" /> New Account</h3>
+          <h3><i className="fa-solid fa-cheese" /> New Account</h3>
           <input
             type="text"
             onChange={(e) => setName(e.target.value)}

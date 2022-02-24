@@ -5,7 +5,8 @@
 .BudgetCard {
   background-color: #F2F2F2;
   border-radius: 0.3em;
-  margin: 1em;
+  /* margin: 1em; */
+  margin: 1.4vw;
   padding: 1em;
   /* box-shadow: 10px 5px 5px #001219; */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -38,9 +39,10 @@
 }
 
 .BudgetPieText {
-  text-align: center;
-  position: relative;
-  right: 10%;
+  /* text-align: center; */
+  text-align: start;
+  /* position: relative; */
+  /* right: 10%; */
   margin-top: 1em;
 }
 
@@ -48,7 +50,7 @@
   width: 40%;
   font-size: 12px;
   position: relative;
-  left: 25%;
+  left: 20%;
   padding: 0.5em;
   display:inline-block;
   border:0.1em solid #001219;

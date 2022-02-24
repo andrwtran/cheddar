@@ -4,7 +4,8 @@
 }
 
 .AccountList li{
-  margin: 0.2em;
+  /* margin: 0.2em; */
+  margin-top: 0.5em;
   font-size: 10px;
   /* overflow: hidden; */
   /* white-space: nowrap; */
@@ -44,7 +45,12 @@
   color: #F2F2F2 !important;
 }
 
-.AccountEdit button:hover, .AccountDelete button:hover {
+.AccountEdit .submit-button-disabled {
+  /* border:0.1em solid #001219; */
+  color: #001219 !important;
+}
+
+.AccountEdit .cancel-button:hover, .AccountDeleteButton:hover, .AccountEditButton:hover {
   border: 0.1em solid #001219;
   background-color: #001219;
 }
