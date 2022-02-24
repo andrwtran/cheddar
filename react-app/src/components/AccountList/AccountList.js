@@ -28,12 +28,12 @@ export default function AccountList({ isMax }) {
     return (
       <div className='AccountList'>
       <h3>Accounts</h3>
-      <button className='NewAccountButton' onClick={toggleAdd}><i className="fas fa-plus-square" /> Add</button>
+      <button className='NewAccountButton' onClick={toggleAdd}><i class="fa-solid fa-square-plus" /> Add</button>
       {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
       <ul>
         {accounts.map((account) => (
           <li key={account.id}>
-            {editId !== account.id && <i className="fas fa-cheese" />}
+            {editId !== account.id && <i className="fa-solid fa-cheese" />}
             {editId !== account.id && account.account_name}
           </li>
         )
@@ -51,7 +51,7 @@ export default function AccountList({ isMax }) {
       <ul>
         {accounts.map((account) => (
           <li key={account.id}>
-            {editId !== account.id && <i className="fas fa-cheese" />}
+            {editId !== account.id && <i className="fa-solid fa-cheese" />}
             {editId !== account.id && account.account_name}
             <AccountEdit
             setEditId={setEditId}

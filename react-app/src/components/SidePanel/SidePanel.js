@@ -71,24 +71,24 @@ const SidePanel = () => {
     return (
     <div className='SidePanel' id='MinSidePanel'>
       <span id={'SideMax'}>
-          <button onClick={toggleMax}><i class="fas fa-window-maximize" /></button>
+          <button onClick={toggleMax}><i class="fa-solid fa-window-maximize" /></button>
       </span>
       <AccountList isMax={isMax} />
       <div className='Transactions'>
         <h3>Transactions</h3>
-        <button className='NewTransactionButton' onClick={toggleAdd}><i className="fas fa-plus-square" /> Add</button>
+        <button className='NewTransactionButton' onClick={toggleAdd}><i class="fa-solid fa-square-plus" /> Add</button>
         {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
         <ul>
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
-          <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i className="fas fa-money-bill-wave" /> Filter
+          <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i class="fa-solid fa-money-bill-wave" /> Filter
             <ul className={filterStyle}>
-              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
-              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
-              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
+              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
+              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
+              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
             </ul>
           </li>
-          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
-          {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>}
+          {/* <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li> */}
+          {/* {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>} */}
         </ul>
       </div>
       {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
@@ -101,7 +101,7 @@ const SidePanel = () => {
   return (
     <div className='SidePanel' id='MaxSidePanel'>
       <span id={'SideMin'}>
-          <button onClick={toggleMin}><i class="fas fa-window-minimize" /></button>
+          <button onClick={toggleMin}><i class="fa-solid fa-window-minimize" /></button>
       </span>
       <AccountList isMax={isMax} />
       <div className='Transactions'>
@@ -109,16 +109,16 @@ const SidePanel = () => {
         <button className='NewTransactionButton' onClick={toggleAdd}>New Transaction</button>
         {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
         <ul>
-          <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
-          <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i className="fas fa-money-bill-wave" /> Filter
+          <li><i className="fa-solid fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
+          <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i className="fa-solid fa-money-bill-wave" /> Filter
             <ul className={filterStyle}>
-              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
-              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
-              <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
+              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
+              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
+              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
             </ul>
           </li>
-          <li><i className="fas fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li>
-          {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>}
+          {/* <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li> */}
+          {/* {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>} */}
         </ul>
       </div>
       {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}

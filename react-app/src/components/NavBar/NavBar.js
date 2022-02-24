@@ -9,8 +9,8 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
 
   if (sessionUser) return (
-    <nav className='NavBar' style={{width:"99%"}}>
-      <span id='NavBarLogo'><i class="fas fa-cheese" style={{marginRight: 3, marginLeft: 2}}></i>CHEDDAR</span>
+    <nav className='NavBar' style={{width:"97%"}}>
+      <span id='NavBarLogo'><i class="fa-solid fa-cheese" style={{marginRight: 3, marginLeft: 2}}></i>CHEDDAR</span>
       <ul>
         <li>
           <span id='WelcomeMessage'>{`Welcome, ${sessionUser.username}!`}</span>
@@ -18,7 +18,7 @@ const NavBar = () => {
         <li style={{marginLeft: 8}} className='NavBarDivider'>|</li>
         <li>
           <NavLink to='/'>
-            <button>Home <i className="fas fa-home" /></button>
+            <button>Home <i className="fa-solid fa-house" /></button>
           </NavLink>
         </li>
         <li className='NavBarDivider'>|</li>
@@ -31,22 +31,22 @@ const NavBar = () => {
 
   return (
     <nav className='NavBar' style={{display: "block"}}>
-      <ul style={{justifyContent: "space-around", marginTop: 0}}>
+      <ul style={{justifyContent: "space-around", marginTop: 5}}>
         <li>
           <NavLink to='/'>
-            <button>Home <i className="fas fa-home" /></button>
+            <button>Home <i className="fa-solid fa-house" /></button>
           </NavLink>
         </li>
         <li className='NavBarDivider'>|</li>
         <li>
           <NavLink to='/login'>
-            <button>Login <i className="fas fa-sign-in-alt" /></button>
+            <button>Login <i class="fa-solid fa-right-to-bracket" /></button>
           </NavLink>
         </li>
         <li className='NavBarDivider'>|</li>
         <li>
           <NavLink to='/sign-up'>
-            <button>Sign Up <i className="fas fa-user-plus" /></button>
+            <button>Sign Up <i class="fa-solid fa-user-plus" /></button>
           </NavLink>
         </li>
       </ul>

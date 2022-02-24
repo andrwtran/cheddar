@@ -59,7 +59,7 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
         <div className="TransactionFilterOverlay" onClick={reset}></div>
         <div className='TransactionFilter scale-up-center'>
           <form onSubmit={filterCatClick}>
-            <h3><i className="fas fa-money-bill-wave" /> Transactions</h3>
+            <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
             <label>by Category</label>
             <select
               onChange={(e) => setCategoryId(e.target.value)}
@@ -88,7 +88,7 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
         <div className="TransactionFilterOverlay" onClick={reset}></div>
         <div className='TransactionFilter scale-up-center'>
           <form>
-            <h3><i className="fas fa-money-bill-wave" /> Transactions</h3>
+            <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
             <label>by Account</label>
             <select
                 onChange={(e) => setAccountId(e.target.value)}
@@ -117,7 +117,7 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
         <div className="TransactionFilterOverlay" onClick={reset}></div>
         <div className='TransactionFilter scale-up-center' id='TransactionFilterDate'>
           <div>
-            <h3><i className="fas fa-money-bill-wave" /> Transactions</h3>
+            <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
             <span className="TransactionFilterText">by Date</span>
             <DatePicker
               selected={startDate}

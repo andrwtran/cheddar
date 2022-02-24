@@ -13,7 +13,7 @@ export default function BudgetList({ budgets, isEdit, setIsEdit }) {
     <>
       <div className='BudgetListOverlay' onClick={() => setIsEdit(false)}></div>
       <div className='BudgetList scale-up-center'>
-        <h3><i className="fas fa-piggy-bank" /> Budgets</h3>
+        <h3><i className="fa-solid fa-piggy-bank" /> Budgets</h3>
         <ul>
           {budgets.map((budget) => (
             <li key={budget.id}>
