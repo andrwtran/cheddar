@@ -4,8 +4,9 @@ import "./CategoryBubbleChart.css"
 
 export default function BudgetPieChart({ transactions, categories, today }) {
 
-  const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
-
+  // const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
+  const transactions_monthly = transactions.filter(transaction => parseInt(transaction.trans_date.slice(5,7)) === today.getMonth()+1);
+  
   const spend_monthly_byCat = {};
 
   transactions_monthly.forEach(transaction => {

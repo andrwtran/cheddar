@@ -25,7 +25,6 @@ export default function AccountEdit({ setEditId, editId, account, accounts, setI
       account_name: name
     };
     dispatch(updateAccount(editAccount));
-    // reset();
     setEditId();
   };
 

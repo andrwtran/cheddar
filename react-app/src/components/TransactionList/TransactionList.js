@@ -6,7 +6,6 @@ import { getTransactions } from "../../store/transaction";
 import { getAccounts } from "../../store/account";
 import { getCategories } from "../../store/category";
 import { currencyFormatter, dateConverter, tableSorter } from "../../utils";
-// import TransactionAdd from "../TransactionAdd/TransactionAdd";
 import TransactionEdit from "../TransactionEdit/TransactionEdit";
 import './TransactionList.css';
 
@@ -16,7 +15,6 @@ const TransactionList = () => {
   const accounts = useSelector((state) => state.account.byId);
   const categories = useSelector((state) => state.category);
 
-  // const [isAdd, setIsAdd] = useState(false);
   const [editId, setEditId] = useState();
 
   const { categoryId, accountId, dateQuery } = useParams();
@@ -30,11 +28,6 @@ const TransactionList = () => {
     dispatch(getCategories());
     addSort();
   }, [dispatch, num_transactions, num_accounts]);
-
-  // const toggleAdd = (e) => {
-  //   e.preventDefault();
-  //   setIsAdd(!isAdd);
-  // };
 
   const addSort = () => {
     document.querySelectorAll("th").forEach(header => {
@@ -54,10 +47,6 @@ const TransactionList = () => {
     if (transactions_category.length === 0) return (
       <div className="TransactionList">
         <h2>{categories[parseInt(categoryId)-1]?.category_name} Transactions</h2>
-        {/* <div className="TransactionAdd">
-          <button onClick={toggleAdd}>New Transaction</button>
-          {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
-        </div> */}
         <p> No Matching Transactions </p>
       </div>
     );
@@ -65,10 +54,6 @@ const TransactionList = () => {
     return (
       <div className="TransactionList">
         <h2>{categories[parseInt(categoryId)-1]?.category_name} Transactions</h2>
-        {/* <div className="TransactionAdd">
-          <button onClick={toggleAdd}>New Transaction</button>
-          {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
-        </div> */}
         <table>
           <col className='TableDate'></col>
           <col className='TablePayee'></col>
@@ -103,7 +88,6 @@ const TransactionList = () => {
                 editId={editId}
                 setEditId={setEditId}
                 accounts={accounts}
-                // setIsAdd={setIsAdd}
                 categories={categories}
                 />
               </tr>
@@ -121,20 +105,12 @@ const TransactionList = () => {
     if (transactions_account.length === 0) return (
       <div className="TransactionList">
         <h2>{accounts[parseInt(accountId)]?.account_name} Transactions</h2>
-        {/* <div className="TransactionAdd">
-          <button onClick={toggleAdd}>New Transaction</button>
-          {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
-        </div> */}
         <p> No Matching Transactions </p>
       </div>
     )
     return (
       <div className="TransactionList">
         <h2>{accounts[parseInt(accountId)]?.account_name} Transactions</h2>
-        {/* <div className="TransactionAdd">
-          <button onClick={toggleAdd}>New Transaction</button>
-          {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
-        </div> */}
         <table>
           <col className='TableDate'></col>
           <col className='TablePayee'></col>
@@ -169,7 +145,6 @@ const TransactionList = () => {
                 editId={editId}
                 setEditId={setEditId}
                 accounts={accounts}
-                // setIsAdd={setIsAdd}
                 categories={categories}
                 />
               </tr>
@@ -214,10 +189,6 @@ const TransactionList = () => {
           ? <h2>Transactions on {myDateToString(firstDateYear, firstDateMonth, firstDateDay)}</h2>
           : <h2>Transactions from {myDateToString(firstDateYear, firstDateMonth, firstDateDay)} to {myDateToString(secondDateYear, secondDateMonth, secondDateDay)}</h2>
         }
-        {/* <div className="TransactionAdd">
-          <button onClick={toggleAdd}>New Transaction</button>
-          {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
-        </div> */}
         <p> No Matching Transactions</p>
       </div>
     );
@@ -228,10 +199,6 @@ const TransactionList = () => {
         ? <h2>Transactions on {myDateToString(firstDateYear, firstDateMonth, firstDateDay)}</h2>
         : <h2>Transactions from {myDateToString(firstDateYear, firstDateMonth, firstDateDay)} to {myDateToString(secondDateYear, secondDateMonth, secondDateDay)}</h2>
         }
-        {/* <div className="TransactionAdd">
-          <button onClick={toggleAdd}>New Transaction</button>
-          {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
-        </div> */}
         <table>
           <col className='TableDate'></col>
           <col className='TablePayee'></col>
@@ -266,7 +233,6 @@ const TransactionList = () => {
                 editId={editId}
                 setEditId={setEditId}
                 accounts={accounts}
-                // setIsAdd={setIsAdd}
                 categories={categories}
                 />
               </tr>
@@ -281,10 +247,6 @@ const TransactionList = () => {
   return (
     <div className="TransactionList">
       <h2>All Transactions</h2>
-      {/* <div className="TransactionAdd">
-        <button onClick={toggleAdd}>New Transaction</button>
-        {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
-      </div> */}
       <table>
         <col className='TableDate'></col>
         <col className='TablePayee'></col>
@@ -319,7 +281,6 @@ const TransactionList = () => {
               editId={editId}
               setEditId={setEditId}
               accounts={accounts}
-              // setIsAdd={setIsAdd}
               categories={categories}
               />
             </tr>

@@ -15,8 +15,6 @@ class Transaction(db.Model):
   account = db.relationship('Account', back_populates='transactions')
 
   def to_dict(self):
-    # print("!!!!!!!!!!!!!")
-    # print(self.trans_date)
     return {
         'id': self.id,
         # 'trans_date': self.trans_date,

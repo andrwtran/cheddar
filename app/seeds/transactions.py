@@ -13,7 +13,7 @@ def seed_transactions():
   starbucks_three = Transaction(trans_date=date(2022, 2, 16), trans_payee='Starbucks', trans_amount=11.28, categoryId=6, accountId=2)
   philz_five = Transaction(trans_date=date(2022, 2, 20), trans_payee='Philz Coffee', trans_amount=7.40, categoryId=6, accountId=4)
   boba = Transaction(trans_date=date(2022, 2, 22), trans_payee='Boba Guys', trans_amount=6.36, categoryId=6, accountId=2)
-  # starbucks_four = Transaction(trans_date=date(2022, 2, 25), trans_payee='Starbucks', trans_amount=8.77, categoryId=6, accountId=2)
+  starbucks_four = Transaction(trans_date=date(2022, 2, 25), trans_payee='Starbucks', trans_amount=8.77, categoryId=6, accountId=2)
 
   chipotle_one = Transaction(trans_date=date(2022, 1, 13), trans_payee='Chipotle', trans_amount=8.59, categoryId=6, accountId=2)
   chipotle_two = Transaction(trans_date=date(2022, 1, 18), trans_payee='Chipotle', trans_amount=10.46, categoryId=6, accountId=4)
@@ -80,7 +80,7 @@ def seed_transactions():
   db.session.add(starbucks_three)
   db.session.add(philz_five)
   db.session.add(boba)
-  # db.session.add(starbucks_four)
+  db.session.add(starbucks_four)
 
   db.session.add(chipotle_one)
   db.session.add(chipotle_two)

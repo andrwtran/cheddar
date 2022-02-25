@@ -1,8 +1,9 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db, Budget
+from app.models import User, db, Budget, Account, Transaction
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
+from datetime import date
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -70,6 +71,18 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
         login_user(user)
+
+        account = Account(account_name='My First Account', userId=user.id)
+        db.session.add(account)
+        db.session.commit()
+
+        dining_trans = Transaction(trans_date=date.today(), trans_payee='My First Dining Transaction', trans_amount=100.00, categoryId=6, accountId=account.id)
+        groceries_trans = Transaction(trans_date=date.today(), trans_payee='My First Groceries Transaction', trans_amount=50.00, categoryId=13, accountId=account.id)
+        shopping_trans = Transaction(trans_date=date.today(), trans_payee='My First Shopping Transaction', trans_amount=100.00, categoryId=19, accountId=account.id)
+        db.session.add(dining_trans)
+        db.session.add(groceries_trans)
+        db.session.add(shopping_trans)
+        db.session.commit()
 
         total = Budget(budget_name='Total', budget_amount=2500, categoryId=1, userId=user.id)
         shopping = Budget(budget_name='Shopping', budget_amount=1000, categoryId=19, userId=user.id)

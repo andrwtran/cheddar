@@ -6,7 +6,8 @@ import "./BudgetPieChart.css"
 
 export default function BudgetPieChart({ budgets, transactions, today, days_in_month}) {
 
-  const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
+  // const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
+  const transactions_monthly = transactions.filter(transaction => parseInt(transaction.trans_date.slice(5,7)) === today.getMonth()+1);
   const spend_monthly = transactions_monthly.reduce((acc, el) => acc + el.trans_amount, 0);
 
   const budget_monthly = budgets.find(budget => budget.categoryId === 1).budget_amount;

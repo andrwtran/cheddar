@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import AccountList from '../AccountList/AccountList';
 import TransactionFilter from '../TransactionFilter/TransactionFilter';
 import TransactionAdd from '../TransactionAdd/TransactionAdd';
-import TransactionSearch from '../TransactionSearch/TransactionSearch';
+// import TransactionSearch from '../TransactionSearch/TransactionSearch';
 import "./SidePanel.css";
 
 const SidePanel = () => {
@@ -15,7 +15,9 @@ const SidePanel = () => {
   const [isFilterAcc, setIsFilterAcc] = useState(false);
   const [isFilterDate, setIsFilterDate] = useState(false);
   const [filterStyle, setFilterStyle] = useState("hide");
-  const [isSearch, setIsSearch] = useState(false);
+  // const [isSearch, setIsSearch] = useState(false);
+
+  const dispatch = useDispatch();
 
   const accounts = useSelector((state) => state.account.byId);
   const categories = useSelector((state) => state.category);
@@ -32,6 +34,11 @@ const SidePanel = () => {
 
   const toggleAdd = (e) => {
     e.preventDefault();
+
+    if (!Object.keys(accounts).length) {
+      return alert("You must create an account before creating any transactions.")
+    };
+
     setIsAdd(!isAdd);
   };
 
@@ -53,10 +60,10 @@ const SidePanel = () => {
     setIsFilterDate(true);
   };
 
-  const searchClick = (e) => {
-    e.preventDefault();
-    setIsSearch(true);
-  }
+  // const searchClick = (e) => {
+  //   e.preventDefault();
+  //   setIsSearch(true);
+  // }
 
   const filterShowClick = (e) => {
     e.preventDefault();
