@@ -46,16 +46,6 @@ export default function BudgetEdit({ budgets, budget, setIsEdit }) {
       };
     };
 
-    // const total = budgets.find(budget => budget.categoryId === 1);
-    // const total_amount = total.budget_amount;
-
-    // const category = budgets.filter(budget => budget.categoryId !== 1);
-    // const category_amount = category.reduce((acc, budget) => acc + budget.budget_amount, 0);
-
-    // if (category_amount > total_amount) {
-    //   return alert("Monthly budget amount must be greater than category budgets.")
-    // };
-
     const editBudget = {
       id: budget.id,
       budget_name: budget.budget_name,

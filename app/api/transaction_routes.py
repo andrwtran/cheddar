@@ -9,25 +9,17 @@ transaction_routes = Blueprint('transactions', __name__)
 def get_all_transactions():
   transactions = Transaction.query.join(Account).filter(Account.userId == current_user.get_id()).order_by(Transaction.trans_date.desc())
   return {'all_transactions': [transaction.to_dict() for transaction in transactions]}
-  # all_transactions = {'all_transactions': [transaction.to_dict() for transaction in transactions]}
-  # print("!!!!!!!!!!!!!!")
-  # print(all_transactions)
-  # return all_transactions
 
 # fetch('/api/transactions/', {method: 'Get'}).then(res => res.json()).then(data => console.log(data));
 
 @transaction_routes.route('/', methods=['POST'])
 @login_required
 def add_transaction():
-  # print("!!!!!!!!!!!!!!!!!!!!!!")
-  # print(request.json['trans_date'])
   new_transaction = Transaction(trans_date=request.json['trans_date'],
     trans_payee=request.json['trans_payee'],
     trans_amount=request.json['trans_amount'],
     categoryId=request.json['categoryId'],
     accountId=request.json['accountId'])
-  # print("!!!!!!!!!!!!!!!!!!!!!!")
-  # print(new_transaction.trans_date)
   db.session.add(new_transaction)
   db.session.commit()
 

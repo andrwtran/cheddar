@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import  ReactDOM  from 'react-dom';
-// import { dateConverter } from "../../utils";
 import "react-datepicker/dist/react-datepicker.css";
 import "./TransactionFilter.css";
 

@@ -5,7 +5,6 @@ import { getTransactions } from "../../store/transaction";
 import { getAccounts } from "../../store/account";
 import { getCategories } from "../../store/category";
 import { currencyFormatter, dateConverter } from '../../utils';
-// import TransactionAdd from "../TransactionAdd/TransactionAdd";
 import TransactionEdit from "../TransactionEdit/TransactionEdit";
 import "./TransactionCard.css"
 
@@ -22,7 +21,6 @@ export default function TransactionCard() {
   // const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
   const transactions_monthly = transactions.filter(transaction => parseInt(transaction.trans_date.slice(5,7)) === today.getMonth()+1);
 
-  // const [isAdd, setIsAdd] = useState(false);
   const [editId, setEditId] = useState();
 
   useEffect(() => {
@@ -31,18 +29,9 @@ export default function TransactionCard() {
     dispatch(getTransactions());
   }, [dispatch, num_accounts, num_transactions]);
 
-  // const toggleAdd = (e) => {
-  //   e.preventDefault();
-  //   setIsAdd(!isAdd);
-  // };
-
   return (
     <div className='TransactionCard'>
       <h3>Recent Transactions</h3>
-      {/* <div className="TransactionAdd">
-          <button onClick={toggleAdd}>New Transaction</button>
-          {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} transactions_monthly={transactions_monthly} />}
-      </div> */}
       <table>
         <col className='TableDate'></col>
         <col className='TablePayee'></col>
@@ -77,7 +66,6 @@ export default function TransactionCard() {
               editId={editId}
               setEditId={setEditId}
               accounts={accounts}
-              // setIsAdd={setIsAdd}
               categories={categories}
               />
             </tr>
