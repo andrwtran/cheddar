@@ -28,7 +28,6 @@ export default function BudgetCard() {
     dispatch(getTransactions());
   }, [dispatch]);
 
-
   if (!budgets.length || !transactions.length) return null;
 
   return (

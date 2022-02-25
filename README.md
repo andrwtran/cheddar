@@ -26,7 +26,7 @@ Welcome to Cheddar, a simple budgeting app inspired by the likes of Mint and Sim
  Users can create, edit, and delete Transactions.
 
 #### 3. Categories
- Users can tag Transactions with preset categories and filter Transactions by categories.
+ Users can tag Transactions with preset categories and filter Transactions by category, account, and date(s).
 
 #### 4. Budgets
  Users can edit preset budgets which track monthly spending and category spending and can see visualizations of their progress.
