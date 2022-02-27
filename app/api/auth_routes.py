@@ -76,9 +76,9 @@ def sign_up():
         db.session.add(account)
         db.session.commit()
 
-        dining_trans = Transaction(trans_date=date.today(), trans_payee='My First Dining Transaction', trans_amount=100.00, categoryId=6, accountId=account.id)
-        groceries_trans = Transaction(trans_date=date.today(), trans_payee='My First Groceries Transaction', trans_amount=50.00, categoryId=13, accountId=account.id)
-        shopping_trans = Transaction(trans_date=date.today(), trans_payee='My First Shopping Transaction', trans_amount=100.00, categoryId=19, accountId=account.id)
+        dining_trans = Transaction(trans_date=date.today(), trans_payee='Restaurant', trans_amount=100.00, categoryId=6, accountId=account.id)
+        groceries_trans = Transaction(trans_date=date.today(), trans_payee='Supermarket', trans_amount=50.00, categoryId=13, accountId=account.id)
+        shopping_trans = Transaction(trans_date=date.today(), trans_payee='Store', trans_amount=100.00, categoryId=19, accountId=account.id)
         db.session.add(dining_trans)
         db.session.add(groceries_trans)
         db.session.add(shopping_trans)

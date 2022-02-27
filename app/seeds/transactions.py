@@ -23,7 +23,7 @@ def seed_transactions():
   buffalo = Transaction(trans_date=date(2022, 2, 13), trans_payee='Wingstop', trans_amount=26.69, categoryId=6, accountId=4)
   chipotle_four = Transaction(trans_date=date(2022, 2, 15), trans_payee='Chipotle', trans_amount=12.67, categoryId=6, accountId=3)
   chipotle_five = Transaction(trans_date=date(2022, 2, 23), trans_payee='Chipotle', trans_amount=11.14, categoryId=6, accountId=4)
-  # portillos = Transaction(trans_date=date(2022, 2, 26), trans_payee='Portillos', trans_amount=18.55, categoryId=6, accountId=4)
+  portillos = Transaction(trans_date=date(2022, 2, 26), trans_payee='Portillos', trans_amount=18.55, categoryId=6, accountId=4)
 
   trader_joes = Transaction(trans_date=date(2022, 1, 13), trans_payee='Trader Joes', trans_amount=20.56, categoryId=13, accountId=2)
   whole_foods = Transaction(trans_date=date(2022, 1, 1), trans_payee='Whole Foods', trans_amount=23.40, categoryId=13, accountId=3)
@@ -90,7 +90,7 @@ def seed_transactions():
   db.session.add(buffalo)
   db.session.add(chipotle_four)
   db.session.add(chipotle_five)
-  # db.session.add(portillos)
+  db.session.add(portillos)
 
   db.session.add(trader_joes)
   db.session.add(whole_foods)

@@ -29,7 +29,7 @@ export default function BudgetEdit({ budgets, budget, setIsEdit }) {
       if (category_amount > total_amount) {
         console.log(category_amount, total_amount);
         setAmount(budget.budget_amount);
-        return alert("Total budget amount must be greater than category budgets.")
+        return alert("Monthly budget amount must be greater than category budgets.")
       };
     } else {
       const total = budgets.find(budget => budget.categoryId === 1);
