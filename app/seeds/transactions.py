@@ -24,12 +24,14 @@ def seed_transactions():
   chipotle_four = Transaction(trans_date=date(2022, 2, 15), trans_payee='Chipotle', trans_amount=12.67, categoryId=6, accountId=3)
   chipotle_five = Transaction(trans_date=date(2022, 2, 23), trans_payee='Chipotle', trans_amount=11.14, categoryId=6, accountId=4)
   portillos = Transaction(trans_date=date(2022, 2, 26), trans_payee='Portillos', trans_amount=18.55, categoryId=6, accountId=4)
+  inNOut = Transaction(trans_date=date(2022, 3, 2), trans_payee='In-N-Out Burger', trans_amount=9.36, categoryId=6, accountId=3)
 
   trader_joes = Transaction(trans_date=date(2022, 1, 13), trans_payee='Trader Joes', trans_amount=20.56, categoryId=13, accountId=2)
   whole_foods = Transaction(trans_date=date(2022, 1, 1), trans_payee='Whole Foods', trans_amount=23.40, categoryId=13, accountId=3)
   whole_foods_two = Transaction(trans_date=date(2022, 2, 2), trans_payee='Whole Foods', trans_amount=32.13, categoryId=13, accountId=3)
   costco = Transaction(trans_date=date(2022, 2, 3), trans_payee='Costco', trans_amount=41.58, categoryId=13, accountId=3)
   trader_joes_two = Transaction(trans_date=date(2022, 2, 19), trans_payee='Trader Joes', trans_amount=20.49, categoryId=13, accountId=4)
+  costco_two = Transaction(trans_date=date(2022, 3, 2), trans_payee='Costco', trans_amount=68.89, categoryId=13, accountId=2)
 
   chewy_one = Transaction(trans_date=date(2022, 1, 6), trans_payee='Chewy.com', trans_amount=30.98, categoryId=18, accountId=2)
   chewy_two = Transaction(trans_date=date(2022, 1, 12), trans_payee='Chewy.com', trans_amount=10.23, categoryId=18, accountId=2)
@@ -47,8 +49,9 @@ def seed_transactions():
   uniqlo_two = Transaction(trans_date=date(2022, 2, 7), trans_payee='Uniqlo', trans_amount=31.43, categoryId=19, accountId=2)
   danner = Transaction(trans_date=date(2022, 2, 14), trans_payee='Danner', trans_amount=121.53, categoryId=19, accountId=2)
   keychron = Transaction(trans_date=date(2022, 2, 15), trans_payee='Keychron', trans_amount=77.36, categoryId=19, accountId=3)
-  # pistol = Transaction(trans_date=date(2022, 2, 28), trans_payee='Pistol Lake', trans_amount=92.19, categoryId=19, accountId=5)
+  pistol = Transaction(trans_date=date(2022, 2, 28), trans_payee='Pistol Lake', trans_amount=92.19, categoryId=19, accountId=5)
   amazon_four = Transaction(trans_date=date(2022, 2, 23), trans_payee='Amazon.com', trans_amount=33.41, categoryId=19, accountId=2)
+  amazon_five = Transaction(trans_date=date(2022, 3, 1), trans_payee='Amazon.com', trans_amount=64.63, categoryId=19, accountId=3)
 
   uber = Transaction(trans_date=date(2022, 1, 10), trans_payee='Uber', trans_amount=15.80, categoryId=21, accountId=3)
   lyft = Transaction(trans_date=date(2022, 1, 2), trans_payee='Lyft', trans_amount=12.61, categoryId=21, accountId=3)
@@ -91,12 +94,14 @@ def seed_transactions():
   db.session.add(chipotle_four)
   db.session.add(chipotle_five)
   db.session.add(portillos)
+  db.session.add(inNOut)
 
   db.session.add(trader_joes)
   db.session.add(whole_foods)
   db.session.add(whole_foods_two)
   db.session.add(costco)
   db.session.add(trader_joes_two)
+  db.session.add(costco_two)
 
   db.session.add(chewy_one)
   db.session.add(chewy_two)
@@ -114,8 +119,9 @@ def seed_transactions():
   db.session.add(uniqlo_two)
   db.session.add(danner)
   db.session.add(keychron)
-  # db.session.add(pistol)
+  db.session.add(pistol)
   db.session.add(amazon_four)
+  db.session.add(amazon_five)
 
   db.session.add(uber)
   db.session.add(uber_two)
