@@ -38,7 +38,7 @@ const TransactionList = () => {
     dispatch(getTransactions());
     dispatch(getAccounts());
     addSort();
-    if (payeeQuery) searchPayee();
+    // if (payeeQuery) searchPayee();
   }, [dispatch, num_transactions, num_accounts]);
 
   useEffect(() => {
