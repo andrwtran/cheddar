@@ -86,7 +86,7 @@ const transactionReducer = (state = initialState, action) => {
       return newState;
     };
     case ADD_TRANSACTION: {
-      const newState = { byId: { ...state.byId }, all: [ ...state.all] };
+      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
       const newTransaction = action.newTransaction;
       if (!newState.byId[newTransaction.id]) {
         newState.byId[newTransaction.id] = newTransaction;
@@ -95,14 +95,14 @@ const transactionReducer = (state = initialState, action) => {
       return newState;
     };
     case REMOVE_TRANSACTION: {
-      const newState = { byId: { ...state.byId }, all: [ ...state.all] };
+      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
       delete newState.byId[action.oldTransaction.id];
       const removeIndex = newState.all.findIndex((transaction) => transaction.id === action.oldTransaction.id);
       newState.all.splice(removeIndex, 1);
       return newState;
     };
     case UPDATE_TRANSACTION: {
-      const newState = { byId: { ...state.byId }, all: [ ...state.all] };
+      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
       const editTransaction = action.transaction;
       newState.byId[editTransaction.id] = editTransaction;
       const updateIndex = newState.all.findIndex((transaction) => transaction.id === editTransaction.id);
