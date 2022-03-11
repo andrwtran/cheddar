@@ -3,6 +3,7 @@ import  ReactDOM  from 'react-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createAccount } from '../../store/account';
+import { motion } from 'framer-motion';
 import './AccountAdd.css';
 
 export default function AccountAdd({ setIsAdd, accounts }) {
@@ -10,7 +11,7 @@ export default function AccountAdd({ setIsAdd, accounts }) {
   const dispatch = useDispatch();
 
   const reset = () => {
-    setName('');
+    // setName('');
     setIsAdd(false);
   };
 
@@ -28,10 +29,46 @@ export default function AccountAdd({ setIsAdd, accounts }) {
     reset();
   };
 
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 0.1,
+        type: "spring",
+        damping: 25,
+        stiffness: 500
+      }
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0
+    }
+  };
+
   return ReactDOM.createPortal(
     <>
-      <div className="AccountFormOverlay" onClick={reset}></div>
-      <div className='AccountAdd scale-up-center'>
+      <motion.div
+        key="Account-Form-Overlay"
+        className="AccountFormOverlay"
+        onClick={reset}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+      </motion.div>
+      <motion.div
+        key="Account-Add"
+        className='AccountAdd'
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
         <form className='AccountAddForm' onSubmit={handleSubmit}>
           <h3><i className="fa-solid fa-cheese" /> New Account</h3>
           <input
@@ -44,9 +81,9 @@ export default function AccountAdd({ setIsAdd, accounts }) {
           />
           {name && <button className='submit-button-active' type="submit">Save</button>}
           {!name && <button className='submit-button-disabled' type="submit" disabled="disabled">Save</button>}
-          <button className='submit-button-active' onClick={reset}>Close</button>
+          <button className='submit-button-active' type="reset" onClick={reset}>Close</button>
         </form>
-      </div>
+      </motion.div>
     </>,
   document.getElementById('root'));
 }

@@ -5,6 +5,7 @@ import { getAccounts } from '../../store/account';
 import AccountAdd from '../AccountAdd/AccountAdd';
 import AccountDelete from '../AccountDelete/AccountDelete';
 import AccountEdit from '../AccountEdit/AccountEdit';
+import { AnimatePresence } from 'framer-motion';
 import './AccountList.css';
 
 export default function AccountList({ isMax }) {
@@ -29,7 +30,13 @@ export default function AccountList({ isMax }) {
       <div className='AccountList'>
       <h3>Accounts</h3>
       <button className='NewAccountButton' onClick={toggleAdd}><i class="fa-solid fa-square-plus" /> Add</button>
-      {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
+        <AnimatePresence
+          initial={false}
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+        >
+          {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
+        </AnimatePresence>
       <ul>
         {accounts.map((account) => (
           <li key={account.id}>
@@ -47,7 +54,14 @@ export default function AccountList({ isMax }) {
     <div className='AccountList'>
       <h3>Accounts</h3>
       <button className='NewAccountButton' onClick={toggleAdd}>New Account</button>
-      {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
+      <AnimatePresence
+        key="new-account-modal"
+        initial={false}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
+      </AnimatePresence>
       <ul>
         {accounts.map((account) => (
           <li key={account.id}>

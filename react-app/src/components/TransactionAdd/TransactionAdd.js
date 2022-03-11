@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createTransaction } from '../../store/transaction';
 import  ReactDOM  from 'react-dom';
+import { motion } from 'framer-motion';
 import './TransactionAdd.css';
 
 export default function AccountAdd({ accounts, setIsAdd, categories }) {
@@ -15,11 +16,11 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
   const dispatch = useDispatch();
 
   const reset = () => {
-    setDate('');
-    setPayee('');
-    setAmount('');
-    setCategoryId('');
-    setAccountId('');
+    // setDate('');
+    // setPayee('');
+    // setAmount('');
+    // setCategoryId('');
+    // setAccountId('');
     setIsAdd(false);
   };
 
@@ -55,10 +56,46 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
     reset();
   };
 
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 0.1,
+        type: "spring",
+        damping: 25,
+        stiffness: 500
+      }
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0
+    }
+  };
+
   return ReactDOM.createPortal(
     <>
-      <div className="TransactionFormOverlay" onClick={reset}></div>
-      <div className='TransactionForm scale-up-center'>
+      <motion.div
+        key="Transaction-Form-Overlay"
+        className="TransactionFormOverlay"
+        onClick={reset}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+      </motion.div>
+      <motion.div
+        key="Transaction-Form"
+        className='TransactionForm'
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
         <form className='TransactionForm' onSubmit={handleSubmit}>
           <h3><i className="fa-solid fa-money-bill-wave" /> New Transaction</h3>
           <div>
@@ -121,11 +158,11 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
               <button className='submit-button' type="submit">Save</button>
             </span>
             <span>
-              <button className='close-button' onClick={() => setIsAdd(false)}>Close</button>
+              <button className='close-button' type="reset" onClick={() => setIsAdd(false)}>Close</button>
             </span>
           </div>
         </form>
-      </div>
+      </motion.div>
     </>,
   document.getElementById('root'));
 }
