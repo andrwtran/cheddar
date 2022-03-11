@@ -43,7 +43,7 @@ const TransactionList = () => {
 
   useEffect(() => {
     if (payeeQuery) searchPayee();
-  }, [payeeQuery]);
+  }, [payeeQuery, num_transactions, num_accounts, editId]);
 
   const addSort = () => {
     document.querySelectorAll("th").forEach(header => {
