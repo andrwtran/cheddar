@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import AccountList from '../AccountList/AccountList';
 import TransactionFilter from '../TransactionFilter/TransactionFilter';
 import TransactionAdd from '../TransactionAdd/TransactionAdd';
-// import TransactionSearch from '../TransactionSearch/TransactionSearch';
+import TransactionSearch from '../TransactionSearch/TransactionSearch';
 import "./SidePanel.css";
 
 const SidePanel = () => {
@@ -15,9 +15,7 @@ const SidePanel = () => {
   const [isFilterAcc, setIsFilterAcc] = useState(false);
   const [isFilterDate, setIsFilterDate] = useState(false);
   const [filterStyle, setFilterStyle] = useState("hide");
-  // const [isSearch, setIsSearch] = useState(false);
-
-  const dispatch = useDispatch();
+  const [isSearch, setIsSearch] = useState(false);
 
   const accounts = useSelector((state) => state.account.byId);
   const categories = useSelector((state) => state.category);
@@ -60,10 +58,11 @@ const SidePanel = () => {
     setIsFilterDate(true);
   };
 
-  // const searchClick = (e) => {
-  //   e.preventDefault();
-  //   setIsSearch(true);
-  // }
+  const searchClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation()
+    setIsSearch(true);
+  }
 
   const filterShowClick = (e) => {
     e.preventDefault();
@@ -92,10 +91,10 @@ const SidePanel = () => {
               <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
               <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
               <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
+              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
             </ul>
           </li>
-          {/* <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li> */}
-          {/* {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>} */}
+          {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>}
         </ul>
       </div>
       {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
@@ -122,10 +121,10 @@ const SidePanel = () => {
               <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
               <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
               <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
+              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
             </ul>
           </li>
-          {/* <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>Search</span></li> */}
-          {/* {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>} */}
+          {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>}
         </ul>
       </div>
       {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}

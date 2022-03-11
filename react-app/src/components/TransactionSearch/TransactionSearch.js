@@ -1,27 +1,44 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import  ReactDOM  from 'react-dom';
 import './TransactionSearch.css';
 
-export default function TransactionEdit({ setIsSearch }) {
-  const [date, setDate] = useState();
-  const [payee, setPayee] = useState();
-  const [amount, setAmount] = useState();
-  const [categoryId, setCategoryId] = useState();
-  const [accountId, setAccountId] = useState();
+export default function TransactionSearch({ setIsSearch }) {
+  const [payeeQuery, setPayeeQuery] = useState('');
+
+  let history = useHistory();
 
   const reset = () => {
-    setDate('');
-    setPayee('');
-    setAmount('');
-    setCategoryId('');
-    setAccountId('');
+    // setPayeeQuery('');
     setIsSearch(false);
+  };
+
+  const searchPayeeClick = () => {
+    reset();
+    const searchParams = encodeURIComponent(payeeQuery);
+    console.log(searchParams);
+    history.push(`/transactions/payee/${searchParams}`);
   };
 
   return ReactDOM.createPortal(
     <>
       <div className="TransactionSearchOverlay" onClick={reset}> </div>
-      <div className='TransactionSearch scale-up-center'> IN PROGRESS </div>
+      <div className='TransactionSearch scale-up-center'>
+        <div>
+          <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
+            <label>by Payee</label>
+            <input
+              type="search"
+              onChange={(e) => setPayeeQuery(e.target.value)}
+              value={payeeQuery}
+              name="payeeQuery"
+            />
+          <span className="TransactionSearchButtons">
+            <button onClick={searchPayeeClick}>Filter</button>
+            <button onClick={reset}>Close</button>
+          </span>
+        </div>
+      </div>
     </>,
   document.getElementById('root'));
 };

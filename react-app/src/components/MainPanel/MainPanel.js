@@ -23,6 +23,9 @@ const MainPanel = () => {
         <Route path ='/transactions/date/:dateQuery'>
           <TransactionList />
         </Route>
+        <Route path ='/transactions/payee/:payeeQuery'>
+          <TransactionList />
+        </Route>
         <Route path='/'>
           <BudgetCard />
           <TransactionCard />
