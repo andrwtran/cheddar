@@ -1,5 +1,6 @@
 from .db import db
 from datetime import date
+from sqlalchemy import Index
 
 class Transaction(db.Model):
   __tablename__ = 'transactions'
@@ -24,3 +25,5 @@ class Transaction(db.Model):
         'categoryId': self.categoryId,
         'accountId': self.accountId
     }
+
+Index('trans_index', Transaction.trans_payee, postgresql_using='hash')

@@ -86,7 +86,7 @@ const accountReducer = (state = initialState, action) => {
       return newState;
     };
     case ADD_ACCOUNT: {
-      const newState = { byId: { ...state.byId }, all: [ ...state.all] };
+      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
       const newAccount = action.newAccount;
       if (!newState.byId[newAccount.id]) {
         newState.byId[newAccount.id] = newAccount;
@@ -95,14 +95,14 @@ const accountReducer = (state = initialState, action) => {
       return newState;
     };
     case REMOVE_ACCOUNT: {
-      const newState = { byId: { ...state.byId }, all: [ ...state.all] };
+      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
       delete newState.byId[action.oldAccount.id];
       const removeIndex = newState.all.findIndex((account) => account.id === action.oldAccount.id);
       newState.all.splice(removeIndex, 1);
       return newState;
     };
     case UPDATE_ACCOUNT: {
-      const newState = { byId: { ...state.byId }, all: [ ...state.all] };
+      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
       const editAccount = action.account;
       newState.byId[editAccount.id] = editAccount;
       const updateIndex = newState.all.findIndex((account) => account.id === editAccount.id);

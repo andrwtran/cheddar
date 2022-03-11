@@ -50,7 +50,7 @@ const budgetReducer = (state = initialState, action) => {
       return newState;
     };
     case UPDATE_BUDGET: {
-      const newState = { byId: { ...state.byId }, all: [ ...state.all] };
+      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
       const editBudget = action.budget;
       newState.byId[editBudget.id] = editBudget;
       const updateIndex = newState.all.findIndex((budget) => budget.id === editBudget.id);
