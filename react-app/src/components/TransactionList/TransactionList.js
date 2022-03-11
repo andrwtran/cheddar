@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getTransactions } from "../../store/transaction";
 import { getAccounts } from "../../store/account";
-import { getCategories } from "../../store/category";
+// import { getCategories } from "../../store/category";
 import { currencyFormatter, dateConverter, tableSorter } from "../../utils";
 import TransactionEdit from "../TransactionEdit/TransactionEdit";
 import './TransactionList.css';
@@ -16,18 +16,34 @@ const TransactionList = () => {
   const categories = useSelector((state) => state.category);
 
   const [editId, setEditId] = useState();
+  const [payeeTransactions, setPayeeTransactions] = useState([]);
 
-  const { categoryId, accountId, dateQuery } = useParams();
+  const { categoryId, accountId, dateQuery, payeeQuery } = useParams();
 
   const num_transactions = transactions.length;
   const num_accounts = Object.keys(accounts).length;
 
+  const searchPayee = async () => {
+    const searchParams = encodeURIComponent(payeeQuery)
+
+    const response = await fetch(`/api/transactions/filter?payee=${searchParams}`);
+
+    if (response.ok) {
+      const matches = await response.json();
+      matches.payee_transactions.length ? setPayeeTransactions(matches.payee_transactions) : setPayeeTransactions(null);
+    };
+  };
+
   useEffect(() => {
     dispatch(getTransactions());
     dispatch(getAccounts());
-    dispatch(getCategories());
     addSort();
+    if (payeeQuery) searchPayee();
   }, [dispatch, num_transactions, num_accounts]);
+
+  useEffect(() => {
+    if (payeeQuery) searchPayee();
+  }, [payeeQuery]);
 
   const addSort = () => {
     document.querySelectorAll("th").forEach(header => {
@@ -39,6 +55,69 @@ const TransactionList = () => {
         tableSorter(table, index, !asc);
       })
     })
+  };
+
+  if (payeeQuery) {
+
+    if (!payeeTransactions) {
+      return (
+        <div className="TransactionList">
+          <h2>Payee Transactions</h2>
+          <p> No Matching Transactions </p>
+        </div>
+      );
+    };
+
+    if (!payeeTransactions.length) {
+      return <div></div>
+    }
+
+    return (
+      <div className="TransactionList">
+        <h2>Payee Transactions</h2>
+        <table>
+          <col className='TableDate'></col>
+          <col className='TablePayee'></col>
+          <col className='TableAmount'></col>
+          <col className='TableCategory'></col>
+          <col className='TableAccount'></col>
+          <col className='TableButtons'></col>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Payee</th>
+              <th>Amount</th>
+              <th>Category</th>
+              <th>Account</th>
+              <th className="TableButtons"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {payeeTransactions.map((transaction) => (
+              <tr key={transaction.id}>
+                {editId !== transaction.id &&
+                  <>
+                    <td>{dateConverter(transaction.trans_date)}</td>
+                    <td>{transaction.trans_payee}</td>
+                    <td>{currencyFormatter.format(transaction.trans_amount)}</td>
+                    <td>{categories[transaction.categoryId - 1]?.category_name}</td>
+                    <td>{accounts[transaction.accountId]?.account_name}</td>
+                  </>
+                }
+                <TransactionEdit
+                transaction={transaction}
+                editId={editId}
+                setEditId={setEditId}
+                accounts={accounts}
+                categories={categories}
+                />
+              </tr>
+              )
+            )}
+          </tbody>
+        </table>
+      </div>
+    );
   };
 
   if (categoryId) {

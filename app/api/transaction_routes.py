@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from app.models import Transaction, Account, db
 from flask_login import current_user, login_required
+from sqlalchemy import func
 
 transaction_routes = Blueprint('transactions', __name__)
 
@@ -77,3 +78,12 @@ def edit_transaction(transactionId):
 # .then(data => {
 #   console.log('Success:', data);
 # })
+
+@transaction_routes.route('/filter')
+@login_required
+def filter_by_payee():
+  payeeQuery = request.args.get('payee')
+  transactions = Transaction.query.filter(func.lower(Transaction.trans_payee) == func.lower(payeeQuery)).order_by(Transaction.trans_date.desc())
+  return {'payee_transactions': [transaction.to_dict() for transaction in transactions]}
+
+# fetch('/api/transactions/filter?payee=west%20elm', {method: 'Get'}).then(res => res.json()).then(data => console.log(data));

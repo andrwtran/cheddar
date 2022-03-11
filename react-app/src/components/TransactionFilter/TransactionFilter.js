@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./TransactionFilter.css";
 
 export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterAcc, setIsFilterDate, setIsFilterCat, setIsFilterAcc }) {
-  let history = useHistory();
+  const history = useHistory();
 
   const accounts = useSelector((state) => state.account.byId);
   const categories = useSelector((state) => state.category);
