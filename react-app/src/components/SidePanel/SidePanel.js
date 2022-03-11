@@ -6,6 +6,7 @@ import AccountList from '../AccountList/AccountList';
 import TransactionFilter from '../TransactionFilter/TransactionFilter';
 import TransactionAdd from '../TransactionAdd/TransactionAdd';
 import TransactionSearch from '../TransactionSearch/TransactionSearch';
+import { AnimatePresence } from 'framer-motion';
 import "./SidePanel.css";
 
 const SidePanel = () => {
@@ -84,7 +85,14 @@ const SidePanel = () => {
       <div className='Transactions'>
         <h3>Transactions</h3>
         <button className='NewTransactionButton' onClick={toggleAdd}><i class="fa-solid fa-square-plus" /> Add</button>
-        {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
+        <AnimatePresence
+          key="new-transaction-modal"
+          initial={false}
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+        >
+          {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
+        </AnimatePresence>
         <ul>
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i class="fa-solid fa-money-bill-wave" /> Filter
@@ -114,7 +122,14 @@ const SidePanel = () => {
       <div className='Transactions'>
         <h3>Transactions</h3>
         <button className='NewTransactionButton' onClick={toggleAdd}>New Transaction</button>
-        {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
+        <AnimatePresence
+          key="new-transaction-modal"
+          initial={false}
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+        >
+          {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
+        </AnimatePresence>
         <ul>
           <li><i className="fa-solid fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i className="fa-solid fa-money-bill-wave" /> Filter
