@@ -19,6 +19,7 @@ const SidePanel = () => {
 
   const accounts = useSelector((state) => state.account.byId);
   const categories = useSelector((state) => state.category);
+  const transactions = useSelector((state) => state.transaction.all);
 
   const toggleMax = (e) => {
     e.preventDefault();
@@ -94,7 +95,7 @@ const SidePanel = () => {
               <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
             </ul>
           </li>
-          {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>}
+          {isSearch && <TransactionSearch setIsSearch={setIsSearch} transactions={transactions}/>}
         </ul>
       </div>
       {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
@@ -124,7 +125,7 @@ const SidePanel = () => {
               <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
             </ul>
           </li>
-          {isSearch && <TransactionSearch setIsSearch={setIsSearch}/>}
+          {isSearch && <TransactionSearch setIsSearch={setIsSearch} transactions={transactions}/>}
         </ul>
       </div>
       {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
