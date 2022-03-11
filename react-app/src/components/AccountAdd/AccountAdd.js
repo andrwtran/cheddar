@@ -40,6 +40,7 @@ export default function AccountAdd({ setIsAdd, accounts }) {
             value={name}
             placeholder="Account Name"
             name="name"
+            autoFocus
           />
           {name && <button className='submit-button-active' type="submit">Save</button>}
           {!name && <button className='submit-button-disabled' type="submit" disabled="disabled">Save</button>}
