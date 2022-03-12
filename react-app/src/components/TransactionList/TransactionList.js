@@ -1,16 +1,17 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getTransactions } from "../../store/transaction";
 import { getAccounts } from "../../store/account";
-// import { getCategories } from "../../store/category";
+import { getCategories } from "../../store/category";
 import { currencyFormatter, dateConverter, tableSorter } from "../../utils";
 import TransactionEdit from "../TransactionEdit/TransactionEdit";
 import './TransactionList.css';
 
 const TransactionList = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const history = useHistory();
   const transactions = useSelector((state) => state.transaction.all);
   const accounts = useSelector((state) => state.account.byId);
   const categories = useSelector((state) => state.category);
@@ -31,14 +32,24 @@ const TransactionList = () => {
     if (response.ok) {
       const matches = await response.json();
       matches.payee_transactions.length ? setPayeeTransactions(matches.payee_transactions) : setPayeeTransactions(null);
+      addSort();
     };
   };
 
   useEffect(() => {
+    addSort();
+  }, []);
+
+  useEffect(() => {
+    return history.listen(() => {
+       removeSortClass();
+    })
+ },[history]);
+
+  useEffect(() => {
     dispatch(getTransactions());
     dispatch(getAccounts());
-    addSort();
-    // if (payeeQuery) searchPayee();
+    dispatch(getCategories());
   }, [dispatch, num_transactions, num_accounts]);
 
   useEffect(() => {
@@ -53,8 +64,16 @@ const TransactionList = () => {
         const asc = header.classList.contains("th-sort-asc");
 
         tableSorter(table, index, !asc);
-      })
-    })
+      });
+    });
+  };
+
+  const removeSortClass = () => {
+    document.querySelectorAll("th").forEach(header => {
+      // header.removeEventListener("click", addSort);
+      const table = header.parentElement.parentElement.parentElement;
+      table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+    });
   };
 
   if (payeeQuery) {
