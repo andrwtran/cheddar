@@ -97,10 +97,10 @@ const SidePanel = () => {
           <li><i className="fas fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i class="fa-solid fa-money-bill-wave" /> Filter
             <ul className={filterStyle}>
-              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
-              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
-              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
-              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
+              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
+              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
+              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
+              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
             </ul>
           </li>
           <AnimatePresence
@@ -148,10 +148,10 @@ const SidePanel = () => {
           <li><i className="fa-solid fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
           <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i className="fa-solid fa-money-bill-wave" /> Filter
             <ul className={filterStyle}>
-              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
-              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
-              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
-              <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
+              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
+              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
+              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
+              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
             </ul>
           </li>
           <AnimatePresence
