@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import  ReactDOM  from 'react-dom';
+import Backdrop from '../Backdrop/Backdrop';
+import { motion } from "framer-motion";
 import './TransactionSearch.css';
 
 export default function TransactionSearch({ setIsSearch, transactions }) {
@@ -28,10 +30,39 @@ export default function TransactionSearch({ setIsSearch, transactions }) {
     history.push(`/transactions/payee/${searchParams}`);
   };
 
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 0.1,
+        type: "spring",
+        damping: 25,
+        stiffness: 500
+      }
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0
+    }
+  };
+
   return ReactDOM.createPortal(
-    <>
-      <div className="TransactionSearchOverlay" onClick={reset}> </div>
-      <div className='TransactionSearch scale-up-center'>
+    <Backdrop onClick={reset}>
+      {/* <div className="TransactionSearchOverlay" onClick={reset}> </div> */}
+      <motion.div
+      className='TransactionSearch'
+      key="Payee-Search"
+      variants={dropIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      onClick={(e) => e.stopPropagation()}
+      >
         <div>
           <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
             <label>by Payee</label>
@@ -54,7 +85,7 @@ export default function TransactionSearch({ setIsSearch, transactions }) {
             <button onClick={reset}>Close</button>
           </span>
         </div>
-      </div>
-    </>,
+      </motion.div>
+    </Backdrop>,
   document.getElementById('root'));
 };

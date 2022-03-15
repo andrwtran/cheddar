@@ -103,12 +103,26 @@ const SidePanel = () => {
               <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
             </ul>
           </li>
-          {isSearch && <TransactionSearch setIsSearch={setIsSearch} transactions={transactions}/>}
+          <AnimatePresence
+          key="search-payee-modal"
+          initial={false}
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+          >
+            {isSearch && <TransactionSearch setIsSearch={setIsSearch} transactions={transactions}/>}
+          </AnimatePresence>
         </ul>
       </div>
-      {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
-      {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
-      {isFilterDate && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+      <AnimatePresence
+          key="filter-category-modal"
+          initial={false}
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+      >
+        {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+        {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+        {isFilterDate && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+      </AnimatePresence>
     </div>
     );
   };
@@ -140,12 +154,26 @@ const SidePanel = () => {
               <li><i className="fa-solid fa-money-bill-wave" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
             </ul>
           </li>
-          {isSearch && <TransactionSearch setIsSearch={setIsSearch} transactions={transactions}/>}
+          <AnimatePresence
+          key="search-payee-modal"
+          initial={false}
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+          >
+            {isSearch && <TransactionSearch setIsSearch={setIsSearch} transactions={transactions}/>}
+          </AnimatePresence>
         </ul>
       </div>
-      {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
-      {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
-      {isFilterDate && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+      <AnimatePresence
+          key="filter-category-modal"
+          initial={false}
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+      >
+        {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+        {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+        {isFilterDate && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+      </AnimatePresence>
     </div>
   );
 };

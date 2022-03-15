@@ -4,10 +4,10 @@
   /* min-height: 30vh;
   min-width: 58vw; */
   z-index: 1000;
-  position: fixed;
+  /* position: fixed;
   top: 35%;
   left: 25%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   border-radius: 0.3em;
 }
 
@@ -32,7 +32,7 @@
   border-radius: 0.3em;
 }
 
-.TransactionFilterOverlay {
+/* .TransactionFilterOverlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -40,7 +40,7 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, .7);
   z-index: 1000;
-}
+} */
 
 .TransactionFilter select {
   margin: 1em;

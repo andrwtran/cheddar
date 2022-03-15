@@ -25,6 +25,8 @@ const TransactionList = () => {
   const num_accounts = Object.keys(accounts).length;
 
   const searchPayee = async () => {
+    if (!searchPayee) return null;
+    console.log("PAYEE SEARCHED")
     const searchParams = encodeURIComponent(payeeQuery)
 
     const response = await fetch(`/api/transactions/filter?payee=${searchParams}`);
@@ -38,11 +40,13 @@ const TransactionList = () => {
 
   useEffect(() => {
     addSort();
+    console.log("SORT ADDED")
   }, []);
 
   useEffect(() => {
     return history.listen(() => {
        removeSortClass();
+       console.log("SORT REMOVED")
     })
  },[history]);
 
@@ -54,7 +58,7 @@ const TransactionList = () => {
 
   useEffect(() => {
     if (payeeQuery) searchPayee();
-  }, [payeeQuery, num_transactions, num_accounts, editId]);
+  }, [payeeQuery, num_transactions, num_accounts, editId, searchPayee]);
 
   const addSort = () => {
     document.querySelectorAll("th").forEach(header => {

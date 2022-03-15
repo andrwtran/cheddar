@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import  ReactDOM  from 'react-dom';
+import Backdrop from "../Backdrop/Backdrop";
+import { motion } from "framer-motion";
 import "react-datepicker/dist/react-datepicker.css";
 import "./TransactionFilter.css";
 
@@ -24,13 +26,17 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
     setIsFilterDate(false);
   }
 
-  const filterCatClick = () => {
+  const filterCatClick = (e) => {
+    e.preventDefault();
     reset();
+    console.log("CATEGORY PUSH")
     history.push(`/transactions/category/${categoryId}`)
   };
 
-  const filterAccClick = () => {
+  const filterAccClick = (e) => {
+    e.preventDefault();
     reset();
+    console.log("ACCOUNT PUSH")
     history.push(`/transactions/account/${accountId}`)
   };
 
@@ -52,12 +58,41 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
     setEndDate(end);
   };
 
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 0.1,
+        type: "spring",
+        damping: 25,
+        stiffness: 500
+      }
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0
+    }
+  };
+
   if (isFilterCat) {
     return ReactDOM.createPortal(
-      <>
-        <div className="TransactionFilterOverlay" onClick={reset}></div>
-        <div className='TransactionFilter scale-up-center'>
-          <form onSubmit={filterCatClick}>
+      <Backdrop onClick={reset}>
+        {/* <div className="TransactionFilterOverlay" onClick={reset}></div> */}
+        <motion.div
+          key="Category-Filter"
+          className='TransactionFilter'
+          variants={dropIn}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <form>
             <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
             <label>by Category</label>
             <select
@@ -72,20 +107,28 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
               )}
             </select>
             <span className="TransactionFilterButtons">
-              <button type="submit">Filter</button>
-              <button onClick={reset}>Close</button>
+              <button onClick={(e) => filterCatClick(e)}>Filter</button>
+              <button type="reset" onClick={reset}>Close</button>
             </span>
           </form>
-        </div>
-      </>,
+        </motion.div>
+      </Backdrop>,
     document.getElementById('root'))
   };
 
   if (isFilterAcc) {
     return ReactDOM.createPortal(
-      <>
-        <div className="TransactionFilterOverlay" onClick={reset}></div>
-        <div className='TransactionFilter scale-up-center'>
+      <Backdrop onClick={reset}>
+        {/* <div className="TransactionFilterOverlay" onClick={reset}></div> */}
+        <motion.div
+        key="Account-Filter"
+        className='TransactionFilter'
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        onClick={(e) => e.stopPropagation()}
+        >
           <form>
             <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
             <label>by Account</label>
@@ -101,20 +144,29 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
                 )}
             </select>
             <span className="TransactionFilterButtons">
-              <button onClick={filterAccClick}>Filter</button>
-              <button onClick={reset}>Close</button>
+              <button onClick={(e) => filterAccClick(e)}>Filter</button>
+              <button type="reset" onClick={reset}>Close</button>
             </span>
           </form>
-        </div>
-      </>,
+        </motion.div>
+      </Backdrop>,
     document.getElementById('root'))
   };
 
   if (isFilterDate) {
     return ReactDOM.createPortal(
-      <>
-        <div className="TransactionFilterOverlay" onClick={reset}></div>
-        <div className='TransactionFilter scale-up-center' id='TransactionFilterDate'>
+      <Backdrop onClick={reset}>
+        {/* <div className="TransactionFilterOverlay" onClick={reset}></div> */}
+        <motion.div
+        className='TransactionFilter'
+        id='TransactionFilterDate'
+        key="Date-Filter"
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        onClick={(e) => e.stopPropagation()}
+        >
           <div>
             <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
             <span className="TransactionFilterText">by Date</span>
@@ -132,8 +184,8 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
               <button onClick={reset}>Close</button>
             </span>
           </div>
-        </div>
-      </>,
+        </motion.div>
+      </Backdrop>,
     document.getElementById('root'))
   };
 
