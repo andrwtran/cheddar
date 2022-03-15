@@ -4,9 +4,9 @@
   min-height: 10vh;
   min-width: 20vw;
   z-index: 1000;
-  position: fixed;
+  /* position: fixed;
   top: 30%;
-  left: 30%;
+  left: 30%; */
 }
 
 .AccountAdd form {
@@ -43,7 +43,7 @@
   border:0.1em solid transparent;
 }
 
-.AccountFormOverlay {
+/* .AccountFormOverlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -51,7 +51,7 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, .7);
   z-index: 1000;
-}
+} */
 
 .AccountAdd form {
   padding: 2em;

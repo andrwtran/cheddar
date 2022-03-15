@@ -3,6 +3,7 @@ import  ReactDOM  from 'react-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createAccount } from '../../store/account';
+import Backdrop from '../Backdrop/Backdrop';
 import { motion } from 'framer-motion';
 import './AccountAdd.css';
 
@@ -51,16 +52,16 @@ export default function AccountAdd({ setIsAdd, accounts }) {
   };
 
   return ReactDOM.createPortal(
-    <>
-      <motion.div
+    <Backdrop onClick={reset}>
+      {/* <motion.div
         key="Account-Form-Overlay"
         className="AccountFormOverlay"
-        onClick={reset}
+        onClick={(reset)}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-      </motion.div>
+      </motion.div> */}
       <motion.div
         key="Account-Add"
         className='AccountAdd'
@@ -68,6 +69,7 @@ export default function AccountAdd({ setIsAdd, accounts }) {
         initial="hidden"
         animate="visible"
         exit="exit"
+        onClick={(e) => e.stopPropagation()}
       >
         <form className='AccountAddForm' onSubmit={handleSubmit}>
           <h3><i className="fa-solid fa-cheese" /> New Account</h3>
@@ -84,6 +86,6 @@ export default function AccountAdd({ setIsAdd, accounts }) {
           <button className='submit-button-active' type="reset" onClick={reset}>Close</button>
         </form>
       </motion.div>
-    </>,
+    </Backdrop>,
   document.getElementById('root'));
 }

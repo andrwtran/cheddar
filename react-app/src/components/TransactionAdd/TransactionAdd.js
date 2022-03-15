@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createTransaction } from '../../store/transaction';
+import Backdrop from '../Backdrop/Backdrop';
 import  ReactDOM  from 'react-dom';
 import { motion } from 'framer-motion';
 import './TransactionAdd.css';
@@ -78,16 +79,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
   };
 
   return ReactDOM.createPortal(
-    <>
-      <motion.div
-        key="Transaction-Form-Overlay"
-        className="TransactionFormOverlay"
-        onClick={reset}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-      </motion.div>
+    <Backdrop onClick={reset}>
       <motion.div
         key="Transaction-Form"
         className='TransactionForm'
@@ -95,6 +87,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
         initial="hidden"
         animate="visible"
         exit="exit"
+        onClick={(e) => e.stopPropagation()}
       >
         <form className='TransactionForm' onSubmit={handleSubmit}>
           <h3><i className="fa-solid fa-money-bill-wave" /> New Transaction</h3>
@@ -163,6 +156,6 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
           </div>
         </form>
       </motion.div>
-    </>,
+    </Backdrop>,
   document.getElementById('root'));
 }

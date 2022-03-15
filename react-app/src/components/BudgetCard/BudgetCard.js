@@ -8,6 +8,7 @@ import BudgetPieChart from '../BudgetPieChart/BudgetPieChart';
 import BudgetBarChart from '../BudgetBarChart/BudgetBarChart';
 import BudgetList from '../BudgetList/BudgetList';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
+import { AnimatePresence } from 'framer-motion';
 import "./BudgetCard.css"
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
@@ -32,7 +33,16 @@ export default function BudgetCard() {
 
   return (
     <div className='BudgetCard'>
-      <BudgetList budgets={budgets} isEdit={isEdit} setIsEdit={setIsEdit} />
+      <AnimatePresence
+        key="edit-budget-modal"
+        initial={false}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {isEdit &&
+          <BudgetList budgets={budgets} isEdit={isEdit} setIsEdit={setIsEdit} />
+        }
+      </AnimatePresence>
       <BudgetPieChart budgets={budgets} transactions={transactions} days_in_month={days_in_month} today={today}/>
       <BudgetBarChart budgets={budgets} transactions={transactions} today={today}/>
       <button id='EditBudgetsButton' onClick={() => setIsEdit(true)}>Edit Budgets</button>

@@ -1,13 +1,13 @@
 .TransactionSearch {
   margin: 0px;
-  padding: 4vh;
-  min-height: 25vh;
-  min-width: 30vw;
+  padding: 2vh;
+  /* min-height: 25vh;
+  min-width: 30vw; */
   z-index: 1000;
-  position: fixed;
+  /* position: fixed;
   top: 30%;
   left: 30%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   display: flex;
   flex-direction: column;
   background-color: rgba(244, 107, 23, 0.8);
