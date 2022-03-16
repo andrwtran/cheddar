@@ -1,9 +1,9 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTransactions } from "../../store/transaction";
-import { getAccounts } from "../../store/account";
-import { getCategories } from "../../store/category";
+// import { getTransactions } from "../../store/transaction";
+// import { getAccounts } from "../../store/account";
+// import { getCategories } from "../../store/category";
 import { currencyFormatter, dateConverter } from '../../utils';
 import TransactionEdit from "../TransactionEdit/TransactionEdit";
 import "./TransactionCard.css"
@@ -14,8 +14,8 @@ export default function TransactionCard() {
   const accounts = useSelector((state) => state.account.byId);
   const categories = useSelector((state) => state.category);
 
-  const num_accounts = Object.keys(accounts).length;
-  const num_transactions = transactions.length;
+  // const num_accounts = Object.keys(accounts).length;
+  // const num_transactions = transactions.length;
 
   const today = new Date();
   // const transactions_monthly = transactions.filter(transaction => new Date(transaction.trans_date).getMonth() === today.getMonth());
@@ -23,11 +23,11 @@ export default function TransactionCard() {
 
   const [editId, setEditId] = useState();
 
-  useEffect(() => {
-    dispatch(getCategories());
-    dispatch(getAccounts());
-    dispatch(getTransactions());
-  }, [dispatch, num_accounts, num_transactions]);
+  // useEffect(() => {
+  //   dispatch(getCategories());
+  //   dispatch(getAccounts());
+  //   dispatch(getTransactions());
+  // }, [dispatch, num_accounts, num_transactions]);
 
   return (
     <div className='TransactionCard'>
