@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { updateAccount } from '../../store/account';
 import './AccountEdit.css';
 
-export default function AccountEdit({ setEditId, editId, account, accounts, setIsAdd }) {
+export default function AccountEdit({ setEditId, editId, account, accounts }) {
   const [name, setName] = useState(account.account_name);
   const dispatch = useDispatch();
 
@@ -26,12 +26,13 @@ export default function AccountEdit({ setEditId, editId, account, accounts, setI
     };
     dispatch(updateAccount(editAccount));
     setEditId();
+    // reset();
   };
 
     const toggleEdit = (e) => {
-    e.preventDefault();
+      e.preventDefault();
       setEditId(account.id);
-      setIsAdd(false);
+      // setIsAdd(false);
   };
 
   return (
@@ -51,7 +52,7 @@ export default function AccountEdit({ setEditId, editId, account, accounts, setI
           <span id="AccountEditButtons">
             {name && <button className='submit-button-active' type="submit"><i class="fa-solid fa-floppy-disk" /></button>}
             {!name && <button className='submit-button-disabled' type="submit" disabled="disabled"><i class="fa-solid fa-floppy-disk" /></button>}
-            <button className='cancel-button' onClick={reset}><i class="fa-solid fa-square-xmark" /></button>
+            <button className='cancel-button' type="reset" onClick={reset}><i class="fa-solid fa-square-xmark" /></button>
           </span>
         </form>
       }

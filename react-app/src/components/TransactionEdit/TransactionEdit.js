@@ -145,7 +145,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
                 <button className='submit-button' type="submit" form='Edit'><i class="fa-solid fa-floppy-disk" /></button>
               </span>
               <span>
-                <button className='cancel-button' onClick={reset}><i class="fa-solid fa-square-xmark" /></button>
+                <button className='cancel-button' type="reset" onClick={reset}><i class="fa-solid fa-square-xmark" /></button>
               </span>
             </div>
           </td>

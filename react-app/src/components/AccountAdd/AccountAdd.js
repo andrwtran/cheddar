@@ -12,7 +12,7 @@ export default function AccountAdd({ setIsAdd, accounts }) {
   const dispatch = useDispatch();
 
   const reset = () => {
-    // setName('');
+    setName('');
     setIsAdd(false);
   };
 
@@ -53,15 +53,6 @@ export default function AccountAdd({ setIsAdd, accounts }) {
 
   return ReactDOM.createPortal(
     <Backdrop onClick={reset}>
-      {/* <motion.div
-        key="Account-Form-Overlay"
-        className="AccountFormOverlay"
-        onClick={(reset)}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-      </motion.div> */}
       <motion.div
         key="Account-Add"
         className='AccountAdd'

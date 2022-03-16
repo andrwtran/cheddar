@@ -1,7 +1,6 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAccounts } from '../../store/account';
+import { useState, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import AccountAdd from '../AccountAdd/AccountAdd';
 import AccountDelete from '../AccountDelete/AccountDelete';
 import AccountEdit from '../AccountEdit/AccountEdit';
@@ -9,21 +8,47 @@ import { AnimatePresence } from 'framer-motion';
 import './AccountList.css';
 
 export default function AccountList({ isMax }) {
-  const dispatch = useDispatch();
   const accounts = useSelector((state) => state.account.all);
 
   const [isAdd, setIsAdd] = useState(false);
   const [editId, setEditId] = useState();
-
-  useEffect(() => {
-    dispatch(getAccounts());
-  }, [dispatch]);
 
   const toggleAdd = (e) => {
     e.preventDefault();
     setIsAdd(!isAdd);
     setEditId();
   };
+
+  const listFunc = useMemo(() =>
+    !isMax
+    ?
+    <ul>
+      {accounts.map((account) => (
+        <li key={account.id}>
+          {editId !== account.id && <i className="fa-solid fa-cheese" />}
+          {editId !== account.id && account.account_name}
+        </li>
+      )
+      )}
+    </ul>
+    :
+    <ul>
+      {accounts.map((account) => (
+        <li key={account.id}>
+          {editId !== account.id && <i className="fa-solid fa-cheese" />}
+          {editId !== account.id && account.account_name}
+          <AccountEdit
+          setEditId={setEditId}
+          editId={editId}
+          account={account}
+          accounts={accounts}
+          />
+          {editId !== account.id && <AccountDelete oldAccount={account} />}
+        </li>
+      )
+      )}
+    </ul>,
+    [accounts, editId, isMax]);
 
   if (!isMax) {
     return (
@@ -37,15 +62,7 @@ export default function AccountList({ isMax }) {
         >
           {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
         </AnimatePresence>
-      <ul>
-        {accounts.map((account) => (
-          <li key={account.id}>
-            {editId !== account.id && <i className="fa-solid fa-cheese" />}
-            {editId !== account.id && account.account_name}
-          </li>
-        )
-        )}
-      </ul>
+        {listFunc}
     </div>
     );
   };
@@ -62,23 +79,7 @@ export default function AccountList({ isMax }) {
       >
         {isAdd && <AccountAdd setIsAdd={setIsAdd} accounts={accounts}/>}
       </AnimatePresence>
-      <ul>
-        {accounts.map((account) => (
-          <li key={account.id}>
-            {editId !== account.id && <i className="fa-solid fa-cheese" />}
-            {editId !== account.id && account.account_name}
-            <AccountEdit
-            setEditId={setEditId}
-            editId={editId}
-            account={account}
-            accounts={accounts}
-            setIsAdd={setIsAdd}
-            />
-            {editId !== account.id && <AccountDelete oldAccount={account} />}
-          </li>
-        )
-        )}
-      </ul>
+      {listFunc}
     </div>
   );
 

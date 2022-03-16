@@ -26,7 +26,7 @@ const TransactionList = () => {
 
   const searchPayee = async () => {
     if (!searchPayee) return null;
-    console.log("PAYEE SEARCHED")
+    // console.log("PAYEE SEARCHED")
     const searchParams = encodeURIComponent(payeeQuery)
 
     const response = await fetch(`/api/transactions/filter?payee=${searchParams}`);
