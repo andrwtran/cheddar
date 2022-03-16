@@ -2,15 +2,15 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getTransactions } from "../../store/transaction";
-import { getAccounts } from "../../store/account";
-import { getCategories } from "../../store/category";
+// import { getTransactions } from "../../store/transaction";
+// import { getAccounts } from "../../store/account";
+// import { getCategories } from "../../store/category";
 import { currencyFormatter, dateConverter, tableSorter } from "../../utils";
 import TransactionEdit from "../TransactionEdit/TransactionEdit";
 import './TransactionList.css';
 
 const TransactionList = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const history = useHistory();
   const transactions = useSelector((state) => state.transaction.all);
   const accounts = useSelector((state) => state.account.byId);
@@ -40,21 +40,21 @@ const TransactionList = () => {
 
   useEffect(() => {
     addSort();
-    console.log("SORT ADDED")
+    // console.log("SORT ADDED")
   }, []);
 
   useEffect(() => {
     return history.listen(() => {
        removeSortClass();
-       console.log("SORT REMOVED")
+      //  console.log("SORT REMOVED")
     })
  },[history]);
 
-  useEffect(() => {
-    dispatch(getTransactions());
-    dispatch(getAccounts());
-    dispatch(getCategories());
-  }, [dispatch, num_transactions, num_accounts]);
+  // useEffect(() => {
+  //   dispatch(getTransactions());
+  //   dispatch(getAccounts());
+  //   dispatch(getCategories());
+  // }, [dispatch, num_transactions, num_accounts]);
 
   useEffect(() => {
     if (payeeQuery) searchPayee();
@@ -85,7 +85,7 @@ const TransactionList = () => {
     if (!payeeTransactions) {
       return (
         <div className="TransactionList">
-          <h2>Payee Transactions</h2>
+          <h3>Payee Transactions</h3>
           <p> No Matching Transactions </p>
         </div>
       );
@@ -97,7 +97,7 @@ const TransactionList = () => {
 
     return (
       <div className="TransactionList">
-        <h2>Payee Transactions</h2>
+        <h3>Payee Transactions</h3>
         <table>
           <col className='TableDate'></col>
           <col className='TablePayee'></col>
@@ -148,14 +148,14 @@ const TransactionList = () => {
 
     if (transactions_category.length === 0) return (
       <div className="TransactionList">
-        <h2>{categories[parseInt(categoryId)-1]?.category_name} Transactions</h2>
+        <h3>{categories[parseInt(categoryId)-1]?.category_name} Transactions</h3>
         <p> No Matching Transactions </p>
       </div>
     );
 
     return (
       <div className="TransactionList">
-        <h2>{categories[parseInt(categoryId)-1]?.category_name} Transactions</h2>
+        <h3>{categories[parseInt(categoryId)-1]?.category_name} Transactions</h3>
         <table>
           <col className='TableDate'></col>
           <col className='TablePayee'></col>
@@ -206,13 +206,13 @@ const TransactionList = () => {
 
     if (transactions_account.length === 0) return (
       <div className="TransactionList">
-        <h2>{accounts[parseInt(accountId)]?.account_name} Transactions</h2>
+        <h3>{accounts[parseInt(accountId)]?.account_name} Transactions</h3>
         <p> No Matching Transactions </p>
       </div>
     )
     return (
       <div className="TransactionList">
-        <h2>{accounts[parseInt(accountId)]?.account_name} Transactions</h2>
+        <h3>{accounts[parseInt(accountId)]?.account_name} Transactions</h3>
         <table>
           <col className='TableDate'></col>
           <col className='TablePayee'></col>
@@ -288,8 +288,8 @@ const TransactionList = () => {
     if (transactions_date.length === 0) return (
       <div className="TransactionList">
         {!secondDate
-          ? <h2>Transactions on {myDateToString(firstDateYear, firstDateMonth, firstDateDay)}</h2>
-          : <h2>Transactions from {myDateToString(firstDateYear, firstDateMonth, firstDateDay)} to {myDateToString(secondDateYear, secondDateMonth, secondDateDay)}</h2>
+          ? <h3>Transactions on {myDateToString(firstDateYear, firstDateMonth, firstDateDay)}</h3>
+          : <h3>Transactions from {myDateToString(firstDateYear, firstDateMonth, firstDateDay)} to {myDateToString(secondDateYear, secondDateMonth, secondDateDay)}</h3>
         }
         <p> No Matching Transactions</p>
       </div>
@@ -298,8 +298,8 @@ const TransactionList = () => {
     return (
       <div className="TransactionList">
         {!secondDate
-        ? <h2>Transactions on {myDateToString(firstDateYear, firstDateMonth, firstDateDay)}</h2>
-        : <h2>Transactions from {myDateToString(firstDateYear, firstDateMonth, firstDateDay)} to {myDateToString(secondDateYear, secondDateMonth, secondDateDay)}</h2>
+        ? <h3>Transactions on {myDateToString(firstDateYear, firstDateMonth, firstDateDay)}</h3>
+        : <h3>Transactions from {myDateToString(firstDateYear, firstDateMonth, firstDateDay)} to {myDateToString(secondDateYear, secondDateMonth, secondDateDay)}</h3>
         }
         <table>
           <col className='TableDate'></col>
@@ -348,7 +348,7 @@ const TransactionList = () => {
 
   return (
     <div className="TransactionList">
-      <h2>All Transactions</h2>
+      <h3>All Transactions</h3>
       <table>
         <col className='TableDate'></col>
         <col className='TablePayee'></col>

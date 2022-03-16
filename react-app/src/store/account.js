@@ -77,7 +77,11 @@ const accountReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case LOAD_ACCOUNTS: {
-      const newState = { byId: { }, all: [ ] };
+      const newState = {
+        ...state,
+        byId: { },
+        all: [ ]
+      };
       for (let i = 0; i < action.accounts.length; i++) {
         let account = action.accounts[i];
         newState.byId[account.id] = account;
@@ -85,28 +89,43 @@ const accountReducer = (state = initialState, action) => {
       };
       return newState;
     };
+
     case ADD_ACCOUNT: {
-      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
       const newAccount = action.newAccount;
-      if (!newState.byId[newAccount.id]) {
-        newState.byId[newAccount.id] = newAccount;
-        newState.all.push(newAccount);
+      const newState = {
+        ...state,
+        byId: { ...state.byId, [newAccount.id] : newAccount },
+        all: [ ...state.all, newAccount ]
       };
+      // if (!newState.byId[newAccount.id]) {
+      //   newState.byId[newAccount.id] = newAccount;
+      //   newState.all.push(newAccount);
+      // };
       return newState;
     };
     case REMOVE_ACCOUNT: {
-      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
-      delete newState.byId[action.oldAccount.id];
-      const removeIndex = newState.all.findIndex((account) => account.id === action.oldAccount.id);
-      newState.all.splice(removeIndex, 1);
+      const removeId = action.oldAccount.id;
+      const newState = {
+        ...state,
+        byId: { ...state.byId },
+        all: state.all.filter((account) => account.id !== removeId)
+      };
+      delete newState.byId[removeId];
+      // const removeIndex = newState.all.findIndex((account) => account.id === action.oldAccount.id);
+      // newState.all.splice(removeIndex, 1);
       return newState;
     };
     case UPDATE_ACCOUNT: {
-      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
       const editAccount = action.account;
-      newState.byId[editAccount.id] = editAccount;
-      const updateIndex = newState.all.findIndex((account) => account.id === editAccount.id);
-      newState.all[updateIndex] = editAccount;
+      const editId = editAccount.id;
+      const newState = {
+        ...state,
+        byId: { ...state.byId, [editId] : editAccount },
+        all: state.all.map((account) => account.id === editId ? editAccount : account)
+      };
+      // newState.byId[editAccount.id] = editAccount;
+      // const updateIndex = newState.all.findIndex((account) => account.id === editAccount.id);
+      // newState.all[updateIndex] = editAccount;
       return newState;
     };
     default:

@@ -29,14 +29,14 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
   const filterCatClick = (e) => {
     e.preventDefault();
     reset();
-    console.log("CATEGORY PUSH")
+    // console.log("CATEGORY PUSH")
     history.push(`/transactions/category/${categoryId}`)
   };
 
   const filterAccClick = (e) => {
     e.preventDefault();
     reset();
-    console.log("ACCOUNT PUSH")
+    // console.log("ACCOUNT PUSH")
     history.push(`/transactions/account/${accountId}`)
   };
 

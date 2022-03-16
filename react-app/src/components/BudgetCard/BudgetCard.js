@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBudgets } from '../../store/budget';
-import { getTransactions } from '../../store/transaction';
+// import { getBudgets } from '../../store/budget';
+// import { getTransactions } from '../../store/transaction';
 import BudgetPieChart from '../BudgetPieChart/BudgetPieChart';
 import BudgetBarChart from '../BudgetBarChart/BudgetBarChart';
 import BudgetList from '../BudgetList/BudgetList';
@@ -16,7 +16,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, Title);
 export default function BudgetCard() {
   const [isEdit, setIsEdit] = useState(false);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const budgets = useSelector((state) => state.budget.all);
   const transactions = useSelector((state) => state.transaction.all);
@@ -24,10 +24,10 @@ export default function BudgetCard() {
   const today = new Date();
   const days_in_month = new Date(today.getFullYear(), today.getMonth()+1, 0).getDate() -  today.getDate();
 
-  useEffect(() => {
-    dispatch(getBudgets());
-    dispatch(getTransactions());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getBudgets());
+  //   dispatch(getTransactions());
+  // }, [dispatch]);
 
   if (!budgets.length || !transactions.length) return null;
 

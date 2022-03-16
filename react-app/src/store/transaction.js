@@ -2,6 +2,7 @@ const LOAD_TRANSACTIONS = 'transactions/LOAD_TRANSACTIONS';
 const ADD_TRANSACTION = 'transactions/ADD_TRANSACTION';
 const REMOVE_TRANSACTION = 'transactions/REMOVE_TRANSACTION';
 const UPDATE_TRANSACTION = 'transactions/UPDATE_TRANSACTION';
+const REMOVE_ACCOUNT = 'accounts/REMOVE_ACCOUNT';
 
 const load = (transactions) => {
   return { type: LOAD_TRANSACTIONS, transactions };
@@ -77,7 +78,11 @@ const transactionReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case LOAD_TRANSACTIONS: {
-      const newState = { byId: { }, all: [ ] };
+      const newState = {
+        ...state,
+        byId: { },
+        all: [ ]
+      };
       for (let i = 0; i < action.transactions.length; i++) {
         let transaction = action.transactions[i];
         newState.byId[transaction.id] = transaction;
@@ -86,29 +91,55 @@ const transactionReducer = (state = initialState, action) => {
       return newState;
     };
     case ADD_TRANSACTION: {
-      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
       const newTransaction = action.newTransaction;
-      if (!newState.byId[newTransaction.id]) {
-        newState.byId[newTransaction.id] = newTransaction;
-        newState.all.push(newTransaction);
+      const newState = {
+        ...state,
+        byId: { ...state.byId, [newTransaction.id] : newTransaction },
+        all: [ ...state.all, newTransaction ]
       };
+      // if (!newState.byId[newTransaction.id]) {
+      //   newState.byId[newTransaction.id] = newTransaction;
+      //   newState.all.push(newTransaction);
+      // };
       return newState;
     };
     case REMOVE_TRANSACTION: {
-      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
+      const removeId = action.oldTransaction.id;
+      const newState = {
+        ...state,
+        byId: { ...state.byId },
+        all: state.all.filter((transaction) => transaction.id !== removeId)
+      };
       delete newState.byId[action.oldTransaction.id];
-      const removeIndex = newState.all.findIndex((transaction) => transaction.id === action.oldTransaction.id);
-      newState.all.splice(removeIndex, 1);
+      // const removeIndex = newState.all.findIndex((transaction) => transaction.id === action.oldTransaction.id);
+      // newState.all.splice(removeIndex, 1);
       return newState;
     };
     case UPDATE_TRANSACTION: {
-      const newState = { ...state, byId: { ...state.byId }, all: [ ...state.all] };
       const editTransaction = action.transaction;
-      newState.byId[editTransaction.id] = editTransaction;
-      const updateIndex = newState.all.findIndex((transaction) => transaction.id === editTransaction.id);
-      newState.all[updateIndex] = editTransaction;
+      const editId = editTransaction.id;
+      const newState = {
+        ...state,
+        byId: { ...state.byId, [editId] : editTransaction },
+        all: state.all.map((transaction) => transaction.id === editId ? editTransaction : transaction)
+      };
+      // newState.byId[editTransaction.id] = editTransaction;
+      // const updateIndex = newState.all.findIndex((transaction) => transaction.id === editTransaction.id);
+      // newState.all[updateIndex] = editTransaction;
       return newState;
     };
+    case REMOVE_ACCOUNT: {
+      const removeId = action.oldAccount.id;
+      const newState = {
+        ...state,
+        byId: { ...state.byId },
+        all: state.all.filter((transaction) => transaction.accountId !== removeId)
+      };
+      Object.values(newState.byId).forEach((transaction) => (
+        transaction.accountId === removeId ? delete newState.byId[transaction.id] : null)
+      );
+      return newState;
+    }
     default:
       return state;
   };

@@ -1,15 +1,20 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import AccountList from '../AccountList/AccountList';
 import TransactionFilter from '../TransactionFilter/TransactionFilter';
 import TransactionAdd from '../TransactionAdd/TransactionAdd';
 import TransactionSearch from '../TransactionSearch/TransactionSearch';
+import { getBudgets } from '../../store/budget';
+import { getTransactions } from '../../store/transaction';
+import { getCategories } from '../../store/category';
 import { AnimatePresence } from 'framer-motion';
 import "./SidePanel.css";
 
 const SidePanel = () => {
+  const dispatch = useDispatch()
+
   const [isMax, setIsMax] = useState(false);
   const [isAdd, setIsAdd] = useState(false);
   const [isFilterCat, setIsFilterCat] = useState(false);
@@ -17,6 +22,12 @@ const SidePanel = () => {
   const [isFilterDate, setIsFilterDate] = useState(false);
   const [filterStyle, setFilterStyle] = useState("hide");
   const [isSearch, setIsSearch] = useState(false);
+
+  useEffect(() => {
+    dispatch(getBudgets());
+    dispatch(getTransactions());
+    dispatch(getCategories());
+  }, [dispatch]);
 
   const accounts = useSelector((state) => state.account.byId);
   const categories = useSelector((state) => state.category);
