@@ -22,10 +22,10 @@ const TransactionList = () => {
   const { categoryId, accountId, dateQuery, payeeQuery } = useParams();
 
   const num_transactions = transactions.length;
-  const num_accounts = Object.keys(accounts).length;
+  // const num_accounts = Object.keys(accounts).length;
 
   const searchPayee = async () => {
-    if (!searchPayee) return null;
+    if (!payeeQuery) return null;
     const searchParams = encodeURIComponent(payeeQuery)
 
     const response = await fetch(`/api/transactions/filter?payee=${searchParams}`);
@@ -49,13 +49,11 @@ const TransactionList = () => {
 
   // useEffect(() => {
   //   dispatch(getTransactions());
-  //   dispatch(getAccounts());
-  //   dispatch(getCategories());
-  // }, [dispatch, num_transactions, num_accounts]);
+  // }, [transactions.length]);
 
   useEffect(() => {
     if (payeeQuery) searchPayee();
-  }, [payeeQuery, num_transactions, num_accounts, editId, searchPayee]);
+  }, [payeeQuery, num_transactions, editId, searchPayee]);
 
   const addSort = () => {
     document.querySelectorAll("th").forEach(header => {
