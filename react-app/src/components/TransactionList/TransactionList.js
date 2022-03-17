@@ -26,7 +26,6 @@ const TransactionList = () => {
 
   const searchPayee = async () => {
     if (!searchPayee) return null;
-    // console.log("PAYEE SEARCHED")
     const searchParams = encodeURIComponent(payeeQuery)
 
     const response = await fetch(`/api/transactions/filter?payee=${searchParams}`);
@@ -40,13 +39,11 @@ const TransactionList = () => {
 
   useEffect(() => {
     addSort();
-    // console.log("SORT ADDED")
   }, []);
 
   useEffect(() => {
     return history.listen(() => {
        removeSortClass();
-      //  console.log("SORT REMOVED")
     })
  },[history]);
 
@@ -74,7 +71,6 @@ const TransactionList = () => {
 
   const removeSortClass = () => {
     document.querySelectorAll("th").forEach(header => {
-      // header.removeEventListener("click", addSort);
       const table = header.parentElement.parentElement.parentElement;
       table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
     });

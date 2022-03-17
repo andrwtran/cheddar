@@ -19,7 +19,7 @@ export default function AccountAdd({ setIsAdd, accounts }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (accounts.find((account) => account.account_name === name)) {
+    if (accounts.find((account) => account?.account_name === name)) {
       return alert("You cannot have two accounts with the same name.");
     };
 
@@ -72,8 +72,10 @@ export default function AccountAdd({ setIsAdd, accounts }) {
             name="name"
             autoFocus
           />
-          {name && <button className='submit-button-active' type="submit">Save</button>}
-          {!name && <button className='submit-button-disabled' type="submit" disabled="disabled">Save</button>}
+          {name ?
+            <button className='submit-button-active' type="submit">Save</button> :
+            <button className='submit-button-disabled' type="submit" disabled="disabled">Save</button>
+          }
           <button className='submit-button-active' type="reset" onClick={reset}>Close</button>
         </form>
       </motion.div>
