@@ -17,11 +17,11 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
   const dispatch = useDispatch();
 
   const reset = () => {
-    // setDate('');
-    // setPayee('');
-    // setAmount('');
-    // setCategoryId('');
-    // setAccountId('');
+    setDate('');
+    setPayee('');
+    setAmount('');
+    setCategoryId('');
+    setAccountId('');
     setIsAdd(false);
   };
 
@@ -151,7 +151,7 @@ export default function AccountAdd({ accounts, setIsAdd, categories }) {
               <button className='submit-button' type="submit">Save</button>
             </span>
             <span>
-              <button className='close-button' type="reset" onClick={() => setIsAdd(false)}>Close</button>
+              <button className='close-button' type="reset" onClick={reset}>Close</button>
             </span>
           </div>
         </form>

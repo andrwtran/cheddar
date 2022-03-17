@@ -9,6 +9,7 @@ import TransactionSearch from '../TransactionSearch/TransactionSearch';
 import { getBudgets } from '../../store/budget';
 import { getTransactions } from '../../store/transaction';
 import { getCategories } from '../../store/category';
+import { getAccounts } from '../../store/account';
 import { AnimatePresence } from 'framer-motion';
 import "./SidePanel.css";
 
@@ -24,12 +25,13 @@ const SidePanel = () => {
   const [isSearch, setIsSearch] = useState(false);
 
   useEffect(() => {
-    dispatch(getBudgets());
+    dispatch(getAccounts())
     dispatch(getTransactions());
+    dispatch(getBudgets());
     dispatch(getCategories());
   }, [dispatch]);
 
-  const accounts = useSelector((state) => state.account.byId);
+  const accounts = useSelector((state) => state.account.all);
   const categories = useSelector((state) => state.category);
   const transactions = useSelector((state) => state.transaction.all);
 
@@ -46,7 +48,7 @@ const SidePanel = () => {
   const toggleAdd = (e) => {
     e.preventDefault();
 
-    if (!Object.keys(accounts).length) {
+    if (!accounts.length) {
       return alert("You must create an account before creating any transactions.")
     };
 
