@@ -1,18 +1,19 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import  ReactDOM  from 'react-dom';
 import Backdrop from "../Backdrop/Backdrop";
 import { motion } from "framer-motion";
+import { useFilter } from '../../context/FilterContext';
+import { selectUniquePayees } from "../../store/transaction/selectors";
 import "react-datepicker/dist/react-datepicker.css";
 import "./TransactionFilter.css";
 
-export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterAcc, setIsFilterDate, setIsFilterCat, setIsFilterAcc }) {
+export default function TransactionFilter({ filterType, setIsFilter, accounts, categories }) {
   const history = useHistory();
 
-  const accounts = useSelector((state) => state.account.byId);
-  const categories = useSelector((state) => state.category);
+  const { setFilterQuery } = useFilter();
 
   const [categoryId, setCategoryId] = useState(2);
   const [accountId, setAccountId] = useState(1);
@@ -20,36 +21,51 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
 
+  const [payeeQuery, setPayeeQuery] = useState('');
+
   const reset = () => {
-    setIsFilterCat(false);
-    setIsFilterAcc(false);
-    setIsFilterDate(false);
-  }
+    setIsFilter(false);
+    setCategoryId(2);
+    setAccountId(1);
+    setStartDate(new Date());
+    setEndDate(null);
+    setPayeeQuery('');
+  };
 
   const filterCatClick = (e) => {
     e.preventDefault();
+    setFilterQuery(categoryId);
     reset();
-    // console.log("CATEGORY PUSH")
-    history.push(`/transactions/category/${categoryId}`)
+    history.push('/transactions/category');
   };
 
   const filterAccClick = (e) => {
     e.preventDefault();
+    setFilterQuery(accountId);
     reset();
-    // console.log("ACCOUNT PUSH")
-    history.push(`/transactions/account/${accountId}`)
+    history.push('/transactions/account');
   };
 
-  const filterDateClick = () => {
+  const filterDateClick = (e) => {
+    e.preventDefault();
     reset();
     if (endDate) {
       const firstDateString = `${startDate.getFullYear()}${("0" + (startDate.getMonth() + 1).toString()).slice(-2)}${startDate.getDate()}`;
       const secondDateString = `${endDate.getFullYear()}${("0" + (endDate.getMonth() + 1).toString()).slice(-2)}${endDate.getDate()}`;
-      history.push(`/transactions/date/${firstDateString + '&' + secondDateString}`);
+      setFilterQuery(`${firstDateString + '&' + secondDateString}`);
+      history.push('/transactions/date');
     } else {
       const firstDateString = `${startDate.getFullYear()}${("0" + (startDate.getMonth() + 1).toString()).slice(-2)}${startDate.getDate()}`;
-      history.push(`/transactions/date/${firstDateString}`);
+      setFilterQuery(`${firstDateString}`);
+      history.push('/transactions/date');
     };
+  };
+
+  const filterPayeeClick = (e) => {
+    e.preventDefault();
+    setFilterQuery(payeeQuery);
+    reset();
+    history.push('/transactions/payee');
   };
 
   const onChange = (dates) => {
@@ -79,19 +95,24 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
     }
   };
 
-  if (isFilterCat) {
-    return ReactDOM.createPortal(
-      <Backdrop onClick={reset}>
-        {/* <div className="TransactionFilterOverlay" onClick={reset}></div> */}
-        <motion.div
-          key="Category-Filter"
-          className='TransactionFilter'
-          variants={dropIn}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          onClick={(e) => e.stopPropagation()}
-        >
+  const accountList = useMemo(() => (
+    accounts.map((account) => (
+      <option value={account.id}>{account.account_name}</option>
+    ))
+  ), [accounts]);
+
+  const categoryList = useMemo(() => (
+    categories.slice(1).map((category) => (
+      <option value={category.id}>{category.category_name}</option>
+      ))
+  ), [categories]);
+
+  const payees = useSelector(selectUniquePayees);
+
+  const formSwitch = (filterType) => {
+    switch (filterType) {
+      case "category":
+        return (
           <form>
             <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
             <label>by Category</label>
@@ -101,34 +122,16 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
               name="categoryId"
               id="CategoryFilter"
             >
-              {Object.values(categories).slice(1).map((category) => (
-                <option value={category.id}>{category.category_name}</option>
-                )
-              )}
+              {categoryList}
             </select>
             <span className="TransactionFilterButtons">
               <button onClick={(e) => filterCatClick(e)}>Filter</button>
               <button type="reset" onClick={reset}>Close</button>
             </span>
           </form>
-        </motion.div>
-      </Backdrop>,
-    document.getElementById('root'))
-  };
-
-  if (isFilterAcc) {
-    return ReactDOM.createPortal(
-      <Backdrop onClick={reset}>
-        {/* <div className="TransactionFilterOverlay" onClick={reset}></div> */}
-        <motion.div
-        key="Account-Filter"
-        className='TransactionFilter'
-        variants={dropIn}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        onClick={(e) => e.stopPropagation()}
-        >
+        );
+      case "account":
+        return (
           <form>
             <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
             <label>by Account</label>
@@ -138,35 +141,16 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
                 name="accountId"
                 id="AccountFilter"
               >
-                {Object.values(accounts).map((account) => (
-                  <option value={account.id}>{account.account_name}</option>
-                  )
-                )}
+                {accountList}
             </select>
             <span className="TransactionFilterButtons">
               <button onClick={(e) => filterAccClick(e)}>Filter</button>
               <button type="reset" onClick={reset}>Close</button>
             </span>
           </form>
-        </motion.div>
-      </Backdrop>,
-    document.getElementById('root'))
-  };
-
-  if (isFilterDate) {
-    return ReactDOM.createPortal(
-      <Backdrop onClick={reset}>
-        {/* <div className="TransactionFilterOverlay" onClick={reset}></div> */}
-        <motion.div
-        className='TransactionFilter'
-        id='TransactionFilterDate'
-        key="Date-Filter"
-        variants={dropIn}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        onClick={(e) => e.stopPropagation()}
-        >
+        );
+      case "date":
+        return (
           <div>
             <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
             <span className="TransactionFilterText">by Date</span>
@@ -184,10 +168,50 @@ export default function TransactionFilter({ isFilterDate, isFilterCat, isFilterA
               <button onClick={reset}>Close</button>
             </span>
           </div>
-        </motion.div>
-      </Backdrop>,
-    document.getElementById('root'))
+        );
+      case "payee":
+        return (
+          <div>
+            <h3><i className="fa-solid fa-money-bill-wave" /> Transactions</h3>
+              <label>by Payee</label>
+              <input
+                onChange={(e) => setPayeeQuery(e.target.value)}
+                value={payeeQuery}
+                name="payeeQuery"
+                list="payee_names"
+                autoComplete='off'
+                autoFocus
+              />
+              <datalist id="payee_names">
+                {payees.map((payee) => (
+                  <option value={`${payee}`}></option>
+                ))}
+              </datalist>
+            <span className="TransactionFilterButtons">
+              <button onClick={filterPayeeClick}>Filter</button>
+              <button onClick={reset}>Close</button>
+            </span>
+          </div>
+        );
+      default:
+        return null
+    }
   };
 
-  return null
+  return ReactDOM.createPortal(
+    <Backdrop onClick={reset}>
+      <motion.div
+        key="Category-Filter"
+        className='TransactionFilter'
+        id={filterType === 'date' ? 'TransactionFilterDate' : ''}
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {formSwitch(filterType)}
+      </motion.div>
+    </Backdrop>,
+  document.getElementById('root'));
 };

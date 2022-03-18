@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createTransaction } from '../../store/transaction';
+import { createTransaction } from '../../store/transaction/transaction';
 import Backdrop from '../Backdrop/Backdrop';
 import  ReactDOM  from 'react-dom';
 import { motion } from 'framer-motion';

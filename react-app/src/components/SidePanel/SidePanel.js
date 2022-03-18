@@ -5,11 +5,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import AccountList from '../AccountList/AccountList';
 import TransactionFilter from '../TransactionFilter/TransactionFilter';
 import TransactionAdd from '../TransactionAdd/TransactionAdd';
-import TransactionSearch from '../TransactionSearch/TransactionSearch';
-import { getBudgets } from '../../store/budget';
-import { getTransactions } from '../../store/transaction';
-import { getCategories } from '../../store/category';
-import { getAccounts } from '../../store/account';
+import { getBudgets } from '../../store/budget/budget';
+import { getTransactions } from '../../store/transaction/transaction';
+import { getCategories } from '../../store/category/category';
+import { getAccounts } from '../../store/account/account';
 import { AnimatePresence } from 'framer-motion';
 import "./SidePanel.css";
 
@@ -18,11 +17,10 @@ const SidePanel = () => {
 
   const [isMax, setIsMax] = useState(false);
   const [isAdd, setIsAdd] = useState(false);
-  const [isFilterCat, setIsFilterCat] = useState(false);
-  const [isFilterAcc, setIsFilterAcc] = useState(false);
-  const [isFilterDate, setIsFilterDate] = useState(false);
   const [filterStyle, setFilterStyle] = useState("hide");
-  const [isSearch, setIsSearch] = useState(false);
+
+  const [filterType, setFilterType] = useState();
+  const [isFilter, setIsFilter] = useState(false);
 
   useEffect(() => {
     dispatch(getAccounts())
@@ -33,66 +31,51 @@ const SidePanel = () => {
 
   const accounts = useSelector((state) => state.account.all);
   const categories = useSelector((state) => state.category);
-  const transactions = useSelector((state) => state.transaction.all);
 
   const toggleMax = (e) => {
-    e.preventDefault();
-    setIsMax(true);
-  };
-
-  const toggleMin = (e) => {
-    e.preventDefault();
-    setIsMax(false);
+    e.stopPropagation();
+    setIsMax(!isMax);
   };
 
   const toggleAdd = (e) => {
-    e.preventDefault();
-
-    if (!accounts.length) {
-      return alert("You must create an account before creating any transactions.")
-    };
-
+    e.stopPropagation();
+    if (!accounts.length) return alert("You must create an account before creating any transactions.")
     setIsAdd(!isAdd);
   };
 
   const filterCatClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation()
-    setIsFilterCat(true);
+    e.stopPropagation();
+    setIsFilter(true);
+    setFilterType("category");
   };
 
   const filterAccClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation()
-    setIsFilterAcc(true);
+    e.stopPropagation();
+    setIsFilter(true);
+    setFilterType("account");
   };
 
   const filterDateClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation()
-    setIsFilterDate(true);
+    e.stopPropagation();
+    setIsFilter(true);
+    setFilterType("date");
   };
 
-  const searchClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation()
-    setIsSearch(true);
+  const filterPayeeClick = (e) => {
+    e.stopPropagation();
+    setIsFilter(true);
+    setFilterType("payee");
   }
 
   const filterShowClick = (e) => {
-    e.preventDefault();
-    if (filterStyle === "hide") {
-      setFilterStyle("")
-    } else {
-      setFilterStyle("hide")
-    };
+    e.stopPropagation();
+    filterStyle === "hide" ? setFilterStyle("") : setFilterStyle("hide")
   }
 
-  if (!isMax) {
-    return (
-    <div className='SidePanel' id='MinSidePanel'>
+  return (
+    <div className='SidePanel' id={isMax ? 'MaxSidePanel' : 'MinSidePanel'}>
       <span id={'SideMax'}>
-          <button onClick={toggleMax}><i class="fa-solid fa-window-maximize" /></button>
+          <button onClick={toggleMax}><i class={isMax ? "fa-solid fa-window-minimize" : "fa-solid fa-window-maximize"} /></button>
       </span>
       <AccountList isMax={isMax} />
       <div className='Transactions'>
@@ -113,79 +96,23 @@ const SidePanel = () => {
               <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
               <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
               <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
-              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
+              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterPayeeClick}>by Payee</span></li>
             </ul>
           </li>
-          <AnimatePresence
-          key="search-payee-modal"
-          initial={false}
-          exitBeforeEnter={true}
-          onExitComplete={() => null}
-          >
-            {isSearch && <TransactionSearch setIsSearch={setIsSearch} transactions={transactions}/>}
-          </AnimatePresence>
         </ul>
       </div>
       <AnimatePresence
-          key="filter-category-modal"
+          key="filter-modal"
           initial={false}
           exitBeforeEnter={true}
           onExitComplete={() => null}
       >
-        {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
-        {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
-        {isFilterDate && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
-      </AnimatePresence>
-    </div>
-    );
-  };
-
-  return (
-    <div className='SidePanel' id='MaxSidePanel'>
-      <span id={'SideMin'}>
-          <button onClick={toggleMin}><i class="fa-solid fa-window-minimize" /></button>
-      </span>
-      <AccountList isMax={isMax} />
-      <div className='Transactions'>
-        <h3>Transactions</h3>
-        <button className='NewTransactionButton' onClick={toggleAdd}>New Transaction</button>
-        <AnimatePresence
-          key="new-transaction-modal"
-          initial={false}
-          exitBeforeEnter={true}
-          onExitComplete={() => null}
-        >
-          {isAdd && <TransactionAdd accounts={accounts} setIsAdd={setIsAdd} categories={categories} />}
-        </AnimatePresence>
-        <ul>
-          <li><i className="fa-solid fa-money-bill-wave" /> <NavLink to="/transactions">All</NavLink></li>
-          <li style={{cursor: 'pointer'}} onClick={filterShowClick}><i className="fa-solid fa-money-bill-wave" /> Filter
-            <ul className={filterStyle}>
-              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterCatClick}>by Category</span></li>
-              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterAccClick}>by Account</span></li>
-              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={filterDateClick}>by Date</span></li>
-              <li><i className="fa-solid fa-filter" /> <span className='FilterButtons' onClick={searchClick}>by Payee</span></li>
-            </ul>
-          </li>
-          <AnimatePresence
-          key="search-payee-modal"
-          initial={false}
-          exitBeforeEnter={true}
-          onExitComplete={() => null}
-          >
-            {isSearch && <TransactionSearch setIsSearch={setIsSearch} transactions={transactions}/>}
-          </AnimatePresence>
-        </ul>
-      </div>
-      <AnimatePresence
-          key="filter-category-modal"
-          initial={false}
-          exitBeforeEnter={true}
-          onExitComplete={() => null}
-      >
-        {isFilterCat && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
-        {isFilterAcc && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
-        {isFilterDate && <TransactionFilter setIsFilterCat={setIsFilterCat} setIsFilterAcc={setIsFilterAcc} setIsFilterDate={setIsFilterDate} isFilterCat={isFilterCat} isFilterAcc={isFilterAcc} isFilterDate={isFilterDate}/>}
+        {isFilter && <TransactionFilter
+          filterType={filterType}
+          setIsFilter={setIsFilter}
+          categories={categories}
+          accounts={accounts}
+        />}
       </AnimatePresence>
     </div>
   );

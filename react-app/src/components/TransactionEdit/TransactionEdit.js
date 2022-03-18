@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateTransaction } from '../../store/transaction';
+import { updateTransaction } from '../../store/transaction/transaction';
 import TransactionDelete from '../TransactionDelete/TransactionDelete';
 import './TransactionEdit.css';
 

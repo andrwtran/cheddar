@@ -2,25 +2,22 @@ import React from "react";
 import { useSelector } from 'react-redux';
 import SidePanel from '../SidePanel/SidePanel';
 import MainPanel from '../MainPanel/MainPanel';
+import FilterProvider from "../../context/FilterContext";
 import './Splash.css'
 
 const Splash = () => {
   const sessionUser = useSelector(state => state.session.user);
 
-  if (sessionUser) {
-    return (
-      <div className='HomeContainer'>
+  return sessionUser
+    ?
+    <div className='HomeContainer'>
+      <FilterProvider>
         <SidePanel />
         <MainPanel />
-      </div>
-    );
-  } else {
-    return (
-      <div className="Splash">
-      </div>
-    );
-  }
-
+      </FilterProvider>
+    </div>
+    :
+    <div className="Splash"></div>
 };
 
 export default Splash;

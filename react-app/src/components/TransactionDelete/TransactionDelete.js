@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
-import { deleteTransaction } from "../../store/transaction";
+import { deleteTransaction } from "../../store/transaction/transaction";
 import './TransactionDelete.css';
 
 export default function TransactionDelete({ oldTransaction }) {

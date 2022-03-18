@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteAccount } from '../../store/account';
+import { deleteAccount } from '../../store/account/account';
 import './AccountDelete.css';
 
 export default function AccountDelete({ oldAccount }) {
