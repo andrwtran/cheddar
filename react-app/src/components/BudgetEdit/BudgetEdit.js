@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateBudget } from '../../store/budget';
+import { updateBudget } from '../../store/budget/budget';
 import './BudgetEdit.css';
 
 

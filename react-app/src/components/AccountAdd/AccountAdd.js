@@ -2,7 +2,7 @@ import React from 'react';
 import  ReactDOM  from 'react-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createAccount } from '../../store/account';
+import { createAccount } from '../../store/account/account';
 import Backdrop from '../Backdrop/Backdrop';
 import { motion } from 'framer-motion';
 import './AccountAdd.css';

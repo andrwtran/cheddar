@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateAccount } from '../../store/account';
+import { updateAccount } from '../../store/account/account';
 import './AccountEdit.css';
 
 export default function AccountEdit({ setEditId, editId, account, accounts }) {

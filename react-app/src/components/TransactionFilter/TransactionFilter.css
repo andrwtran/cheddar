@@ -1,6 +1,6 @@
 .TransactionFilter {
   margin: 0vh;
-  padding: 2vh;
+  padding: 4vh;
   /* min-height: 30vh;
   min-width: 58vw; */
   z-index: 1000;
@@ -8,15 +8,17 @@
   top: 35%;
   left: 25%;
   transform: translate(-50%, -50%); */
+  background-color: rgba(244, 107, 23, 0.8);
   border-radius: 0.3em;
+  color: white !important;
 }
 
 #TransactionFilterDate {
-  background-color: rgba(244, 107, 23, 0.8);
+  /* background-color: rgba(244, 107, 23, 0.8); */
   top: 18%;
   left: 35%;
   padding: 4vh;
-  color: white !important;
+  /* color: white !important; */
 }
 
 #TransactionFilterDate .TransactionFilterText span{
@@ -24,25 +26,21 @@
 }
 
 .TransactionFilter form {
-  background-color: rgba(244, 107, 23, 0.8);
+  /* background-color: rgba(244, 107, 23, 0.8); */
   font-weight: 600;
   font-size: 18px;
-  color: white !important;
-  padding: 1em;
+  /* color: white !important; */
+  /* padding: 1em; */
   border-radius: 0.3em;
 }
 
-/* .TransactionFilterOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, .7);
-  z-index: 1000;
-} */
-
 .TransactionFilter select {
+  margin: 1em;
+  width: 30vw;
+  border-radius: 0.3em;
+}
+
+.TransactionFilter input {
   margin: 1em;
   width: 30vw;
   border-radius: 0.3em;
