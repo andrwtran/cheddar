@@ -1,26 +1,26 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateTransaction } from '../../store/transaction/transaction';
 import TransactionDelete from '../TransactionDelete/TransactionDelete';
 import './TransactionEdit.css';
 
 export default function TransactionEdit({ transaction, editId, setEditId, accounts, categories }) {
-  const [date, setDate] = useState(transaction.trans_date);
-  const [payee, setPayee] = useState(transaction.trans_payee);
-  const [amount, setAmount] = useState(transaction.trans_amount);
-  const [categoryId, setCategoryId] = useState(transaction.categoryId);
-  const [accountId, setAccountId] = useState(transaction.accountId);
+  const [date, setDate] = useState(transaction?.trans_date);
+  const [payee, setPayee] = useState(transaction?.trans_payee);
+  const [amount, setAmount] = useState(transaction?.trans_amount);
+  const [categoryId, setCategoryId] = useState(transaction?.categoryId);
+  const [accountId, setAccountId] = useState(transaction?.accountId);
 
   const dispatch = useDispatch();
 
   const reset = () => {
     setEditId();
-    setDate(transaction.trans_date);
-    setPayee(transaction.trans_payee);
-    setAmount(transaction.trans_amount);
-    setCategoryId(transaction.categoryId);
-    setAccountId(transaction.accountId);
+    setDate(transaction?.trans_date);
+    setPayee(transaction?.trans_payee);
+    setAmount(transaction?.trans_amount);
+    setCategoryId(transaction?.categoryId);
+    setAccountId(transaction?.accountId);
   };
 
   const handleSubmit = (e) => {
@@ -45,7 +45,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
     }
 
     const editTransaction = {
-      id: transaction.id,
+      id: transaction?.id,
       trans_date: date,
       trans_payee: payee,
       trans_amount: amount,
@@ -59,29 +59,25 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
 
   const toggleEdit = (e) => {
     e.preventDefault();
-      setEditId(transaction.id);
-      // setIsAdd(false);
+      setEditId(transaction?.id);
   };
+
+const categoryList = useMemo(() => (
+  categories.slice(1).map((category) => (
+    <option value={category?.id}>{category?.category_name}</option>
+    ))
+), [categories]);
+
+const accountList = useMemo(() => (
+  Object.values(accounts).map((account) => (
+    <option value={account?.id}>{account?.account_name}</option>
+    ))
+), [accounts]);
 
   return (
     <>
-      {editId !== transaction.id &&
-        <>
-          <td>
-            <div className='editButtons'>
-              <span>
-                <button onClick={toggleEdit}><i class="fa-solid fa-pen-to-square" /></button>
-              </span>
-              <span>
-                <TransactionDelete oldTransaction={transaction} />
-              </span>
-            </div>
-          </td>
-        </>
-
-      }
-
-      {editId === transaction.id &&
+      {editId === transaction.id
+        ?
         <>
           <form id='Edit' type="hidden" className='TransactionEditForm' onSubmit={handleSubmit}></form>
           <td>
@@ -119,10 +115,7 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               name="categoryId"
               id="CategorySelect"
             >
-              {Object.values(categories).slice(1).map((category) => (
-                <option value={category.id}>{category.category_name}</option>
-                )
-              )}
+              {categoryList}
             </select>
           </td>
           <td>
@@ -133,23 +126,23 @@ export default function TransactionEdit({ transaction, editId, setEditId, accoun
               name="accountId"
               id="AccountSelect"
             >
-              {Object.values(accounts).map((account) => (
-                <option value={account.id}>{account.account_name}</option>
-                )
-              )}
+              {accountList}
             </select>
           </td>
           <td>
             <div className='saveButtons'>
-              <span>
-                <button className='submit-button' type="submit" form='Edit'><i class="fa-solid fa-floppy-disk" /></button>
-              </span>
-              <span>
-                <button className='cancel-button' type="reset" onClick={reset}><i class="fa-solid fa-square-xmark" /></button>
-              </span>
+              <span><button className='submit-button' type="submit" form='Edit'><i class="fa-solid fa-floppy-disk" /></button></span>
+              <span><button className='cancel-button' type="reset" onClick={reset}><i class="fa-solid fa-square-xmark" /></button></span>
             </div>
           </td>
         </>
+        :
+        <td>
+          <div className='editButtons'>
+            <span><button onClick={toggleEdit}><i class="fa-solid fa-pen-to-square" /></button></span>
+            <span><TransactionDelete oldTransaction={transaction} /></span>
+          </div>
+        </td>
       }
   </>
   );

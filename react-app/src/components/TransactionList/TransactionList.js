@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { currencyFormatter, dateConverter, tableSorter } from "../../utils";
@@ -51,6 +51,29 @@ const TransactionList = ({ transactions, title }) => {
     });
   };
 
+  const memoTransactions = useMemo(() => {
+    return transactions.map((transaction) => (
+      <tr key={transaction?.id}>
+        {editId !== transaction?.id &&
+          <>
+            <td>{dateConverter(transaction?.trans_date)}</td>
+            <td>{transaction?.trans_payee}</td>
+            <td>{currencyFormatter.format(transaction?.trans_amount)}</td>
+            <td>{categories[transaction?.categoryId - 1]?.category_name}</td>
+            <td>{accounts[transaction?.accountId]?.account_name}</td>
+          </>
+        }
+        <TransactionEdit
+        transaction={transaction}
+        editId={editId}
+        setEditId={setEditId}
+        accounts={accounts}
+        categories={categories}
+        />
+      </tr>
+      ))
+  }, [transactions, editId]);
+
   return (
     <div className="TransactionList">
       <h3>{title}</h3>
@@ -74,94 +97,11 @@ const TransactionList = ({ transactions, title }) => {
           </tr>
         </thead>
         <tbody>
-          {transactions.map((transaction) => (
-            <tr key={transaction.id}>
-              {editId !== transaction.id &&
-                <>
-                  <td>{dateConverter(transaction.trans_date)}</td>
-                  <td>{transaction.trans_payee}</td>
-                  <td>{currencyFormatter.format(transaction.trans_amount)}</td>
-                  <td>{categories[transaction.categoryId - 1]?.category_name}</td>
-                  <td>{accounts[transaction.accountId]?.account_name}</td>
-                </>
-              }
-              <TransactionEdit
-              transaction={transaction}
-              editId={editId}
-              setEditId={setEditId}
-              accounts={accounts}
-              categories={categories}
-              />
-            </tr>
-            )
-          )}
+          {memoTransactions}
         </tbody>
       </table>
     </div>
   );
-
-  // if (filterQuery.startsWith("payee")) {
-
-  //   if (!payeeTransactions) {
-  //     return (
-  //       <div className="TransactionList">
-  //         <h3>Payee Transactions</h3>
-  //         <p> No Matching Transactions </p>
-  //       </div>
-  //     );
-  //   };
-
-  //   if (!payeeTransactions.length) {
-  //     return <div></div>
-  //   }
-
-  //   return (
-  //     <div className="TransactionList">
-  //       <h3>Payee Transactions</h3>
-  //       <table>
-  //         <col className='TableDate'></col>
-  //         <col className='TablePayee'></col>
-  //         <col className='TableAmount'></col>
-  //         <col className='TableCategory'></col>
-  //         <col className='TableAccount'></col>
-  //         <col className='TableButtons'></col>
-  //         <thead>
-  //           <tr>
-  //             <th>Date</th>
-  //             <th>Payee</th>
-  //             <th>Amount</th>
-  //             <th>Category</th>
-  //             <th>Account</th>
-  //             <th className="TableButtons"></th>
-  //           </tr>
-  //         </thead>
-  //         <tbody>
-  //           {payeeTransactions.map((transaction) => (
-  //             <tr key={transaction.id}>
-  //               {editId !== transaction.id &&
-  //                 <>
-  //                   <td>{dateConverter(transaction.trans_date)}</td>
-  //                   <td>{transaction.trans_payee}</td>
-  //                   <td>{currencyFormatter.format(transaction.trans_amount)}</td>
-  //                   <td>{categories[transaction.categoryId - 1]?.category_name}</td>
-  //                   <td>{accounts[transaction.accountId]?.account_name}</td>
-  //                 </>
-  //               }
-  //               <TransactionEdit
-  //               transaction={transaction}
-  //               editId={editId}
-  //               setEditId={setEditId}
-  //               accounts={accounts}
-  //               categories={categories}
-  //               />
-  //             </tr>
-  //             )
-  //           )}
-  //         </tbody>
-  //       </table>
-  //     </div>
-  //   );
-  // };
 
 };
 
