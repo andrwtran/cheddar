@@ -72,7 +72,7 @@ const TransactionList = ({ transactions, title }) => {
         />
       </tr>
       ))
-  }, [transactions, editId]);
+  }, [transactions, editId, accounts, categories]);
 
   return (
     <div className="TransactionList">
