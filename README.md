@@ -1,6 +1,6 @@
 # Welcome to Cheddar
 
-Welcome to Cheddar, a simple budgeting app inspired by the likes of Mint and Simplifi.
+Welcome to Cheddar, a simple budgeting app inspired by the likes of Mint and Simplifi. An easy way to record your transactions and track your spending with monthly and category budgets. 
 
 ## Live-link :
    [Cheddar](https://cheddar-sp.herokuapp.com/)
