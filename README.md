@@ -17,6 +17,10 @@ Welcome to Cheddar, a simple budgeting app inspired by the likes of Mint and Sim
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 ![SQLAlchemy](https://img.shields.io/badge/SA-SQLAlchemy-red)
 
+## Home Page
+
+![Screenshot (677)](https://s3.amazonaws.com/poly-screenshots.angel.co/Project/4c/1319327/5706745185958e352dd3c9c1cd095b4a-original.png)
+
 ## Features
 
 #### 1. Accounts
