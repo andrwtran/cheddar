@@ -18,6 +18,7 @@ def seed_transactions():
   starbucks_five = Transaction(trans_date=date(2022, 3, 14), trans_payee='Starbucks', trans_amount=12.08, categoryId=6, accountId=4)
   tonga = Transaction(trans_date=date(2022, 3, 12), trans_payee='Tonga Room', trans_amount=23.51, categoryId=6, accountId=2)
   philz_seven = Transaction(trans_date=date(2022, 4, 2), trans_payee='Philz Coffee', trans_amount=11.17, categoryId=6, accountId=3)
+  starbucks_six = Transaction(trans_date=date(2022, 4, 7), trans_payee='Starbucks', trans_amount=12.47, categoryId=6, accountId=2)
 
   chipotle_one = Transaction(trans_date=date(2022, 1, 13), trans_payee='Chipotle', trans_amount=8.59, categoryId=6, accountId=2)
   chipotle_two = Transaction(trans_date=date(2022, 1, 18), trans_payee='Chipotle', trans_amount=10.46, categoryId=6, accountId=4)
@@ -33,6 +34,7 @@ def seed_transactions():
   shake_shack_two = Transaction(trans_date=date(2022, 3, 8), trans_payee='Shake Shack', trans_amount=12.01, categoryId=6, accountId=3)
   portillos_two = Transaction(trans_date=date(2022, 3, 13), trans_payee='Portillos', trans_amount=15.26, categoryId=6, accountId=2)
   chipotle_seven = Transaction(trans_date=date(2022, 4, 5), trans_payee='Chipotle', trans_amount=12.64, categoryId=6, accountId=2)
+  portillos_three = Transaction(trans_date=date(2022, 4, 9), trans_payee='Portillos', trans_amount=15.53, categoryId=6, accountId=4)
 
   trader_joes = Transaction(trans_date=date(2022, 1, 13), trans_payee='Trader Joes', trans_amount=20.56, categoryId=13, accountId=2)
   whole_foods = Transaction(trans_date=date(2022, 1, 1), trans_payee='Whole Foods', trans_amount=23.40, categoryId=13, accountId=3)
@@ -42,6 +44,7 @@ def seed_transactions():
   costco_two = Transaction(trans_date=date(2022, 3, 2), trans_payee='Costco', trans_amount=68.89, categoryId=13, accountId=2)
   whole_foods_three = Transaction(trans_date=date(2022, 3, 5), trans_payee='Whole Foods', trans_amount=40.37, categoryId=13, accountId=4)
   costco_three = Transaction(trans_date=date(2022, 4, 6), trans_payee='Costco', trans_amount=97.14, categoryId=13, accountId=4)
+  trader_joes_three = Transaction(trans_date=date(2022, 4, 8), trans_payee='Trader Joes', trans_amount=37.03, categoryId=13, accountId=4)
 
   chewy_one = Transaction(trans_date=date(2022, 1, 6), trans_payee='Chewy.com', trans_amount=30.98, categoryId=18, accountId=2)
   chewy_two = Transaction(trans_date=date(2022, 1, 12), trans_payee='Chewy.com', trans_amount=10.23, categoryId=18, accountId=2)
@@ -107,6 +110,7 @@ def seed_transactions():
   db.session.add(starbucks_five)
   db.session.add(tonga)
   db.session.add(philz_seven)
+  db.session.add(starbucks_six)
 
   db.session.add(chipotle_one)
   db.session.add(chipotle_two)
@@ -122,6 +126,7 @@ def seed_transactions():
   db.session.add(shake_shack_two)
   db.session.add(portillos_two)
   db.session.add(chipotle_seven)
+  db.session.add(portillos_three)
 
   db.session.add(trader_joes)
   db.session.add(whole_foods)
@@ -131,6 +136,7 @@ def seed_transactions():
   db.session.add(costco_two)
   db.session.add(whole_foods_three)
   db.session.add(costco_three)
+  db.session.add(trader_joes_three)
 
   db.session.add(chewy_one)
   db.session.add(chewy_two)
