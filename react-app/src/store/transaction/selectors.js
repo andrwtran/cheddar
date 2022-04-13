@@ -37,10 +37,14 @@ export const selectTransactionsByDate = createSelector(
 );
 
 export const selectTransactionsByPayee = createSelector(
-  [transactions, (state, payeeQuery) => payeeQuery], () => null);
+  [transactions, (state, payeeQuery) => payeeQuery], (transactions, payeeQuery) => {
+    return transactions.filter(transaction => transaction.trans_payee.toLowercase() === payeeQuery.toLowerCase());
+  });
 
 export const selectTransactionsByAmount = createSelector(
-  [transactions, (state, amountQuery) => amountQuery], () => null);
+  [transactions, (state, amountQuery) => amountQuery], (transactions, amountQuery) => {
+    return transactions.filter(transaction => transaction.trans_amount === +amountQuery);
+  });
 
 export const selectUniquePayees = createSelector(
   [transactions], (transactions) => {
