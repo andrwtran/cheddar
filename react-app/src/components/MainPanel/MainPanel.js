@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import AccountFilter from '../Filters/AccountFilter';
 import CategoryFilter from '../Filters/CategoryFilter';
 import DateFilter from '../Filters/DateFilter';
+import PayeeFilter from '../Filters/PayeeFilter';
 import TransactionList from '../TransactionList/TransactionList';
 import BudgetCard from '../BudgetCard/BudgetCard';
 import TransactionCard from '../TransactionCard/TransactionCard';
@@ -32,7 +33,8 @@ const MainPanel = () => {
           <DateFilter filterQuery={filterQuery}/>
         </Route>
         <Route path ='/transactions/payee/'>
-          <TransactionList />
+          {/* <TransactionList /> */}
+          <PayeeFilter filterQuery={filterQuery}/>
         </Route>
         <Route path='/'>
           <BudgetCard />
